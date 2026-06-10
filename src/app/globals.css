@@ -2,7 +2,7 @@
 @import "tw-animate-css";
 
 /*
-  The Atlas — Field Notebook design system (PROJECT_PLAN.md §3.2).
+  Praxia — Field Notebook design system (PROJECT_PLAN.md §3.2).
 
   Raw palette values live on :root (light, "paper") and .dark (warm-dark
   inversion). Semantic + shadcn tokens are mapped from those, then exposed to

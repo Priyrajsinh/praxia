@@ -31,8 +31,8 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "The Atlas — the route from first principles to the frontier",
-    template: "%s · The Atlas",
+    default: "Praxia — the route from first principles to the frontier",
+    template: "%s · Praxia",
   },
   description:
     "An opinionated, end-to-end map of the journey through Data and AI — foundations, data analysis, data science, ML engineering, AI engineering, and the research track. Curated resources, sequenced the way you would actually learn them.",

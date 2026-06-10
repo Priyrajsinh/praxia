@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-paper px-6 text-ink">
       <div className="max-w-xl text-center">
-        <p className="font-hand text-2xl text-faded-ink">the atlas</p>
+        <p className="font-hand text-2xl text-faded-ink">praxia</p>
         <h1 className="mt-3 text-balance font-display text-4xl font-semibold tracking-tight">
           The route from first principles to the frontier.
         </h1>

@@ -1,5 +1,5 @@
 /**
- * Single source of truth for every external resource in The Atlas.
+ * Single source of truth for every external resource in Praxia.
  *
  * Intentionally empty for now — the typed Zod schema and the authored entries
  * land in Phase 3 (`/day4`). Stage pages and the /resources master page will
