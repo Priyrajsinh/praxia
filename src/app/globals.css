@@ -1,0 +1,156 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/*
+  The Atlas — Field Notebook design system (PROJECT_PLAN.md §3.2).
+
+  Raw palette values live on :root (light, "paper") and .dark (warm-dark
+  inversion). Semantic + shadcn tokens are mapped from those, then exposed to
+  Tailwind utilities via @theme inline. shadcn primitives are therefore
+  re-skinned to Field Notebook colours from the very first component — nothing
+  ships with stock shadcn neutrals or radii.
+*/
+
+/* dark: applies to anything inside a .dark ancestor (class strategy, not OS) */
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Field Notebook palette — light */
+  --paper: #f4efe4;
+  --ink: #1f1b16;
+  --faded-ink: #6b5f4f;
+  --route-red: #b4452f;
+  --teal: #2f6f6a;
+  --brass: #b8893b;
+  --margin: #e7dfcf;
+
+  /* Semantic surfaces */
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --muted-foreground: var(--faded-ink);
+  --border: var(--margin);
+  --input: var(--margin);
+  --ring: var(--brass);
+
+  /* shadcn semantic tokens, re-skinned to Field Notebook */
+  --card: var(--paper);
+  --card-foreground: var(--ink);
+  --popover: var(--paper);
+  --popover-foreground: var(--ink);
+  --primary: var(--route-red);
+  --primary-foreground: #f4efe4;
+  --secondary: var(--margin);
+  --secondary-foreground: var(--ink);
+  --muted: var(--margin);
+  --accent: var(--teal);
+  --accent-foreground: #f4efe4;
+  --destructive: var(--route-red);
+  --destructive-foreground: #f4efe4;
+
+  /* Notebook radii — squarer than stock shadcn */
+  --radius: 0.25rem;
+}
+
+.dark {
+  /* Warm-dark inversion (§3.2): paper darkens, ink lightens.
+     route-red + teal are lifted for contrast against dark paper (Part B8). */
+  --paper: #211c16;
+  --ink: #f0e9da;
+  --faded-ink: #b8ab95;
+  --route-red: #d36044;
+  --teal: #5aa39c;
+  --brass: #cda257;
+  --margin: #342c22;
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --muted-foreground: var(--faded-ink);
+  --border: var(--margin);
+  --input: var(--margin);
+  --ring: var(--brass);
+
+  --card: var(--paper);
+  --card-foreground: var(--ink);
+  --popover: var(--paper);
+  --popover-foreground: var(--ink);
+  --primary: var(--route-red);
+  --primary-foreground: #1a140f;
+  --secondary: var(--margin);
+  --secondary-foreground: var(--ink);
+  --muted: var(--margin);
+  --accent: var(--teal);
+  --accent-foreground: #12100b;
+  --destructive: var(--route-red);
+  --destructive-foreground: #12100b;
+}
+
+@theme inline {
+  /* Field Notebook palette → utilities (bg-paper, text-ink, border-margin, …) */
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-faded-ink: var(--faded-ink);
+  --color-route-red: var(--route-red);
+  --color-teal: var(--teal);
+  --color-brass: var(--brass);
+  --color-margin: var(--margin);
+
+  /* Semantic / shadcn tokens → utilities */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Font families (wired from next/font CSS variables in layout.tsx) */
+  --font-display: var(--font-fraunces);
+  --font-body: var(--font-newsreader);
+  --font-hand: var(--font-caveat);
+  --font-mono: var(--font-jetbrains-mono);
+
+  /* Radii */
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-newsreader), Georgia, "Times New Roman", serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-fraunces), Georgia, serif;
+  }
+
+  code,
+  pre,
+  kbd,
+  samp {
+    font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  }
+}
