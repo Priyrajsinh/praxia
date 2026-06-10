@@ -40,5 +40,14 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# claude code — per-user local settings (commit settings.json, not the local override)
-.claude/settings.local.json
+# claude code — the whole agent workspace is internal tooling, keep it out of the public repo
+.claude/
+
+# internal build/process docs — the contract, the specs, and the working logs
+# (kept locally, never published; the repo ships the product, not the scaffolding)
+CLAUDE.md
+CONTEXT_FOR_CLAUDE_CODE.md
+PROJECT_PLAN.md
+PROGRESS.md
+LEARNING.md
+learning_log.md
