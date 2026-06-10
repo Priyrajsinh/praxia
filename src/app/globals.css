@@ -153,4 +153,140 @@
   samp {
     font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
   }
+
+  /* Offset anchor jumps for the sticky header; respect reduced motion. */
+  html {
+    scroll-padding-top: 5rem;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* Token-coloured focus ring on every interactive element (§3.8). */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--brass) 28%, transparent);
+  }
+}
+
+@layer components {
+  /* Skip link — hidden until focused, then a brass tab top-left (§3.8). */
+  .skip-link {
+    position: fixed;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 60;
+    transform: translateY(-150%);
+    padding: 0.5rem 0.875rem;
+    border-radius: var(--radius-md);
+    background-color: var(--brass);
+    color: #1a140f;
+    font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+    font-size: 0.8125rem;
+    transition: transform 150ms ease;
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .skip-link {
+      transition: none;
+    }
+  }
+
+  /*
+    Reading-column rhythm (§3.3): editorial serif body, generous line-height,
+    capped measure. Hand-rolled rather than @tailwindcss/typography — the plugin's
+    defaults are themselves a generic-AI tell. Low specificity (:where) so page
+    components and MDX overrides win.
+  */
+  .reading-column :where(p, ul, ol, blockquote) {
+    line-height: 1.7;
+  }
+
+  .reading-column :where(p, ul, ol) {
+    margin-block: 1.1em;
+    max-width: 68ch;
+  }
+
+  .reading-column :where(h2) {
+    margin-top: 2.25rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .reading-column :where(h3) {
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .reading-column :where(ul, ol) {
+    padding-left: 1.4em;
+  }
+
+  .reading-column :where(ul) {
+    list-style: disc;
+  }
+
+  .reading-column :where(ol) {
+    list-style: decimal;
+  }
+
+  .reading-column :where(li) {
+    margin-block: 0.4em;
+  }
+
+  /*
+    Body links stay full-contrast ink (≈13:1 on paper) and are marked by a brass
+    underline, not coloured text. Route-red is reserved for the cartographic route
+    line + CTAs (§3.8: route-red on paper only for large/graphical elements) so it
+    keeps its singularity when the real spine lands in /day2.
+  */
+  .reading-column :where(a) {
+    color: var(--ink);
+    text-underline-offset: 0.2em;
+    text-decoration-line: underline;
+    text-decoration-color: var(--brass);
+    text-decoration-thickness: 1.5px;
+  }
+
+  .reading-column :where(a):hover {
+    text-decoration-color: var(--route-red);
+    text-decoration-thickness: 2px;
+  }
+
+  .reading-column :where(blockquote) {
+    border-left: 2px solid var(--brass);
+    padding-left: 1rem;
+    font-style: italic;
+    color: var(--faded-ink);
+  }
+
+  .reading-column :where(code):not(pre code) {
+    background-color: var(--margin);
+    padding: 0.1em 0.35em;
+    border-radius: var(--radius-sm);
+    font-size: 0.9em;
+  }
+
+  /* KaTeX display blocks: let long formulae scroll instead of overflowing. */
+  .reading-column :where(.katex-display) {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-block: 0.5rem;
+  }
 }

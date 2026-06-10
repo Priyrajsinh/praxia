@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import { Fraunces, Newsreader, Caveat, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+// KaTeX stylesheet for math rendered via remark-math + rehype-katex (§4).
+import "katex/dist/katex.min.css";
+import { ThemeProvider } from "@/components/layout/theme-provider";
+import { SiteHeader } from "@/components/layout/site-header";
+import { SiteFooter } from "@/components/layout/site-footer";
+import { ReadingShell } from "@/components/layout/reading-shell";
 
 // Field Notebook type system (PROJECT_PLAN §3.3) — self-hosted via next/font.
 // Display + body serifs, a handwritten face for marginalia, mono for code.
@@ -49,7 +55,21 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${fraunces.variable} ${newsreader.variable} ${caveat.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="font-body antialiased">{children}</body>
+      <body className="font-body antialiased">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <a href="#content" className="skip-link">
+            Skip to content
+          </a>
+          <SiteHeader />
+          <ReadingShell>{children}</ReadingShell>
+          <SiteFooter />
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
