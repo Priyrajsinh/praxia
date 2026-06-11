@@ -23,6 +23,11 @@
   --teal: #2f6f6a;
   --brass: #b8893b;
   --margin: #e7dfcf;
+  /* Deep ink for text/glyphs sitting ON light-toned accent & brass surfaces.
+     Unlike --ink it does NOT invert with the theme: brass stays gold in both
+     modes, and the accent surfaces only turn light in dark mode (where their
+     foreground flips to this). Declared once in :root, inherited by .dark. */
+  --accent-ink: #1a140f;
 
   /* Semantic surfaces */
   --background: var(--paper);
@@ -38,14 +43,14 @@
   --popover: var(--paper);
   --popover-foreground: var(--ink);
   --primary: var(--route-red);
-  --primary-foreground: #f4efe4;
+  --primary-foreground: var(--paper);
   --secondary: var(--margin);
   --secondary-foreground: var(--ink);
   --muted: var(--margin);
   --accent: var(--teal);
-  --accent-foreground: #f4efe4;
+  --accent-foreground: var(--paper);
   --destructive: var(--route-red);
-  --destructive-foreground: #f4efe4;
+  --destructive-foreground: var(--paper);
 
   /* Notebook radii — squarer than stock shadcn */
   --radius: 0.25rem;
@@ -74,14 +79,14 @@
   --popover: var(--paper);
   --popover-foreground: var(--ink);
   --primary: var(--route-red);
-  --primary-foreground: #1a140f;
+  --primary-foreground: var(--accent-ink);
   --secondary: var(--margin);
   --secondary-foreground: var(--ink);
   --muted: var(--margin);
   --accent: var(--teal);
-  --accent-foreground: #12100b;
+  --accent-foreground: var(--accent-ink);
   --destructive: var(--route-red);
-  --destructive-foreground: #12100b;
+  --destructive-foreground: var(--accent-ink);
 }
 
 @theme inline {
@@ -189,7 +194,7 @@
     padding: 0.5rem 0.875rem;
     border-radius: var(--radius-md);
     background-color: var(--brass);
-    color: #1a140f;
+    color: var(--accent-ink);
     font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
     font-size: 0.8125rem;
     transition: transform 150ms ease;
