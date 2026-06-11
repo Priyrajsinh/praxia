@@ -214,11 +214,13 @@ export default function DataAnalystPage() {
           Depth tags:{" "}
           <span className="font-mono text-xs uppercase">Competent</span> = can
           do independently,{" "}
-          <span className="font-mono text-xs uppercase text-route-red">
+          <span className="inline-flex items-center rounded border border-route-red/20 bg-route-red/10 px-1.5 py-0.5 font-mono text-xs uppercase text-ink">
             Production
           </span>{" "}
           = reliable under pressure,{" "}
-          <span className="font-mono text-xs uppercase text-teal">Expert</span>{" "}
+          <span className="inline-flex items-center rounded border border-teal/20 bg-teal/10 px-1.5 py-0.5 font-mono text-xs uppercase text-ink">
+            Expert
+          </span>{" "}
           = can teach it and debug edge cases.
         </p>
         <TopicChecklist topics={topics} />
@@ -306,7 +308,7 @@ export default function DataAnalystPage() {
 
         <p className="text-sm text-faded-ink">
           →{" "}
-          <Link href="/mathematics#probability">
+          <Link href="/mathematics">
             Probability &amp; Statistics in the mathematics curriculum
           </Link>{" "}
           covers this material in full, with worked derivations.

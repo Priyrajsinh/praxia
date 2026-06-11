@@ -248,7 +248,7 @@ const _raw: unknown[] = [
     useIf:
       "You want to build things, not just understand theory — this is the book you work through from cover to cover.",
     stages: ["data-scientist", "ml-engineer"],
-    rankInTopic: 4,
+    rankInTopic: 9,
     lastReviewed: "2026-06-11",
     needsReview: false,
   },
@@ -283,7 +283,7 @@ const _raw: unknown[] = [
     useIf:
       "You learn better from video lectures and want a structured, guided path through classical ML with exercises.",
     stages: ["data-scientist"],
-    rankInTopic: 4,
+    rankInTopic: 8,
     lastReviewed: "2026-06-11",
     needsReview: false,
   },
@@ -375,7 +375,7 @@ const _raw: unknown[] = [
     useIf:
       "You are moving from notebooks to production systems and need to understand what it actually takes to ship and maintain ML at scale.",
     stages: ["ml-engineer"],
-    rankInTopic: 5,
+    rankInTopic: 2,
     lastReviewed: "2026-06-11",
     needsReview: false,
   },
@@ -500,7 +500,7 @@ const _raw: unknown[] = [
     stages: ["ai-engineer", "research"],
     rankInTopic: 4,
     lastReviewed: "2026-06-11",
-    needsReview: false,
+    needsReview: true,
   },
   {
     id: "anthropic-docs",
@@ -568,7 +568,7 @@ const _raw: unknown[] = [
     stages: ["ai-engineer"],
     rankInTopic: 8,
     lastReviewed: "2026-06-11",
-    needsReview: false,
+    needsReview: true,
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
