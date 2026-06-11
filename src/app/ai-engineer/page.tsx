@@ -320,12 +320,13 @@ export default function AIEngineerPage() {
         </p>
 
         <p className="text-sm text-faded-ink">
-          →{" "}
-          <Link href="/mathematics">
-            Linear algebra and probability in the mathematics curriculum
+          → <Link href="/mathematics#linear-algebra">Linear algebra</Link>
+          <span aria-hidden="true"> · </span>
+          <Link href="/mathematics#probability-statistics">
+            Probability and statistics
           </Link>{" "}
-          — the embedding geometry and attention mathematics both build on the
-          Stage 2 linear algebra foundations.
+          in the mathematics curriculum — embedding geometry and attention
+          mathematics both build directly on Stage 2 foundations.
         </p>
       </StageSection>
 

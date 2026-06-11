@@ -359,17 +359,16 @@ export default function DataScientistPage() {
         </p>
 
         <p className="text-sm text-faded-ink">
-          →{" "}
-          <Link href="/mathematics">
-            Linear algebra in the mathematics curriculum
+          → <Link href="/mathematics#linear-algebra">Linear algebra</Link>
+          <span aria-hidden="true"> · </span>
+          <Link href="/mathematics#calculus-optimization">
+            Calculus and optimisation
           </Link>
           <span aria-hidden="true"> · </span>
-          <Link href="/mathematics">Calculus and optimisation</Link>
-          <span aria-hidden="true"> · </span>
-          <Link href="/mathematics">Probability and statistics</Link> — each
-          section has worked derivations and a depth ladder. (Section anchors
-          land correctly once the /mathematics curriculum is fully authored in a
-          later phase.)
+          <Link href="/mathematics#probability-statistics">
+            Probability and statistics
+          </Link>{" "}
+          — each section has worked derivations and a depth ladder.
         </p>
       </StageSection>
 

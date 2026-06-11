@@ -339,11 +339,12 @@ export default function MLEngineerPage() {
         </p>
 
         <p className="text-sm text-faded-ink">
-          →{" "}
-          <Link href="/mathematics">
-            Linear algebra and calculus in the mathematics curriculum
+          → <Link href="/mathematics#linear-algebra">Linear algebra</Link>
+          <span aria-hidden="true"> · </span>
+          <Link href="/mathematics#calculus-optimization">
+            Calculus and optimisation
           </Link>{" "}
-          covers this material with worked derivations and a depth ladder.
+          in the mathematics curriculum — worked derivations and a depth ladder.
         </p>
       </StageSection>
 

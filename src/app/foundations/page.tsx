@@ -276,9 +276,12 @@ export default function FoundationsPage() {
         </p>
 
         <p className="text-sm text-faded-ink">
-          → <Link href="/mathematics">The mathematics curriculum</Link> covers
-          these topics in full with worked examples. Tier 1 (Foundations) is the
-          right starting point if this section revealed gaps.
+          →{" "}
+          <Link href="/mathematics#tier-1">
+            Tier 1 of the mathematics curriculum
+          </Link>{" "}
+          covers these topics in full with worked examples — algebra, notation,
+          summation, and proof technique.
         </p>
       </StageSection>
 

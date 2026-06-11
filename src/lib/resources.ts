@@ -757,7 +757,7 @@ const _raw: unknown[] = [
     useIf:
       "You are doing research and need a comprehensive, current reference — Bishop is the classic, Murphy is the modern standard.",
     stages: ["research"],
-    rankInTopic: 6,
+    rankInTopic: 8,
     lastReviewed: "2026-06-11",
     needsReview: false,
   },
@@ -767,7 +767,7 @@ const _raw: unknown[] = [
     author: "S. Keshav",
     year: 2007,
     url: "https://web.stanford.edu/class/ee384m/Handouts/HowtoReadPaper.pdf",
-    type: "Docs",
+    type: "Paper",
     level: "Research",
     cost: "Free",
     verdict:
@@ -777,7 +777,7 @@ const _raw: unknown[] = [
     stages: ["research"],
     rankInTopic: 1,
     lastReviewed: "2026-06-11",
-    needsReview: false,
+    needsReview: true,
   },
   {
     id: "papers-with-code",
@@ -792,7 +792,7 @@ const _raw: unknown[] = [
     useIf:
       "You want to find the current SOTA on a benchmark, or you want a paper's official implementation rather than a community reimplementation.",
     stages: ["research"],
-    rankInTopic: 4,
+    rankInTopic: 5,
     lastReviewed: "2026-06-11",
     needsReview: false,
   },
@@ -809,7 +809,7 @@ const _raw: unknown[] = [
     useIf:
       "You want the clearest possible explanation of a specific concept (attention, circuits, feature visualisation) that Distill covered.",
     stages: ["research", "ai-engineer"],
-    rankInTopic: 5,
+    rankInTopic: 7,
     lastReviewed: "2026-06-11",
     needsReview: false,
   },
@@ -826,7 +826,7 @@ const _raw: unknown[] = [
     useIf:
       "You are tracking the field and want to stay current — but build the filtering skill first, or you will drown.",
     stages: ["research", "ai-engineer"],
-    rankInTopic: 6,
+    rankInTopic: 9,
     lastReviewed: "2026-06-11",
     needsReview: false,
   },

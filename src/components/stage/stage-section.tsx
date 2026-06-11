@@ -1,6 +1,23 @@
 import { cn } from "@/lib/utils";
 import type { ReactNode } from "react";
 
+// Wraps ` · ` separators in aria-hidden spans so VoiceOver/NVDA do not
+// announce "middle dot" for decorative punctuation in eyebrow labels.
+function renderEyebrow(raw: string): ReactNode {
+  const parts = raw.split(" · ");
+  if (parts.length === 1) return raw;
+  return (
+    <>
+      {parts.map((part, i) => (
+        <span key={i}>
+          {i > 0 && <span aria-hidden="true"> · </span>}
+          {part}
+        </span>
+      ))}
+    </>
+  );
+}
+
 interface StageSectionProps {
   id: string;
   title: string;
@@ -27,7 +44,7 @@ export function StageSection({
     >
       {eyebrow && (
         <p className="mb-1 font-mono text-xs uppercase tracking-widest text-faded-ink">
-          {eyebrow}
+          {renderEyebrow(eyebrow)}
         </p>
       )}
       <h2

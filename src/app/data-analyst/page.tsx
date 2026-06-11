@@ -308,10 +308,11 @@ export default function DataAnalystPage() {
 
         <p className="text-sm text-faded-ink">
           →{" "}
-          <Link href="/mathematics">
+          <Link href="/mathematics#probability-statistics">
             Probability &amp; Statistics in the mathematics curriculum
           </Link>{" "}
-          covers this material in full, with worked derivations.
+          covers this material in full, with worked derivations — Bayes, MLE,
+          CLT, and hypothesis testing.
         </p>
       </StageSection>
 
