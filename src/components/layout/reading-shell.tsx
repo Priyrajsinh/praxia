@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { RouteSpine } from "@/components/spine/route-spine";
 
 /**
  * The three-rail editorial shell (PROJECT_PLAN §3.5) — deliberately NOT a
@@ -10,17 +11,17 @@ import type { ReactNode } from "react";
  *   │  line)│  ~68ch, lh 1.7)    │  + notes)     │
  *   └──────┴────────────────────┴───────────────┘
  *
- * Desktop: three columns. The left spine is a placeholder here — /day2 replaces
- * it with the hand-drawn SVG route. Mobile: rails collapse — the spine drops to
- * a slim left edge (hidden for now) and the margin rail stacks inline below the
- * reading column.
+ * Desktop: three columns, the left rail holding the hand-drawn route spine.
+ * Mobile (below lg): rails collapse — the spine is hidden and the margin rail
+ * stacks inline below the reading column. (The slim-mobile-edge route per §3.5
+ * lands in a later pass; the spine is desktop-only for now.)
  */
 export function ReadingShell({ children }: { children: ReactNode }) {
   return (
     <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-x-10 px-6 lg:grid-cols-[4.5rem_minmax(0,68ch)_minmax(0,1fr)]">
-      {/* LEFT — spine rail. Placeholder route line until /day2. Decorative. */}
-      <div aria-hidden className="relative hidden lg:block">
-        <span className="absolute bottom-6 left-1/2 top-6 w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-route-red/30 to-transparent" />
+      {/* LEFT — the signature hand-drawn route spine (§3.4). Desktop only. */}
+      <div className="relative hidden lg:block">
+        <RouteSpine />
       </div>
 
       {/* CENTER — the reading column. Skip-link + primary landmark target. */}
