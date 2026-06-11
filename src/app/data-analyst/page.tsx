@@ -358,83 +358,292 @@ export default function DataAnalystPage() {
       {/* ── §7 SECTION 6: The project ────────────────────────────────────── */}
       <StageSection id="project" title="The project">
         <p>
-          The most instructive project at this stage is a rigorous statistical
-          report answering real research questions — the kind that appears in
-          MS-entrance assignments, corporate A/B test post-mortems, and
-          peer-reviewed applied papers. This is not a Kaggle score. It is a
-          document that demonstrates you can think statistically and communicate
-          that thinking clearly.
+          A single analysis is a demonstration that you understand the tools.
+          Four projects together — a rigorous statistical report, a SQL
+          investigation, a live dashboard, and an A/B test post-mortem — are a
+          demonstration that you are ready for the job. Do all four. There is no
+          shortcut through the portfolio.
         </p>
 
-        <h3>
-          The flagship: a full statistical analysis on student performance data
+        <p className="text-sm text-faded-ink">
+          Expected total time: 10–14 weeks alongside the curriculum. Build them
+          in order — each one uses skills from the previous.
+        </p>
+
+        {/* ── Project 1 ── */}
+        <h3 className="lg:clear-both">
+          Project 1 — the rigorous statistical report (4–5 weeks)
         </h3>
 
         <p>
-          Use the student performance dataset (publicly available). Frame three
-          testable research questions — for example: &ldquo;Do students who
-          study more than 10 hours per week score significantly higher on maths
-          exams than those who study less?&rdquo; For each question:
+          <strong>What it proves:</strong> your statistical thinking is
+          trustworthy.
+        </p>
+
+        <p>
+          Choose a rich, multi-variable public dataset — World Bank development
+          indicators, OECD health statistics, US Bureau of Labor Statistics
+          employment series, or any domain you genuinely find interesting. Frame
+          five distinct research questions, each requiring a different
+          statistical approach: at minimum one t-test, one one-way ANOVA, one
+          chi-square test of independence, one correlation analysis, and one
+          regression. For every question, execute the full protocol:
         </p>
 
         <ol>
-          <li>State the null and alternative hypotheses formally (H₀, H₁).</li>
+          <li>State H₀ and H₁ in formal notation before touching the data.</li>
           <li>
-            Check assumptions: normality (Shapiro-Wilk + QQ plot), homogeneity
-            of variances (Levene&rsquo;s test), independence of observations.
+            Check all required assumptions — normality (Shapiro-Wilk + QQ plot),
+            homogeneity of variance (Levene&rsquo;s test), independence — and
+            document the results. &ldquo;It looks fine&rdquo; is not a check. A
+            Shapiro-Wilk W = 0.97, p = .23 is a check.
           </li>
           <li>
-            Run the appropriate test: independent-samples t-test for two groups,
-            one-way ANOVA for multiple groups. Apply a non-parametric
-            alternative if assumptions fail.
+            Run the appropriate test. If assumptions are violated, run the
+            correct non-parametric alternative and explain why.
           </li>
           <li>
-            Report post-hoc comparisons if ANOVA is significant (Tukey HSD or
-            Games-Howell if variances are unequal).
+            Report in APA format:{" "}
+            <em>
+              F(2, 147) = 8.3, p &lt; .001, η² = .10, indicating a medium
+              effect.
+            </em>
           </li>
           <li>
-            Compute and report effect sizes: Cohen&rsquo;s d for t-tests, η² for
-            ANOVA.
+            Compute effect sizes (Cohen&rsquo;s d, r, η², or φ depending on the
+            test). A statistically significant result with d = 0.04 is not a
+            finding worth acting on.
           </li>
           <li>
-            Write results in APA format: &ldquo;A one-way ANOVA revealed a
-            significant effect of study hours on maths performance, F(2, 297) =
-            14.3, p &lt; .001, η² = .088, indicating a medium effect.&rdquo;
+            Apply Benjamini-Hochberg correction across all five tests. Adjust
+            your conclusions accordingly.
           </li>
         </ol>
 
         <p>
-          <strong>The report — not the notebook — is the deliverable.</strong>{" "}
-          The notebook is the working. A grader or interviewer should be able to
-          read the report, understand exactly what was done and why each choice
-          was made, and trust the conclusions. If the conclusion requires
-          reading the code to follow, the report is not finished.
+          Then run a multiple linear regression on one of the outcomes: report
+          standardised and unstandardised coefficients, R², adjusted R², and the
+          F-statistic. Check residuals (homoscedasticity, normality, influential
+          points via Cook&rsquo;s distance). Interpret every coefficient
+          precisely: &ldquo;holding all other predictors constant, a one-unit
+          increase in X is associated with a 0.31-unit increase in Y (β = 0.31,
+          95% CI [0.18, 0.44]).&rdquo;
+        </p>
+
+        <p>
+          <strong>The deliverable is a written report — not a notebook.</strong>{" "}
+          A 15–20 page document: introduction (the research questions and why
+          they matter), methods (every test, every assumption check, and why
+          each was chosen), results (tables and figures, one finding per
+          paragraph), discussion (what the findings mean, what they cannot mean,
+          and the three most important limitations). The test: could this report
+          be submitted to an applied statistics conference without
+          embarrassment? That is the bar.
         </p>
 
         <Marginalia>
-          The test is table stakes. The writing is the job. I have reviewed
-          analyses where the statistics were correct and the conclusion was
-          still wrong because the framing was unclear. Write the report like you
-          are defending it.
+          The statistics are table stakes. The writing is the job. Every
+          analysis I&rsquo;ve seen fail in a board room had correct numbers and
+          wrong conclusions — because the analyst could not frame the finding
+          for someone who does not live in the data.
         </Marginalia>
 
-        <h3>Senior extension</h3>
+        {/* ── Project 2 ── */}
+        <h3 className="lg:clear-both">
+          Project 2 — SQL + EDA investigation (2–3 weeks)
+        </h3>
+
         <p>
-          Replace one group-comparison analysis with a multiple linear
-          regression. Report standardised coefficients, interpret them correctly
-          (holding other variables constant), check residuals for the regression
-          assumptions, and discuss which predictors are practically significant
-          versus statistically significant. The distinction matters.
+          <strong>What it proves:</strong> you can work with real, messy,
+          production-scale data.
         </p>
 
-        <h3>Research extension</h3>
         <p>
-          Write a pre-registration before running any test. Specify your
-          hypotheses, your analysis plan, your stopping rule, and your minimum
-          detectable effect size (computed via power analysis using G*Power or
-          scipy). Then run the analysis and report exactly what you found —
-          including null results. This is the discipline of reproducible
-          research. Build it now, before you have bad habits to unlearn.
+          Use a multi-table dataset in a SQL environment — Google
+          BigQuery&rsquo;s public datasets (Chicago taxi trips, Stack Overflow
+          activity, US Census data) are free to query from the BigQuery console.
+          Write SQL to answer 10 business questions of increasing complexity:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Basic:</strong> &ldquo;What is the average trip duration by
+            day of week?&rdquo;
+          </li>
+          <li>
+            <strong>Intermediate:</strong> &ldquo;What is the 7-day rolling
+            average of daily revenue, and which weeks show a &gt; 20% decline
+            from the prior week?&rdquo; — requires{" "}
+            <code>AVG() OVER (ORDER BY day ROWS 6 PRECEDING)</code> and{" "}
+            <code>LAG()</code>.
+          </li>
+          <li>
+            <strong>Advanced:</strong> &ldquo;For drivers in the top quartile of
+            Q1 revenue, what fraction remained in the top quartile in Q2?
+            Produce the full quartile transition matrix.&rdquo; — requires
+            multiple CTEs, <code>NTILE(4)</code>, and a self-join.
+          </li>
+        </ul>
+
+        <p>
+          Then bring the dataset into Python. EDA: distributions, outliers (IQR
+          fence and z-score, not just visual), missingness (how much, what
+          pattern — MCAR vs. MAR vs. MNAR), correlations, surprises. Document
+          every cleaning decision — not just what you did but why, and what the
+          business consequence of getting it wrong would be. Close with a
+          one-page written brief: three findings that would change a decision,
+          addressed to a non-technical manager.
+        </p>
+
+        {/* ── Project 3 ── */}
+        <h3 className="lg:clear-both">
+          Project 3 — the live dashboard (2–3 weeks)
+        </h3>
+
+        <p>
+          <strong>What it proves:</strong> you can communicate analysis to
+          people who do not do analysis.
+        </p>
+
+        <p>
+          Build and publish a dashboard on Tableau Public (free tier, no
+          paywall). Pick a real, specific question — not &ldquo;here are some
+          charts about the data&rdquo; but &ldquo;which US counties are most at
+          risk for opioid mortality in the next two years?&rdquo; or
+          &ldquo;which product categories are underperforming relative to
+          inventory cost?&rdquo; The question has to be specific enough that the
+          dashboard answers it.
+        </p>
+
+        <p>Requirements, every one of them:</p>
+
+        <ul>
+          <li>
+            At least 6 distinct views connected by dashboard actions and filters
+            — clicking a region in one view filters all others.
+          </li>
+          <li>
+            At least one non-trivial calculated field (a rate, a ratio, a
+            running total, a conditional category — not just{" "}
+            <code>SUM([Sales])</code>).
+          </li>
+          <li>
+            At least one parameter that lets the user adjust a threshold or
+            change the grouping dynamically.
+          </li>
+          <li>
+            Custom tooltips that provide context on hover — not the default
+            dimension/measure dump.
+          </li>
+          <li>
+            A written title and one-sentence narrative on each dashboard page
+            stating what the viewer is looking at and what conclusion they
+            should draw. If the chart requires explanation, the chart is not
+            done.
+          </li>
+        </ul>
+
+        <p>
+          Publish to Tableau Public with a link in your portfolio. The test:
+          hand it to someone who did not build it, describe the question it
+          answers, and ask them to find the answer without your help. If they
+          cannot, revise until they can.
+        </p>
+
+        <Marginalia>
+          Every analyst thinks their dashboard is intuitive. It never is — until
+          it has been tested on someone who didn&rsquo;t build it. The confused
+          look on their face when they click the wrong thing is worth a week of
+          self-review.
+        </Marginalia>
+
+        {/* ── Project 4 ── */}
+        <h3 className="lg:clear-both">
+          Project 4 — the A/B test post-mortem (2–3 weeks)
+        </h3>
+
+        <p>
+          <strong>What it proves:</strong> you understand experimentation — the
+          highest-value analyst skill at any technology company.
+        </p>
+
+        <p>
+          Design a realistic A/B test from scratch on a plausible business
+          scenario: a checkout flow redesign, a recommendation algorithm change,
+          a push notification copy change. Execute all five phases before
+          touching any data:
+        </p>
+
+        <ol>
+          <li>
+            <strong>Pre-registration.</strong> Write your hypotheses, your
+            primary metric (what you are trying to move), two guardrail metrics
+            (what must not get worse), your analysis plan, and your stopping
+            rule. Lock this before generating a single row of simulated data.
+          </li>
+          <li>
+            <strong>Power analysis.</strong> Decide on a minimum detectable
+            effect (MDE) that would be practically meaningful. Compute the
+            required N at α = 0.05, power = 0.80 using scipy.stats.{" "}
+            <em>Then double it</em> and explain why naive power calculations
+            consistently undershoot.
+          </li>
+          <li>
+            <strong>Data simulation.</strong> Simulate the experiment — you
+            control the ground truth. This is the point. Simulate three
+            scenarios: (a) the treatment works as expected, (b) the treatment
+            has no effect, (c) the treatment helps the primary metric but hurts
+            a guardrail. The correct analysis should detect all three correctly.
+          </li>
+          <li>
+            <strong>Analysis.</strong> Two-proportion z-test for the primary
+            metric. Multiple-testing correction across all three metrics.
+            Novelty effect check: does the treatment effect decay across the
+            experiment window (plot treatment effect by day of exposure)?
+            Segment analysis: does the treatment differ for new vs. returning
+            users, mobile vs. desktop? If you have a pre-experiment covariate,
+            apply CUPED and compare the variance reduction.
+          </li>
+          <li>
+            <strong>Post-mortem document.</strong> Write it in the format a tech
+            company would circulate: decision up front (ship / do not ship /
+            iterate, with one-sentence reason), then the full analysis for
+            anyone who goes deeper. One page of executive summary, appendix of
+            statistical detail. Be precise about what you can and cannot
+            conclude from an observational analysis versus a randomised
+            experiment.
+          </li>
+        </ol>
+
+        <p>
+          Then re-analyse the same simulated data using a Bayesian Beta-Binomial
+          model. Compare conclusions. In which scenario do the frequentist and
+          Bayesian approaches disagree? Why? Write a half-page explanation for a
+          non-statistician.
+        </p>
+
+        {/* ── Extensions ── */}
+        <h3>Senior extension — for any one project</h3>
+        <p>
+          Present your findings to someone who is not a statistician. Record or
+          take notes on the conversation. Revise the report or dashboard based
+          on the questions they asked — those questions reveal exactly where
+          your communication failed, and that is where the gap is. Iterate until
+          a non-technical person can give you back the key finding in their own
+          words.
+        </p>
+
+        <h3>Research extension — pre-registration in the wild</h3>
+        <p>
+          Before running Project 1, submit a pre-registration on the Open
+          Science Framework (osf.io — free, public). State your hypotheses, your
+          expected effect sizes, your analysis plan, and your stopping rule.
+          Then execute the analysis exactly as registered — including any null
+          results you did not expect. Write a one-page reflection: what did you
+          expect, what did you find, and what would you pre-register differently
+          next time? This is not academic formality. It is the discipline that
+          separates the analysts whose conclusions you can trust from the ones
+          who p-hacked their way to a story.
         </p>
       </StageSection>
 
