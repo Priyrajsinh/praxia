@@ -343,7 +343,7 @@ const _raw: unknown[] = [
     stages: ["ml-engineer", "ai-engineer"],
     rankInTopic: 3,
     lastReviewed: "2026-06-11",
-    needsReview: false,
+    needsReview: true,
   },
   {
     id: "fastai",
