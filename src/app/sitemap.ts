@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://praxia.vercel.app";
+const BASE_URL = "https://priyrajsinh-praxia.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date("2026-06-12");

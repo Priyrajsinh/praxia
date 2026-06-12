@@ -31,7 +31,7 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const BASE_URL = "https://praxia.vercel.app";
+const BASE_URL = "https://priyrajsinh-praxia.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),

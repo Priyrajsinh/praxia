@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://praxia.vercel.app/sitemap.xml",
+    sitemap: "https://priyrajsinh-praxia.vercel.app/sitemap.xml",
   };
 }

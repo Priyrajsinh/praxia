@@ -118,7 +118,7 @@ export default function OgImage() {
               fontFamily: "Georgia, serif",
             }}
           >
-            praxia.vercel.app
+            priyrajsinh-praxia.vercel.app
           </span>
         </div>
       </div>
