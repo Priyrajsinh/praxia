@@ -1,0 +1,42 @@
+MIT License — Code only (see Content Notice below)
+
+Copyright (c) 2026 Priyrajsinh Parmar
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+CONTENT NOTICE
+
+The MIT license above applies to the source code of this repository (components,
+configuration, build tooling, and infrastructure code).
+
+The following are NOT covered by the MIT license and remain All Rights Reserved:
+
+  - The curated resource lists and editorial verdicts (src/lib/resources.ts)
+  - The stage curriculum, concept checklists, project specifications, and
+    exit criteria (src/app/*/page.tsx content)
+  - The progression model, sequencing decisions, and learning-path structure
+  - The glossary definitions (src/app/glossary/page.tsx)
+  - All editorial copy, annotations, and marginalia
+
+The curation, sequencing, and editorial judgment are the core intellectual
+property of this project. You may link to any page. You may quote brief
+passages with attribution. You may not reproduce the curation in bulk or
+redistribute the content files without explicit written permission.
