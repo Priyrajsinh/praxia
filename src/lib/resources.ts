@@ -767,7 +767,7 @@ const _raw: unknown[] = [
     author: "S. Keshav",
     year: 2007,
     url: "https://web.stanford.edu/class/ee384m/Handouts/HowtoReadPaper.pdf",
-    type: "Paper",
+    type: "Docs",
     level: "Research",
     cost: "Free",
     verdict:
