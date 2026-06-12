@@ -196,6 +196,10 @@ export default function FoundationsPage() {
           </span>{" "}
           = can teach it and debug edge cases.
         </p>
+        <p className="mb-5 text-xs text-faded-ink">
+          Unfamiliar with a term? <Link href="/glossary">The glossary</Link>{" "}
+          defines every concept used across the map.
+        </p>
         <TopicChecklist topics={topics} />
       </StageSection>
 
@@ -658,7 +662,7 @@ export default function FoundationsPage() {
         <div className="mt-6 flex items-center gap-3">
           <Link
             href="/data-analyst"
-            className="inline-flex items-center gap-1.5 rounded border border-route-red bg-route-red/5 px-4 py-2 font-mono text-sm text-route-red transition-colors hover:bg-route-red hover:text-paper"
+            className="inline-flex items-center gap-1.5 rounded border border-route-red bg-route-red/5 px-4 py-2 font-mono text-sm text-ink transition-colors hover:bg-route-red hover:text-paper"
           >
             Data Analyst →
           </Link>

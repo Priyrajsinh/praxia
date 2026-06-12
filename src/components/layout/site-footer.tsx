@@ -2,11 +2,18 @@ import Link from "next/link";
 import { legalLinks, sectionLinks } from "@/lib/nav";
 
 const year = new Date().getFullYear();
+/** ISO date of the last full link-verification pass. Update whenever you do a sweep. */
+const LINKS_VERIFIED_DATE = "2026-06-12";
 
 /**
- * Site footer. Carries the trust/legal scaffolding the spec asks for up front
- * (Part B1): an affiliate-disclosure stub, a resource-accuracy line, and the
- * curation copyright. Real wording is finalised in /day8 + /day10.
+ * Site footer (Part B1).
+ *
+ * Trust scaffolding carried here:
+ * — Affiliate disclosure: no affiliate links currently; any future ones are
+ *   disclosed at point-of-link and summarised here.
+ * — Accuracy disclaimer: links verified date + report-a-break invitation.
+ * — Content license: curation and commentary are original work; linked works
+ *   belong to their respective owners.
  */
 export function SiteFooter() {
   return (
@@ -27,18 +34,36 @@ export function SiteFooter() {
           </ul>
         </nav>
 
-        <div className="mt-6 space-y-1 text-xs text-faded-ink">
+        <div className="mt-6 space-y-2 text-xs text-faded-ink">
+          {/* Accuracy disclaimer */}
           <p>
-            Resource links verified as of build. Spot one that&rsquo;s broken or
-            stale? Tell us.
+            Resource links verified as of{" "}
+            <span className="font-mono">{LINKS_VERIFIED_DATE}</span>. Spot one
+            that&rsquo;s broken or stale?{" "}
+            <a
+              href="https://github.com/Priyrajsinh/praxia/issues"
+              className="underline decoration-brass underline-offset-2 hover:text-ink"
+            >
+              Open an issue
+            </a>
+            .
           </p>
+
+          {/* Affiliate disclosure */}
           <p>
-            Some links may become affiliate links; any are disclosed here.
-            Curation is editorial opinion, not gospel.
+            <strong className="font-semibold text-faded-ink">
+              Affiliate disclosure:
+            </strong>{" "}
+            No links on this site are currently affiliate links. If that
+            changes, it will be disclosed here and at the point of the link.
+            Curation decisions are editorial, not commercial.
           </p>
+
+          {/* Content license */}
           <p className="font-mono">
-            &copy; {year} Praxia. The map &amp; sequencing are ours; the linked
-            works are not.
+            &copy; {year} Praxia. The map, sequencing, and commentary are
+            original work. Linked resources belong to their respective authors
+            and publishers — Praxia does not claim any rights over them.
           </p>
         </div>
       </div>

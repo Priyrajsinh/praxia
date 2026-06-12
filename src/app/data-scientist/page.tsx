@@ -240,6 +240,10 @@ export default function DataScientistPage() {
           </span>{" "}
           = can teach it and debug edge cases.
         </p>
+        <p className="mb-5 text-xs text-faded-ink">
+          Unfamiliar with a term? <Link href="/glossary">The glossary</Link>{" "}
+          defines every concept used across the map.
+        </p>
         <TopicChecklist topics={topics} />
       </StageSection>
 
@@ -836,13 +840,13 @@ export default function DataScientistPage() {
         <div className="mt-6 flex flex-wrap items-center gap-3">
           <Link
             href="/machine-learning-engineer"
-            className="inline-flex items-center gap-1.5 rounded border border-route-red bg-route-red/5 px-4 py-2 font-mono text-sm text-route-red transition-colors hover:bg-route-red hover:text-paper"
+            className="inline-flex items-center gap-1.5 rounded border border-route-red bg-route-red/5 px-4 py-2 font-mono text-sm text-ink transition-colors hover:bg-route-red hover:text-paper"
           >
             ML Engineer →
           </Link>
           <Link
             href="/research"
-            className="inline-flex items-center gap-1.5 rounded border border-teal bg-teal/5 px-4 py-2 font-mono text-sm text-teal transition-colors hover:bg-teal hover:text-paper"
+            className="inline-flex items-center gap-1.5 rounded border border-teal bg-teal/5 px-4 py-2 font-mono text-sm text-ink transition-colors hover:bg-teal hover:text-paper"
           >
             Research Track →
           </Link>

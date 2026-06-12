@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { RouteSpine } from "@/components/spine/route-spine";
+import { CrossCuttingSidebar } from "@/components/stage/cross-cutting-sidebar";
 
 /**
  * The three-rail editorial shell (PROJECT_PLAN §3.5) — deliberately NOT a
@@ -7,14 +8,13 @@ import { RouteSpine } from "@/components/spine/route-spine";
  *
  *   ┌──────┬────────────────────┬───────────────┐
  *   │ SPINE│  READING COLUMN    │  MARGIN RAIL  │
- *   │ (route│ (serif body,       │ ("on this page"│
- *   │  line)│  ~68ch, lh 1.7)    │  + notes)     │
+ *   │ (route│ (serif body,       │ cross-cutting │
+ *   │  line)│  ~68ch, lh 1.7)    │  skills §11)  │
  *   └──────┴────────────────────┴───────────────┘
  *
  * Desktop: three columns, the left rail holding the hand-drawn route spine.
  * Mobile (below lg): rails collapse — the spine is hidden and the margin rail
- * stacks inline below the reading column. (The slim-mobile-edge route per §3.5
- * lands in a later pass; the spine is desktop-only for now.)
+ * stacks inline below the reading column.
  */
 export function ReadingShell({ children }: { children: ReactNode }) {
   return (
@@ -29,17 +29,13 @@ export function ReadingShell({ children }: { children: ReactNode }) {
         {children}
       </main>
 
-      {/* RIGHT — margin rail: "on this page" / mentor marginalia. */}
+      {/* RIGHT — cross-cutting skills sidebar (PROJECT_PLAN §11). Sticky on
+          desktop; stacks below the reading column on mobile. */}
       <aside
-        aria-label="On this page"
+        aria-label="Cross-cutting skills"
         className="mt-10 border-t border-margin pt-6 lg:mt-0 lg:self-start lg:border-t-0 lg:border-l lg:py-16 lg:pl-8 lg:sticky lg:top-20"
       >
-        <p className="font-mono text-xs uppercase tracking-wider text-faded-ink">
-          On this page
-        </p>
-        <p className="mt-3 max-w-[22ch] font-hand text-lg leading-snug text-faded-ink">
-          Section links and the mentor&rsquo;s margin notes live here.
-        </p>
+        <CrossCuttingSidebar />
       </aside>
     </div>
   );

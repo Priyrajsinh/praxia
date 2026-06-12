@@ -225,6 +225,10 @@ export default function AIEngineerPage() {
           </span>{" "}
           = can teach it and debug edge cases.
         </p>
+        <p className="mb-5 text-xs text-faded-ink">
+          Unfamiliar with a term? <Link href="/glossary">The glossary</Link>{" "}
+          defines every concept used across the map.
+        </p>
         <TopicChecklist topics={topics} />
       </StageSection>
 
