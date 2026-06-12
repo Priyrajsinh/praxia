@@ -2,49 +2,75 @@
 
 **A curated, opinionated roadmap for the Data → AI career and research journey.**
 
+**[→ priyrajsinh-praxia.vercel.app](https://priyrajsinh-praxia.vercel.app)**
+
+---
+
+[![Version](https://img.shields.io/badge/version-0.1.0-informational)](https://github.com/Priyrajsinh/praxia/releases/tag/v0.1.0)
+[![Next.js](https://img.shields.io/badge/Next.js-16.2.9-black?logo=next.js&logoColor=white)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+[![License](<https://img.shields.io/badge/license-MIT%20(code)-green>)](LICENSE)
+[![Live](https://img.shields.io/badge/live-vercel-black?logo=vercel)](https://priyrajsinh-praxia.vercel.app)
+
+---
+
+[![Praxia — route map and stage view](docs/screenshot.png)](https://priyrajsinh-praxia.vercel.app)
+
 ---
 
 ## What this is
 
 Most learning roadmaps in this field are either vague link dumps or shallow "get hired in 3 months" guides. Praxia is neither. It maps the complete progression — Foundations → Data Analyst → Data Scientist → ML Engineer → AI Engineer, with a parallel Research track — and for each stage specifies exactly what to learn, in what order, to what depth, with an honest verdict on every resource.
 
-The product's value is sequencing and curation, not raw links. It tells a motivated person not just _what_ to study, but _why that order_ and _when they can move on_. It treats the reader as capable of doing the real work.
+The product's value is **sequencing and curation, not raw links**. It tells a motivated person not just _what_ to study, but _why that order_ and _when they can move on_. It treats the reader as capable of doing the real work.
 
 I built this because I was the target user. Navigating this field without a clear map costs months — you overcorrect toward tutorials, miss the math you'll need later, and can't distinguish "good enough to use" from "good enough to know deeply." This is the map I wish I'd had. I'm still walking it, which means the curation stays honest: I'm not claiming mastery, I'm sharing the sequence that actually makes sense from inside the work.
 
-### Why trust this curation?
-
-The value isn't the links — those are publicly findable. It's the judgments: which book to start with versus which one to read second, what to skip entirely, where the free option is better than the paid one, and where the apparent shortcut creates a gap you'll hit two stages later. Every resource on the site has a one-sentence honest verdict and a "use this if…" clause. Paid resources are labelled. Anything that might become outdated is flagged for review. The curation is opinionated because vague recommendations aren't recommendations.
+> **Why trust this curation?** The value isn't the links — those are publicly findable. It's the judgments: which book to start with versus which one to read second, what to skip entirely, where the free option beats the paid one, and where the apparent shortcut creates a gap you'll hit two stages later. Every resource has a one-sentence verdict and a "use this if…" clause. Paid resources are labelled. Anything that might go stale is flagged for review. Opinionated because vague recommendations aren't recommendations.
 
 ---
 
-![Praxia — route map and stage view](docs/screenshot.png)
+## Features
 
----
+**The product**
 
-## Status
+- Five-stage progression — Foundations → Data Analyst → Data Scientist → ML Engineer → AI Engineer — each with concepts, mathematics, tools, a portfolio project, and exit criteria
+- Parallel Research track branching from Stage 2, running to Principal/Faculty
+- ~50 curated resources across all stages; every entry has a cost label, honest verdict, and "use this if…" guidance
+- Full mathematics curriculum (Tiers 1–3) with KaTeX-rendered notation, cross-referenced from every stage
+- 60+ term glossary, A–Z with jump nav, every term cross-linked to where it is taught in depth
 
-![Version](https://img.shields.io/badge/version-0.1.0-informational)
-![Next.js](https://img.shields.io/badge/Next.js-16.2.9-black?logo=next.js&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?logo=tailwindcss&logoColor=white)
-![License](<https://img.shields.io/badge/license-MIT%20(code)-green>)
+**The interface**
 
-<!-- TODO: Add a GitHub Actions CI workflow and replace the line below with a real build badge -->
-<!-- ![Build](https://github.com/Priyrajsinh/praxia/actions/workflows/ci.yml/badge.svg) -->
+- Hand-drawn SVG route spine — a slightly irregular ink path (not a CSS line) that self-draws as you scroll, with a brass "you are here" marker that tracks position
+- `/map` — interactive full-journey overview with the teal Research branch forking off Stage 2
+- Stage progress persistence via `localStorage` — mark stages complete; state is shared between the spine and the map
+- `Cmd+K` full-text search across all resources, glossary terms, and pages — no external library, sub-1ms on the full corpus
+- `/resources` master library — filter by type, cost, level, and stage simultaneously; hover-reveal cards showing the honest verdict
+
+**Quality**
+
+- WCAG AA contrast verified; keyboard-navigable end-to-end; `prefers-reduced-motion` respected
+- Dark/light mode — warm ink-on-paper in both; never the cold navy AI default
+- 21 routes fully static; KaTeX CSS scoped to `/mathematics` only; dynamic OG image via edge runtime
+- Per-page title, meta description, OpenGraph, Twitter card, JSON-LD `Course` schema, `sitemap.xml`, `robots.txt`
 
 ---
 
 ## Tech stack
 
-- **Framework:** Next.js 16.2.9, App Router, static export — no server required
-- **Language:** TypeScript 5 throughout; Zod 4 for runtime schema validation
-- **Styling:** Tailwind CSS v4 (CSS-first config); design tokens in `src/app/globals.css`
-- **Content:** Stage curriculum in `src/app/[stage]/page.tsx`; all resources in `src/lib/resources.ts`; math page in MDX with KaTeX
-- **Search:** Client-side full-text search over resources + glossary + pages; no external library
-- **Fonts:** Fraunces · Newsreader · Caveat · JetBrains Mono — loaded via `next/font/google`
-- **Persistence:** Progress tracking via `localStorage`; no backend, no auth
-- **Hosting:** Vercel (static export)
+| Layer       | Choice                                                            | Why                                                                           |
+| ----------- | ----------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| Framework   | Next.js 16.2.9 (App Router)                                       | Static generation for all 21 routes; edge runtime for OG image                |
+| Language    | TypeScript 5                                                      | End-to-end type safety; Zod 4 for runtime schema validation at build time     |
+| Styling     | Tailwind CSS v4                                                   | CSS-first config; all design tokens as CSS custom properties in `globals.css` |
+| Content     | Stage `.tsx` files + `resources.ts`                               | Editable data files with no CMS overhead; Zod-validated at build time         |
+| Math        | MDX + remark-math + rehype-katex                                  | KaTeX rendering scoped to `/mathematics` — no cost on other routes            |
+| Search      | Hand-rolled substring scoring                                     | ~170-entry corpus is sub-1ms; zero bundle weight vs FlexSearch/Pagefind       |
+| Fonts       | `next/font/google` — Fraunces, Newsreader, Caveat, JetBrains Mono | Self-hosted via Next.js; no external font requests                            |
+| Persistence | `localStorage`                                                    | Progress tracking with no backend, no auth, no friction                       |
+| Hosting     | Vercel                                                            | Automatic deploys on push to `main`; edge network for OG image route          |
 
 ---
 
@@ -52,20 +78,15 @@ The value isn't the links — those are publicly findable. It's the judgments: w
 
 **Prerequisites**
 
-- Node.js ≥ 24.16.0 (see `.nvmrc`). If you use nvm: `nvm use`.
-- npm (the repo uses a `package-lock.json`; other package managers will work but aren't tested).
+- Node.js ≥ 24.16.0 — see `.nvmrc`. With nvm: `nvm use`
+- npm (the repo ships a `package-lock.json`)
 
-**Clone and install**
+**Clone, install, run**
 
 ```bash
 git clone https://github.com/Priyrajsinh/praxia.git
 cd praxia
 npm install
-```
-
-**Run the dev server**
-
-```bash
 npm run dev
 ```
 
@@ -74,10 +95,9 @@ Open [http://localhost:3000](http://localhost:3000). The dev server uses Turbopa
 **Production build**
 
 ```bash
-npm run build
+npm run build   # typecheck + compile + prerender all 21 routes
+npm start       # serve the built output locally
 ```
-
-Outputs a fully static site to `.next/`. All 21 routes pre-render at build time.
 
 ---
 
@@ -85,71 +105,65 @@ Outputs a fully static site to `.next/`. All 21 routes pre-render at build time.
 
 ```
 src/
-  app/                   # Next.js App Router — one directory per route
-    page.tsx             # Landing page
-    layout.tsx           # Root layout: shell, fonts, metadata, JSON-LD
-    [stage]/page.tsx     # Stage routes: foundations, data-analyst, data-scientist,
-                         #   machine-learning-engineer, ai-engineer, research
-    mathematics/         # Full math curriculum (page.mdx, KaTeX-rendered)
-    resources/           # Master resource library (filterable, client-side)
-    glossary/            # Glossary A–Z with jump nav
-    map/                 # Interactive journey overview (/map)
-    sitemap.ts           # Auto-generated sitemap.xml
-    robots.ts            # robots.txt
-    opengraph-image.tsx  # Dynamic OG image (edge runtime)
-    icon.svg             # Favicon
+  app/
+    page.tsx              # Landing page
+    layout.tsx            # Root layout — shell, fonts, metadata, JSON-LD Course schema
+    [stage]/page.tsx      # Stage routes: foundations, data-analyst, data-scientist,
+                          #   machine-learning-engineer, ai-engineer, research
+    mathematics/          # Full math curriculum — page.mdx (KaTeX-rendered)
+    resources/            # Master resource library — filterable, client-side
+    glossary/             # Glossary A–Z with letter jump nav
+    map/                  # Interactive full-journey SVG overview
+    sitemap.ts            # → /sitemap.xml
+    robots.ts             # → /robots.txt
+    opengraph-image.tsx   # Dynamic 1200×630 OG image — edge runtime
+    icon.svg              # SVG favicon
 
   components/
-    layout/              # Shell: header, footer, reading-shell, theme toggle
-    spine/               # Hand-drawn SVG route line + scroll-driven brass marker
-    stage/               # Stage template: StageSection, DepthLadder, ResourceCard,
-                         #   TopicChecklist, Marginalia, CrossCuttingSidebar
-    resources/           # /resources master page (client filter + search)
-    search/              # Cmd+K search dialog (keyboard-accessible, native <dialog>)
-    gate/                # Gate stub: GateWall + GateDemoToggle (cosmetic, v1)
-    map/                 # /map page SVG component
+    layout/               # Header, footer, reading-shell, theme toggle
+    spine/                # Hand-drawn SVG route line + scroll-driven brass marker
+    stage/                # StageSection, DepthLadder, ResourceCard, TopicChecklist,
+                          #   Marginalia, CrossCuttingSidebar
+    resources/            # /resources client — filter pills + flip cards
+    search/               # Cmd+K dialog — native <dialog>, keyboard-accessible
+    gate/                 # Gate stub — GateWall + GateDemoToggle (cosmetic, v1)
+    map/                  # /map SVG component
 
   lib/
-    resources.ts         # ← EDIT THIS to add/change resources. Single source of truth
-                         #   for all ~50 curated entries. Zod-validated at build time.
-    schema.ts            # Zod schemas: Resource, Topic, StageMeta
-    search.ts            # Search index + substring scoring
-    journey.ts           # SVG path geometry shared between spine + map
-    nav.ts               # Navigation structure
+    resources.ts          # ← single source of truth for all ~50 resources
+    schema.ts             # Zod schemas — Resource, Topic, StageMeta
+    search.ts             # Search index + substring scoring
+    journey.ts            # SVG path geometry — shared by spine + map
+    nav.ts                # Navigation structure
 
 public/
-  sketches/              # Ink-sketch SVG illustrations for concept diagrams
-
-content/                 # Reserved for future MDX content files
+  sketches/               # Ink-sketch SVG illustrations
 ```
 
 ---
 
-## Available scripts
+## Scripts
 
-| Script            | Command                | What it does                                         |
-| ----------------- | ---------------------- | ---------------------------------------------------- |
-| Dev server        | `npm run dev`          | Next.js + Turbopack with hot reload                  |
-| Production build  | `npm run build`        | Full static export — typecheck + compile + prerender |
-| Production server | `npm start`            | Serves the built `.next/` output locally             |
-| Lint              | `npm run lint`         | ESLint across all source files                       |
-| Typecheck         | `npm run typecheck`    | `tsc --noEmit` — type errors without emitting JS     |
-| Format            | `npm run format`       | Prettier — rewrites all files in place               |
-| Format check      | `npm run format:check` | Prettier — check only, exits non-zero if dirty (CI)  |
+| Command                | What it does                                          |
+| ---------------------- | ----------------------------------------------------- |
+| `npm run dev`          | Next.js dev server with Turbopack and hot reload      |
+| `npm run build`        | Full build — typecheck, compile, prerender all routes |
+| `npm start`            | Serve the built `.next/` output locally               |
+| `npm run lint`         | ESLint                                                |
+| `npm run typecheck`    | `tsc --noEmit` — type errors only, no emit            |
+| `npm run format`       | Prettier — rewrite all files in place                 |
+| `npm run format:check` | Prettier — check only; exits non-zero if dirty (CI)   |
 
-Run `npm run lint && npm run typecheck && npm run build` before any commit that changes source files.
+Before committing: `npm run lint && npm run typecheck && npm run build`
 
 ---
 
-## How to edit content
+## Editing content
 
-**Adding or updating a resource**
+**Resources** — `src/lib/resources.ts`
+The single source of truth for every external resource. Each entry is Zod-validated at build time — a missing required field or a bad URL fails the build. Never add a URL you haven't verified.
 
-All curated resources live in one file: `src/lib/resources.ts`. Each entry is a typed object validated by the `ResourceSchema` in `src/lib/schema.ts`. Add an entry to the array; the build will fail if required fields are missing or the URL is malformed. Never add a URL you haven't verified — the schema enforces this by intent.
-
-**Editing stage curriculum** (concepts, projects, exit criteria)
-
-Each stage is its own route file:
+**Stage curriculum** (concepts, mathematics, projects, exit criteria)
 
 ```
 src/app/foundations/page.tsx
@@ -160,61 +174,62 @@ src/app/ai-engineer/page.tsx
 src/app/research/page.tsx
 ```
 
-The route file is the content file for that stage. Edit it directly — the template components (`<StageSection>`, `<DepthLadder>`, `<TopicChecklist>`) are curriculum-agnostic; no component code needs to change when curriculum content changes.
+The route file is the content file. Edit it directly — template components (`<StageSection>`, `<DepthLadder>`, `<TopicChecklist>`) are curriculum-agnostic; no component code changes when content changes.
 
-**Editing the math page**
+**Mathematics** — `src/app/mathematics/page.mdx`
+Standard MDX with LaTeX math (`$...$` inline, `$$...$$` display). KaTeX renders at build time.
 
-`src/app/mathematics/page.mdx` — standard MDX with LaTeX math delimiters (`$...$` inline, `$$...$$` display). KaTeX renders at build time.
-
-**Editing the glossary**
-
-`src/app/glossary/page.tsx` — the terms array at the top of the file.
+**Glossary** — `src/app/glossary/page.tsx`
+Edit the terms array at the top of the file.
 
 ---
 
 ## Conventions
 
-- **TypeScript throughout.** No `any`; types are the first line of documentation.
-- **Commit messages follow conventional commits** — `feat:`, `fix:`, `chore:`, `docs:`, `refactor:`. Keep messages short and specific.
-- **Content stays in data files.** Curriculum and resources are in editable `.tsx`/`.ts` data files, not hardcoded into components. If you find yourself editing a component to change copy, that copy belongs in a data file instead.
-- **No invented URLs.** Every external link in `resources.ts` must be a verified, working URL. Use `needsReview: true` on anything that might change (courses, model docs, rapidly-evolving libraries).
-- **§3.8 colour rule.** `route-red` and `teal` are reserved for large/graphical elements (the route line, large CTAs, headers). Never use them on small body text — `text-ink` with a tinted badge background is the correct pattern.
+- **TypeScript throughout.** No `any`; types serve as documentation.
+- **Conventional commits** — `feat:`, `fix:`, `chore:`, `docs:`, `refactor:`. Short, specific messages.
+- **Content lives in data files.** If you're editing a component to change copy, that copy belongs in a data file instead.
+- **No invented URLs.** Every link in `resources.ts` must be a verified URL. Use `needsReview: true` for anything that may change — AI tooling, model docs, rapidly-evolving libraries.
 
 ---
 
 ## License
 
-**Code:** MIT — see [LICENSE](LICENSE). This covers components, configuration, and build tooling.
+**Code:** MIT — see [LICENSE](LICENSE). Covers components, configuration, and build tooling.
 
-**Content:** All rights reserved. The curation — resource selections, editorial verdicts, stage sequencing, and curriculum structure — is original work and is not covered by the code license. Linking to any page is fine; reproducing the curation in bulk is not.
+**Content:** All rights reserved. The curation — resource selections, editorial verdicts, stage sequencing, and curriculum structure — is original work not covered by the code license. Linking to any page is fine; reproducing the curation in bulk is not.
 
 ---
 
 ## Acknowledgements
 
-Praxia points to the shoulders it stands on. These are the major free resources the site recommends most frequently:
+The major free resources this site recommends most frequently:
 
-- **ISLR** — _An Introduction to Statistical Learning_, James, Witten, Hastie, Tibshirani. Free PDF at [statlearning.com](https://www.statlearning.com).
-- **ESL** — _The Elements of Statistical Learning_, Hastie, Tibshirani, Friedman. Free PDF at [hastie.su.domains/ElemStatLearn](https://hastie.su.domains/ElemStatLearn/).
-- **MML** — _Mathematics for Machine Learning_, Deisenroth, Faisal, Ong. Free PDF at [mml-book.github.io](https://mml-book.github.io).
-- **fast.ai** — Jeremy Howard & Rachel Thomas. Free at [fast.ai](https://www.fast.ai).
-- **StatQuest** — Josh Starmer. Free on [YouTube](https://www.youtube.com/@statquest).
-- **d2l.ai** — _Dive into Deep Learning_, Zhang, Lipton, Li, Smola. Free at [d2l.ai](https://d2l.ai).
-- **CS50x** — Harvard University / David Malan. Free at [cs50.harvard.edu/x](https://cs50.harvard.edu/x/).
-- **Karpathy's "Neural Networks: Zero to Hero"** — Andrej Karpathy. Free on [YouTube](https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ).
+| Resource                                       | Authors                           | Link                                                                                |
+| ---------------------------------------------- | --------------------------------- | ----------------------------------------------------------------------------------- |
+| An Introduction to Statistical Learning (ISLR) | James, Witten, Hastie, Tibshirani | [statlearning.com](https://www.statlearning.com)                                    |
+| The Elements of Statistical Learning (ESL)     | Hastie, Tibshirani, Friedman      | [hastie.su.domains/ElemStatLearn](https://hastie.su.domains/ElemStatLearn/)         |
+| Mathematics for Machine Learning (MML)         | Deisenroth, Faisal, Ong           | [mml-book.github.io](https://mml-book.github.io)                                    |
+| fast.ai                                        | Jeremy Howard & Rachel Thomas     | [fast.ai](https://www.fast.ai)                                                      |
+| StatQuest with Josh Starmer                    | Josh Starmer                      | [YouTube](https://www.youtube.com/@statquest)                                       |
+| Dive into Deep Learning (d2l.ai)               | Zhang, Lipton, Li, Smola          | [d2l.ai](https://d2l.ai)                                                            |
+| CS50x                                          | Harvard / David Malan             | [cs50.harvard.edu/x](https://cs50.harvard.edu/x/)                                   |
+| Neural Networks: Zero to Hero                  | Andrej Karpathy                   | [YouTube](https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ) |
 
-These resources are recommended because they are the best available for their respective topics — not because of any commercial relationship.
+Recommended because they are the best available for their respective topics — not because of any commercial relationship.
 
 ---
 
 ## Related work
 
-Projects where I applied the ideas this map describes — from the same territory the site points to:
+Projects where I applied the ideas this map describes:
 
-- **[Conformal prediction — coverage-guaranteed medical AI](https://github.com/Priyrajsinh/Conformal-Prediction-Uncertainty-Aware-Medical-AI)** — XGBoost + MAPIE conformal prediction on UCI Heart Disease data; the Stage 2 (Data Scientist) uncertainty-quantification project pattern in practice.
-- **[Causal ML — heterogeneous treatment effects](https://github.com/Priyrajsinh/causal-ml-hte)** — Double ML causal inference with SHAP and a deployed dashboard; demonstrates the Stage 2 skills of going beyond prediction into explanation and causal reasoning.
-- **[Real-time ML drift monitoring](https://github.com/Priyrajsinh/RealTime-ML-Drift-Monitoring)** — PSI, KS test, SHAP, and Evidently in a live monitoring pipeline; the Stage 3 (ML Engineer) production-observability work the map describes.
-- **[Predictive maintenance — RUL forecasting](https://github.com/Priyrajsinh/before-it-breaks)** — LSTM-based Remaining Useful Life forecasting on NASA CMAPSS jet-engine data; end-to-end Stage 3 time-series modelling.
-- **[Hybrid LLM jailbreak detector](https://github.com/Priyrajsinh/Hybrid-LLM-Jailbreak-Detector)** — a safety classifier combining multiple signals for 99.88% detection accuracy; Stage 4 (AI Engineer) applied work in LLM safety and evaluation.
+| Project                                                                                                               | Stage   | What it demonstrates                                                                                      |
+| --------------------------------------------------------------------------------------------------------------------- | ------- | --------------------------------------------------------------------------------------------------------- |
+| [Conformal prediction — medical AI](https://github.com/Priyrajsinh/Conformal-Prediction-Uncertainty-Aware-Medical-AI) | Stage 2 | XGBoost + MAPIE conformal prediction on UCI Heart Disease; coverage-guaranteed uncertainty quantification |
+| [Causal ML / heterogeneous treatment effects](https://github.com/Priyrajsinh/causal-ml-hte)                           | Stage 2 | Double ML causal inference with SHAP and a deployed dashboard                                             |
+| [Real-time ML drift monitoring](https://github.com/Priyrajsinh/RealTime-ML-Drift-Monitoring)                          | Stage 3 | PSI, KS test, SHAP, and Evidently in a live production monitoring pipeline                                |
+| [Predictive maintenance — RUL forecasting](https://github.com/Priyrajsinh/before-it-breaks)                           | Stage 3 | LSTM-based Remaining Useful Life forecasting on NASA CMAPSS jet-engine data                               |
+| [Hybrid LLM jailbreak detector](https://github.com/Priyrajsinh/Hybrid-LLM-Jailbreak-Detector)                         | Stage 4 | Multi-signal safety classifier — 99.88% detection accuracy                                                |
 
 The map is only as trustworthy as the work behind it. These are the receipts.
