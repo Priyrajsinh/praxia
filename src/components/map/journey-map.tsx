@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { Fragment } from "react";
 import Link from "next/link";
@@ -17,15 +17,15 @@ import { useCompleted } from "@/lib/use-progress";
 import { cn } from "@/lib/utils";
 
 /**
- * The /map interactive overview (PROJECT_PLAN §6, §3.4).
+ * The /map interactive overview (PROJECT_PLAN Â§6, Â§3.4).
  *
  * Architecture mirrors the left-rail RouteSpine: a decorative SVG layer
  * (aria-hidden) holds the visual paths and surveyor-mark nodes; a real
  * <nav><ol> of focusable stage links is absolutely positioned on top, sitting
- * exactly on each node — the keyboard/SR target and the visual label in one.
+ * exactly on each node â€” the keyboard/SR target and the visual label in one.
  *
  * Differences from the spine:
- *  - No scroll animation — the map is an overview, always fully drawn.
+ *  - No scroll animation â€” the map is an overview, always fully drawn.
  *  - Research branch (teal) forks from Stage 2, with a dashed continuation
  *    line and annotation indicating where the track leads.
  *  - Labels appear inline next to each node (the spine uses sr-only text).
@@ -179,7 +179,7 @@ function MapResearchMark({
         strokeWidth={current ? 2.2 : 1.8}
         vectorEffect="non-scaling-stroke"
       />
-      {/* Upward arrow — research track "elevates" beyond the practical stages */}
+      {/* Upward arrow â€” research track "elevates" beyond the practical stages */}
       <line
         x1={cx}
         y1={cy + 5}
@@ -227,7 +227,7 @@ export function JourneyMap() {
 
   return (
     <div>
-      {/* Visual map — the decorative SVG + interactive overlay */}
+      {/* Visual map â€” the decorative SVG + interactive overlay */}
       <div
         className="relative w-full"
         style={{ aspectRatio: `${VBW} / ${VBH}` }}
@@ -239,7 +239,7 @@ export function JourneyMap() {
           className="absolute inset-0 h-full w-full overflow-visible"
           aria-hidden="true"
         >
-          {/* Ghost of full main route — sets visual expectation */}
+          {/* Ghost of full main route â€” sets visual expectation */}
           <path
             d={mapRoute}
             fill="none"
@@ -269,7 +269,7 @@ export function JourneyMap() {
               vectorEffect="non-scaling-stroke"
             />
           ) : null}
-          {/* Research branch — teal, forks right from Stage 2 */}
+          {/* Research branch â€” teal, forks right from Stage 2 */}
           <path
             d={researchBranch}
             fill="none"
@@ -278,7 +278,7 @@ export function JourneyMap() {
             strokeLinecap="round"
             vectorEffect="non-scaling-stroke"
           />
-          {/* Research continuation: dashed teal going down alongside Stage 3–4 */}
+          {/* Research continuation: dashed teal going down alongside Stage 3â€“4 */}
           <path
             d={`M ${researchNode.x} ${RESEARCH_CONT_START_Y} L ${researchNode.x} ${RESEARCH_CONT_END_Y}`}
             fill="none"
@@ -318,7 +318,7 @@ export function JourneyMap() {
           />
         </svg>
 
-        {/* Interactive + labelled overlay — the real DOM */}
+        {/* Interactive + labelled overlay â€” the real DOM */}
         <nav
           aria-label="Your journey through the stages"
           className="absolute inset-0"
@@ -345,11 +345,11 @@ export function JourneyMap() {
                   >
                     <span className="sr-only">
                       {node.stage}: {node.label}
-                      {isCurrent ? " — you are here" : ""}
-                      {isDone ? " — completed" : ""}
+                      {isCurrent ? " â€” you are here" : ""}
+                      {isDone ? " â€” completed" : ""}
                     </span>
                   </Link>
-                  {/* Visual label to the right — not interactive (decorative copy) */}
+                  {/* Visual label to the right â€” not interactive (decorative copy) */}
                   <div
                     className="absolute left-0 top-0 -translate-y-1/2 pl-6 pointer-events-none select-none whitespace-nowrap"
                     aria-hidden="true"
@@ -360,7 +360,7 @@ export function JourneyMap() {
                     <p
                       className={cn(
                         "mt-0.5 text-xs font-semibold leading-tight",
-                        // B1: brass fails AA on small text — use ink for all variants.
+                        // B1: brass fails AA on small text â€” use ink for all variants.
                         // The SVG mark (brass ring / checkmark) carries the visual accent.
                         isDone ? "text-faded-ink" : "text-ink",
                       )}
@@ -368,7 +368,7 @@ export function JourneyMap() {
                       {node.label}
                     </p>
                     {isCurrent ? (
-                      // B2: brass fails AA at 12 px — use faded-ink (5.22:1 on paper)
+                      // B2: brass fails AA at 12 px â€” use faded-ink (5.22:1 on paper)
                       <p className="mt-0.5 font-hand text-xs leading-none text-faded-ink">
                         you are here
                       </p>
@@ -392,9 +392,9 @@ export function JourneyMap() {
                 className="absolute left-0 top-0 -translate-x-1/2 -translate-y-1/2 block h-9 w-9 rounded-full"
               >
                 <span className="sr-only">
-                  {researchNode.stage}: {researchNode.label} — branches after
+                  {researchNode.stage}: {researchNode.label} â€” branches after
                   Stage 2 (Data Scientist). Leads to MSc, PhD, and beyond.
-                  {isResearchCurrent ? " — you are here" : ""}
+                  {isResearchCurrent ? " â€” you are here" : ""}
                 </span>
               </Link>
               {/* Label centred below the research node */}
@@ -409,7 +409,7 @@ export function JourneyMap() {
                   Research
                 </p>
                 {isResearchCurrent ? (
-                  // B2 (mirror): brass fails AA — faded-ink instead
+                  // B2 (mirror): brass fails AA â€” faded-ink instead
                   <p className="mt-0.5 font-hand text-xs leading-none text-faded-ink whitespace-nowrap">
                     you are here
                   </p>
@@ -428,18 +428,19 @@ export function JourneyMap() {
             top: pct(RESEARCH_CONT_END_Y + 14, VBH),
           }}
         >
-          {/* B3: opacity-80 on 11 px teal → effective contrast 3.46:1 (fails AA). Full teal = 5.08:1. */}
+          {/* B3: opacity-80 on 11 px teal â†’ effective contrast 3.46:1 (fails AA). Full teal = 5.08:1. */}
           <p className="font-hand text-[0.6875rem] leading-snug text-teal whitespace-nowrap">
-            MSc → Researcher
-            <br />→ Principal / Faculty
+            MSc â†’ Researcher
+            <br />
+            â†’ Principal / Faculty
           </p>
         </div>
       </div>
 
-      {/* Depth ladder — the five rungs every stage reaches toward (§6) */}
+      {/* Depth ladder â€” the five rungs every stage reaches toward (Â§6) */}
       <div className="mt-10 border-t border-margin pt-6">
         <p className="mb-3 font-mono text-[0.625rem] uppercase tracking-widest text-faded-ink">
-          Depth at every stage →
+          Depth at every stage â†’
         </p>
         <div className="flex flex-wrap items-baseline gap-x-0.5 gap-y-1">
           {(
@@ -459,7 +460,7 @@ export function JourneyMap() {
                   className="px-0.5 text-sm leading-none text-faded-ink"
                   aria-hidden="true"
                 >
-                  ──►
+                  â”€â”€â–º
                 </span>
               ) : null}
               <span className="font-hand text-lg leading-none text-ink whitespace-nowrap">
@@ -469,7 +470,7 @@ export function JourneyMap() {
           ))}
         </div>
         <p className="mt-3 font-hand text-base leading-snug text-faded-ink">
-          The map names what Expert and Principal look like — not just
+          The map names what Expert and Principal look like â€” not just
           Competent.
         </p>
       </div>

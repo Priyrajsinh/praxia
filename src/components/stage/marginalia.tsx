@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+﻿import { cn } from "@/lib/utils";
 import type { ReactNode } from "react";
 
 interface MarginaliaProps {
@@ -7,9 +7,9 @@ interface MarginaliaProps {
 }
 
 /**
- * A mentor's aside written in Caveat (the handwritten face) — the human touch
- * §3.4 calls for. On desktop it floats into the margin; on mobile it collapses
- * to an inline callout (§3.5).
+ * A mentor's aside written in Caveat (the handwritten face) â€” the human touch
+ * Â§3.4 calls for. On desktop it floats into the margin; on mobile it collapses
+ * to an inline callout (Â§3.5).
  *
  * Uses a negative right margin so it visually pulls toward the margin column on
  * wide viewports. The reading column's overflow is visible by default so this

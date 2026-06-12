@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { resources } from "@/lib/resources";
 import { ResourcesClient } from "@/components/resources/resources-client";
@@ -8,7 +8,18 @@ import { Marginalia } from "@/components/stage/marginalia";
 export const metadata: Metadata = {
   title: "Resources",
   description:
-    "Every recommended book, course, paper, and doc across the Praxia map — ranked, with honest verdicts and free picks flagged.",
+    "Every recommended book, course, paper, and doc across the Praxia map â€” ranked, with honest verdicts and free picks flagged.",
+  openGraph: {
+    title: "Resources Â· Praxia",
+    description:
+      "Every recommended book, course, paper, and doc â€” ranked within each topic, honest verdicts, free picks flagged. Filter by type, level, cost, or stage.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Resources Â· Praxia",
+    description:
+      "Every recommended book, course, paper, and doc â€” ranked within each topic, honest verdicts, free picks flagged. Filter by type, level, cost, or stage.",
+  },
 };
 
 export default function ResourcesPage() {
@@ -22,7 +33,7 @@ export default function ResourcesPage() {
           Resources
         </h1>
         <p className="mt-4 max-w-prose text-base leading-relaxed text-faded-ink">
-          Every recommended book, course, paper, and doc across the map —
+          Every recommended book, course, paper, and doc across the map â€”
           ranked, with honest verdicts and a clear &ldquo;start here.&rdquo; No
           dead weight. Hover any card to read the full verdict.
         </p>
@@ -35,7 +46,7 @@ export default function ResourcesPage() {
         </Marginalia>
 
         <p>
-          Each entry is ranked within its topic — rank 1 is the recommended
+          Each entry is ranked within its topic â€” rank 1 is the recommended
           starting point. Resources that appear in multiple stages are listed
           once with all their stages tagged; filter by stage to see what belongs
           where.
@@ -43,9 +54,9 @@ export default function ResourcesPage() {
         <p>
           Free picks with rank 1 are flagged with a{" "}
           <span className="inline-block rounded bg-teal/10 px-1.5 py-0.5 font-mono text-[0.65rem] uppercase tracking-wide text-ink">
-            ★ Free pick
+            â˜… Free pick
           </span>{" "}
-          badge — those are the highest-ROI starting points if you are budget-
+          badge â€” those are the highest-ROI starting points if you are budget-
           or time-constrained. &ldquo;Needs review&rdquo; entries are in
           fast-moving areas (particularly Stage&nbsp;4); treat their details as
           a snapshot, not a guarantee.
@@ -58,7 +69,7 @@ export default function ResourcesPage() {
         </p>
       </StageSection>
 
-      {/* Client component — filters, search, card grid */}
+      {/* Client component â€” filters, search, card grid */}
       <ResourcesClient resources={resources} />
     </article>
   );

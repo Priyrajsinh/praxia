@@ -1,4 +1,4 @@
-import type { Resource } from "@/lib/schema";
+﻿import type { Resource } from "@/lib/schema";
 import { ResourceCard } from "./resource-card";
 
 interface ResourceGroupProps {
@@ -27,7 +27,7 @@ interface ResourceGroupsProps {
 }
 
 // Groups resources into Books / Courses & Videos / Papers / Docs & Tools
-// in the order §9 specifies, skipping empty groups.
+// in the order Â§9 specifies, skipping empty groups.
 export function ResourceGroups({ resources }: ResourceGroupsProps) {
   const books = resources.filter((r) => r.type === "Book");
   const coursesAndVideos = resources.filter(

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { getResourcesByStage } from "@/lib/resources";
 import { validateTopics } from "@/lib/schema";
@@ -10,10 +10,21 @@ import { StageSection } from "@/components/stage/stage-section";
 export const metadata: Metadata = {
   title: "Research Track",
   description:
-    "The research branch of the Praxia map — from reading papers to creating new knowledge. Covers the 5-rung ladder, research skills, the math depth required, and the project arc from reproduction to publication.",
+    "The research branch of the Praxia map â€” from reading papers to creating new knowledge. Covers the 5-rung ladder, research skills, the math depth required, and the project arc from reproduction to publication.",
+  openGraph: {
+    title: "Research Track Â· Praxia",
+    description:
+      "Branches from Stage 2. The route from reading papers to creating new knowledge â€” MSc, PhD, and beyond.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Research Track Â· Praxia",
+    description:
+      "Branches from Stage 2. The route from reading papers to creating new knowledge â€” MSc, PhD, and beyond.",
+  },
 };
 
-// ── Research ladder (different from the standard depth ladder) ──────────────
+// â”€â”€ Research ladder (different from the standard depth ladder) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const RESEARCH_RUNGS = [
   {
     label: "Reader",
@@ -27,7 +38,7 @@ const RESEARCH_RUNGS = [
   },
   {
     label: "Contributor",
-    desc: "A defensible novel increment — workshop or short paper",
+    desc: "A defensible novel increment â€” workshop or short paper",
     tealActive: true,
   },
   {
@@ -42,78 +53,78 @@ const RESEARCH_RUNGS = [
   },
 ] as const;
 
-// ── Core research skills (§7 section 3) — Zod-validated at build time ───────
+// â”€â”€ Core research skills (Â§7 section 3) â€” Zod-validated at build time â”€â”€â”€â”€â”€â”€â”€
 const skills = validateTopics([
   {
     concept: "The 3-pass paper reading method",
     whyItMatters:
-      "Reading papers front-to-back once is the wrong strategy — it is slow, you miss the contribution, and you retain almost nothing. Keshav's 3-pass method (skim title/abstract/conclusion → read carefully skip proofs → study proofs with paper and pen) is the professional standard. Apply it to every paper from day one.",
+      "Reading papers front-to-back once is the wrong strategy â€” it is slow, you miss the contribution, and you retain almost nothing. Keshav's 3-pass method (skim title/abstract/conclusion â†’ read carefully skip proofs â†’ study proofs with paper and pen) is the professional standard. Apply it to every paper from day one.",
     depth: "Production",
   },
   {
     concept: "Literature survey and synthesis",
     whyItMatters:
-      "A research question already answered is not a research question. The literature survey is the first act of every serious project — finding the canonical papers, tracing their citations, identifying the gap your work addresses. This skill compounds: the more papers you have read, the faster you recognise novelty.",
+      "A research question already answered is not a research question. The literature survey is the first act of every serious project â€” finding the canonical papers, tracing their citations, identifying the gap your work addresses. This skill compounds: the more papers you have read, the faster you recognise novelty.",
     depth: "Expert",
   },
   {
     concept: "Reproducibility and honest benchmarking",
     whyItMatters:
-      "ML has a reproducibility crisis. Reported numbers often depend on undisclosed hyperparameter sweeps, cherry-picked seeds, or mismatched baselines. Matching a paper's numbers exactly (same data split, same seed, same metric) is surprisingly hard — and the discipline of doing it exposes exactly where results are fragile.",
+      "ML has a reproducibility crisis. Reported numbers often depend on undisclosed hyperparameter sweeps, cherry-picked seeds, or mismatched baselines. Matching a paper's numbers exactly (same data split, same seed, same metric) is surprisingly hard â€” and the discipline of doing it exposes exactly where results are fragile.",
     depth: "Expert",
   },
   {
     concept: "Experimental design and ablations",
     whyItMatters:
-      "A result without ablations is a demonstration, not a finding. Ablations answer 'which component actually caused the gain?' — they isolate variables the same way a controlled experiment does. A well-designed ablation table is often more valuable than the headline result.",
+      "A result without ablations is a demonstration, not a finding. Ablations answer 'which component actually caused the gain?' â€” they isolate variables the same way a controlled experiment does. A well-designed ablation table is often more valuable than the headline result.",
     depth: "Expert",
   },
   {
     concept: "Statistical rigour in evaluation",
     whyItMatters:
-      "Reporting a single mean across three seeds is not rigour. The standard is: report mean and standard deviation across ≥5 seeds, compare against the strongest relevant baseline, and use a significance test if the margins are tight. Without this, you cannot distinguish signal from luck.",
+      "Reporting a single mean across three seeds is not rigour. The standard is: report mean and standard deviation across â‰¥5 seeds, compare against the strongest relevant baseline, and use a significance test if the margins are tight. Without this, you cannot distinguish signal from luck.",
     depth: "Expert",
   },
   {
     concept: "Scientific writing and the LaTeX toolchain",
     whyItMatters:
-      "The clearest ideas in the worst prose get rejected. Academic writing has specific conventions — abstract structure, related work framing, contribution list, limitations section — that you learn by reading many papers and writing under review. LaTeX, BibTeX, and Overleaf are the required toolchain; learn them before you need them.",
+      "The clearest ideas in the worst prose get rejected. Academic writing has specific conventions â€” abstract structure, related work framing, contribution list, limitations section â€” that you learn by reading many papers and writing under review. LaTeX, BibTeX, and Overleaf are the required toolchain; learn them before you need them.",
     depth: "Production",
   },
   {
     concept: "The peer review process",
     whyItMatters:
-      "Understanding how your work will be reviewed changes how you write it. Reviews are typically double-blind; reviewers allocate 1–3 hours to a paper; a paper that does not clearly state its contribution in the first two pages will not recover. Reviewing other papers yourself — as a sub-reviewer — is the fastest way to learn this.",
+      "Understanding how your work will be reviewed changes how you write it. Reviews are typically double-blind; reviewers allocate 1â€“3 hours to a paper; a paper that does not clearly state its contribution in the first two pages will not recover. Reviewing other papers yourself â€” as a sub-reviewer â€” is the fastest way to learn this.",
     depth: "Competent",
   },
   {
     concept: "Conference and journal venue landscape",
     whyItMatters:
-      "Not all venues are equal. In ML: NeurIPS, ICML, ICLR are the top conferences; JMLR and TMLR are the top journals (TMLR is open, rolling). Subfield venues: ACL/EMNLP (NLP), CVPR/ECCV (vision), AAAI, UAI. Workshop papers are a legitimate entry point. Choosing the right venue for a contribution matters — over-targeting wastes time, under-targeting limits visibility.",
+      "Not all venues are equal. In ML: NeurIPS, ICML, ICLR are the top conferences; JMLR and TMLR are the top journals (TMLR is open, rolling). Subfield venues: ACL/EMNLP (NLP), CVPR/ECCV (vision), AAAI, UAI. Workshop papers are a legitimate entry point. Choosing the right venue for a contribution matters â€” over-targeting wastes time, under-targeting limits visibility.",
     depth: "Competent",
   },
   {
     concept: "Research ethics and the sociology of science",
     whyItMatters:
-      "Fabrication and p-hacking end careers and set back entire fields. Practical ethics: never tune on the test set, always run ablations against the right baseline, attribute correctly, disclose negative results in papers. The harder questions — bias in datasets, dual-use implications, who benefits — are increasingly expected in published work.",
+      "Fabrication and p-hacking end careers and set back entire fields. Practical ethics: never tune on the test set, always run ablations against the right baseline, attribute correctly, disclose negative results in papers. The harder questions â€” bias in datasets, dual-use implications, who benefits â€” are increasingly expected in published work.",
     depth: "Production",
   },
   {
     concept: "Building a research identity",
     whyItMatters:
-      "Research is a social enterprise. An arXiv preprint, a GitHub repo that others cite, a presence at the right workshops — these compound over years. Start early: put code on GitHub, put preprints on arXiv, engage with the community. An advisor matters enormously — choose for research agenda fit and mentorship quality, not prestige alone.",
+      "Research is a social enterprise. An arXiv preprint, a GitHub repo that others cite, a presence at the right workshops â€” these compound over years. Start early: put code on GitHub, put preprints on arXiv, engage with the community. An advisor matters enormously â€” choose for research agenda fit and mentorship quality, not prestige alone.",
     depth: "Competent",
   },
 ]);
 
-// ── Resources ────────────────────────────────────────────────────────────────
+// â”€â”€ Resources â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const stageResources = getResourcesByStage("research");
 
-// ── Page ─────────────────────────────────────────────────────────────────────
+// â”€â”€ Page â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export default function Page() {
   return (
     <article className="space-y-0">
-      {/* ── Stage header ─────────────────────────────────────────────────── */}
+      {/* â”€â”€ Stage header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <header className="mb-10">
         <div className="mb-3 flex flex-wrap items-center gap-2">
           <span className="inline-flex items-center rounded border border-teal/30 bg-teal/10 px-2 py-0.5 font-mono text-xs uppercase tracking-wider text-ink">
@@ -133,7 +144,7 @@ export default function Page() {
 
         {/* Research ladder */}
         <ol
-          aria-label="Research ladder — five rungs from reader to principal"
+          aria-label="Research ladder â€” five rungs from reader to principal"
           className="mb-5 flex list-none flex-wrap gap-1.5 p-0"
         >
           {RESEARCH_RUNGS.map((rung, i) => (
@@ -146,7 +157,7 @@ export default function Page() {
               </span>
               <span>
                 {rung.label}
-                <span className="sr-only"> — {rung.desc}</span>
+                <span className="sr-only"> â€” {rung.desc}</span>
               </span>
             </li>
           ))}
@@ -168,7 +179,7 @@ export default function Page() {
         </dl>
       </header>
 
-      {/* ── 1. What this track actually is ───────────────────────────────── */}
+      {/* â”€â”€ 1. What this track actually is â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <StageSection id="what-it-is" title="What this track actually is">
         <Marginalia>
           Most practitioners read papers. Very few can reproduce them. Fewer
@@ -178,7 +189,7 @@ export default function Page() {
 
         <p className="mb-4 leading-relaxed text-faded-ink">
           The research track is not a job title. It is a{" "}
-          <strong className="text-ink">mode of operation</strong> — a
+          <strong className="text-ink">mode of operation</strong> â€” a
           disposition toward open questions, rigorous evaluation, and the slow
           accumulation of genuine understanding. It branches from Stage 2
           because that is the first point where you have enough mathematical and
@@ -189,7 +200,7 @@ export default function Page() {
           shipped, research progress is measured by understanding produced. The
           artefacts look different: papers, proofs, reproductions, ablation
           tables, and eventually novel results. The time horizon is different
-          too — a PhD is typically four to six years, and a single publishable
+          too â€” a PhD is typically four to six years, and a single publishable
           result may take six months of failed attempts.
         </p>
         <p className="leading-relaxed text-faded-ink">
@@ -198,20 +209,20 @@ export default function Page() {
           after it. Many productive ML researchers are also capable engineers;
           many ML engineers develop genuine research taste. You do not have to
           choose. You do, however, have to be honest about the difference
-          between building things and understanding things — and invest in both
-          deliberately.
+          between building things and understanding things â€” and invest in
+          both deliberately.
         </p>
       </StageSection>
 
-      {/* ── 2. Core research skills ──────────────────────────────────────── */}
+      {/* â”€â”€ 2. Core research skills â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <StageSection
         id="core-skills"
         title="Core research skills"
-        eyebrow="§7 · Section 3"
+        eyebrow="Â§7 Â· Section 3"
       >
         <p className="mb-6 leading-relaxed text-faded-ink">
           These are the{" "}
-          <strong className="text-ink">craft skills of research</strong> — the
+          <strong className="text-ink">craft skills of research</strong> â€” the
           things every productive researcher does, regardless of subfield. The
           depth tags below indicate the minimum level required to contribute
           work to the research community.
@@ -219,15 +230,15 @@ export default function Page() {
         <TopicChecklist topics={skills} />
       </StageSection>
 
-      {/* ── 3. Mathematics: the non-negotiable gate ──────────────────────── */}
+      {/* â”€â”€ 3. Mathematics: the non-negotiable gate â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <StageSection
         id="mathematics"
         title="Mathematics: the non-negotiable gate"
-        eyebrow="§7 · Section 4"
+        eyebrow="Â§7 Â· Section 4"
       >
         <Marginalia>
           This is where most practitioners stop. The math required for serious
-          research is real — but it is learnable. Treat it as a long-term
+          research is real â€” but it is learnable. Treat it as a long-term
           parallel investment, not a prerequisite you must complete first.
         </Marginalia>
 
@@ -244,7 +255,7 @@ export default function Page() {
             /mathematics
           </Link>{" "}
           curriculum covers the full ladder. Below is what this track
-          specifically requires, beyond what Stages 0–4 already demand.
+          specifically requires, beyond what Stages 0â€“4 already demand.
         </p>
 
         <div className="space-y-6">
@@ -294,14 +305,14 @@ export default function Page() {
               >
                 Tier 3 of the math curriculum
               </Link>
-              . Build them in parallel with your research work — you will need
+              . Build them in parallel with your research work â€” you will need
               each one as it becomes relevant to your subfield:
             </p>
             <ul className="space-y-2 text-sm text-faded-ink">
               {[
                 [
                   "Real analysis essentials",
-                  "Sequences, continuity, convergence — the foundation of everything that says 'this converges' or 'this is smooth.'",
+                  "Sequences, continuity, convergence â€” the foundation of everything that says 'this converges' or 'this is smooth.'",
                 ],
                 [
                   "Measure-theoretic probability",
@@ -309,24 +320,24 @@ export default function Page() {
                 ],
                 [
                   "Information theory",
-                  "Entropy, KL divergence, mutual information — ubiquitous in deep learning theory, VAEs, RL, and compression.",
+                  "Entropy, KL divergence, mutual information â€” ubiquitous in deep learning theory, VAEs, RL, and compression.",
                 ],
                 [
                   "Statistical learning theory",
-                  "PAC learning, VC dimension, Rademacher complexity, generalization bounds — the mathematical language for asking 'why does this generalise?'",
+                  "PAC learning, VC dimension, Rademacher complexity, generalization bounds â€” the mathematical language for asking 'why does this generalise?'",
                 ],
                 [
                   "Advanced optimization",
-                  "Duality, non-convex landscapes, saddle points, second-order methods — needed for understanding why gradient descent works, when it does not, and what the alternatives are.",
+                  "Duality, non-convex landscapes, saddle points, second-order methods â€” needed for understanding why gradient descent works, when it does not, and what the alternatives are.",
                 ],
                 [
                   "Probabilistic graphical models",
-                  "Bayesian networks, Markov random fields, variational inference — the language of structured uncertainty; PRML and Murphy are the references.",
+                  "Bayesian networks, Markov random fields, variational inference â€” the language of structured uncertainty; PRML and Murphy are the references.",
                 ],
               ].map(([term, def]) => (
                 <li key={term} className="flex gap-2">
                   <span className="mt-0.5 shrink-0 text-ink" aria-hidden="true">
-                    ▸
+                    â–¸
                   </span>
                   <span>
                     <strong className="text-ink">{term}:</strong> {def}
@@ -338,11 +349,11 @@ export default function Page() {
         </div>
       </StageSection>
 
-      {/* ── 4. Tools and scientific craft ────────────────────────────────── */}
+      {/* â”€â”€ 4. Tools and scientific craft â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <StageSection
         id="tools"
         title="Tools and scientific craft"
-        eyebrow="§7 · Section 5"
+        eyebrow="Â§7 Â· Section 5"
       >
         <p className="mb-5 leading-relaxed text-faded-ink">
           Research has its own tool stack. These are the ones that matter
@@ -353,7 +364,7 @@ export default function Page() {
           {[
             {
               tool: "LaTeX + Overleaf",
-              desc: "The mandatory writing toolchain. LaTeX for typesetting; BibTeX/natbib for citations; Overleaf for collaboration. Learn it before you need to submit a paper — the learning curve at deadline time is brutal.",
+              desc: "The mandatory writing toolchain. LaTeX for typesetting; BibTeX/natbib for citations; Overleaf for collaboration. Learn it before you need to submit a paper â€” the learning curve at deadline time is brutal.",
               level: "Production",
             },
             {
@@ -363,7 +374,7 @@ export default function Page() {
             },
             {
               tool: "Papers With Code",
-              desc: "The fastest way to check SOTA and find reproducible implementations. Benchmark tables with linked code — use it before starting any baselines work.",
+              desc: "The fastest way to check SOTA and find reproducible implementations. Benchmark tables with linked code â€” use it before starting any baselines work.",
               level: "Production",
             },
             {
@@ -373,12 +384,12 @@ export default function Page() {
             },
             {
               tool: "Jupyter + Python scripts",
-              desc: "Jupyter for exploration and visualisation; Python scripts for reproducible experiments (notebooks are not reproducible — scripts with fixed seeds are). The workflow: explore in a notebook, crystallise into a script, run sweeps from the script.",
+              desc: "Jupyter for exploration and visualisation; Python scripts for reproducible experiments (notebooks are not reproducible â€” scripts with fixed seeds are). The workflow: explore in a notebook, crystallise into a script, run sweeps from the script.",
               level: "Production",
             },
             {
               tool: "Zotero or similar",
-              desc: "A reference manager for your personal paper library. Start using one immediately — the cost of not having an organised library compounds painfully once you are trying to write a related-work section.",
+              desc: "A reference manager for your personal paper library. Start using one immediately â€” the cost of not having an organised library compounds painfully once you are trying to write a related-work section.",
               level: "Competent",
             },
           ].map(({ tool, desc, level }) => (
@@ -404,52 +415,52 @@ export default function Page() {
         </div>
       </StageSection>
 
-      {/* ── 5. The project ────────────────────────────────────────────────── */}
+      {/* â”€â”€ 5. The project â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <StageSection
         id="project"
-        title="The project: reproduce → extend → write"
-        eyebrow="§7 · Section 6"
+        title="The project: reproduce â†’ extend â†’ write"
+        eyebrow="Â§7 Â· Section 6"
       >
         <Marginalia>
           Reproduction sounds humble. It is not. Most published results do not
-          fully reproduce on first attempt — and the gap between the paper and
+          fully reproduce on first attempt â€” and the gap between the paper and
           the numbers is where you learn the most.
         </Marginalia>
 
         <p className="mb-6 leading-relaxed text-faded-ink">
           The canonical research project arc has three acts. Each act is a
-          legitimate endpoint — not everyone who starts research reaches the
+          legitimate endpoint â€” not everyone who starts research reaches the
           third.
         </p>
 
         <div className="space-y-5">
           {[
             {
-              act: "Act 1 — Reproduce",
-              duration: "4–8 weeks",
-              badge: "Reader → Reproducer",
+              act: "Act 1 â€” Reproduce",
+              duration: "4â€“8 weeks",
+              badge: "Reader â†’ Reproducer",
               description:
-                "Choose a paper in your area with publicly available code and data. Your goal: match the reported numbers exactly — same evaluation metric, same test split, same model configuration. Do not stop at 'close.' If your numbers differ, find out why.",
+                "Choose a paper in your area with publicly available code and data. Your goal: match the reported numbers exactly â€” same evaluation metric, same test split, same model configuration. Do not stop at 'close.' If your numbers differ, find out why.",
               seniors:
-                "Reproduce without using the authors' code — implement from the paper description only. Then compare your implementation against theirs and document every discrepancy.",
+                "Reproduce without using the authors' code â€” implement from the paper description only. Then compare your implementation against theirs and document every discrepancy.",
             },
             {
-              act: "Act 2 — Extend",
-              duration: "8–16 weeks",
-              badge: "Reproducer → Contributor",
+              act: "Act 2 â€” Extend",
+              duration: "8â€“16 weeks",
+              badge: "Reproducer â†’ Contributor",
               description:
                 "Take your working reproduction and introduce one well-motivated modification: a different architecture, a better baseline, a new evaluation dimension, an application to a new domain. Run a full ablation table. Write up the extension with a proper related-work section.",
               seniors:
-                "Submit the extension to an appropriate workshop (NeurIPS/ICML/ICLR workshops, domain-specific workshops). A rejection with reviewer feedback is highly valuable — treat it as free expert mentorship.",
+                "Submit the extension to an appropriate workshop (NeurIPS/ICML/ICLR workshops, domain-specific workshops). A rejection with reviewer feedback is highly valuable â€” treat it as free expert mentorship.",
             },
             {
-              act: "Act 3 — Write and submit",
-              duration: "8–16 weeks",
-              badge: "Contributor → Lead",
+              act: "Act 3 â€” Write and submit",
+              duration: "8â€“16 weeks",
+              badge: "Contributor â†’ Lead",
               description:
                 "If Act 2 produced a defensible novel result, write it up to full-paper standard using the venue's template. Get feedback from at least two people outside your immediate team before submission. Submit to the appropriate venue.",
               seniors:
-                "Build a coherent agenda: a set of 2–3 related papers that together address a larger question. This is what transitions a contributor into a lead — a multi-paper arc, not isolated results.",
+                "Build a coherent agenda: a set of 2â€“3 related papers that together address a larger question. This is what transitions a contributor into a lead â€” a multi-paper arc, not isolated results.",
             },
           ].map(({ act, duration, badge, description, seniors }) => (
             <div
@@ -462,7 +473,7 @@ export default function Page() {
                 </h3>
                 <span
                   className="inline-flex items-center rounded border border-teal/30 bg-teal/10 px-1.5 py-0.5 font-mono text-xs text-ink"
-                  aria-label={badge.replace(" → ", " to ")}
+                  aria-label={badge.replace(" â†’ ", " to ")}
                 >
                   {badge}
                 </span>
@@ -486,10 +497,10 @@ export default function Page() {
         </div>
       </StageSection>
 
-      {/* ── 6. Resources ──────────────────────────────────────────────────── */}
-      <StageSection id="resources" title="Resources" eyebrow="§7 · Section 7">
+      {/* â”€â”€ 6. Resources â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      <StageSection id="resources" title="Resources" eyebrow="Â§7 Â· Section 7">
         <p className="mb-6 leading-relaxed text-faded-ink">
-          Research draws on resources from every prior stage — the books below
+          Research draws on resources from every prior stage â€” the books below
           are the research-grade step up from ISLR and d2l. The key papers are
           the ones you must have read before claiming familiarity with the
           relevant area. The tools and practice resources are how you stay
@@ -503,15 +514,15 @@ export default function Page() {
         <ResourceGroups resources={stageResources} />
       </StageSection>
 
-      {/* ── 7. How you know you're done (exit criteria per rung) ─────────── */}
+      {/* â”€â”€ 7. How you know you're done (exit criteria per rung) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <StageSection
         id="done"
-        title="How you know you're done — exit criteria per rung"
-        eyebrow="§7 · Section 8"
+        title="How you know you're done â€” exit criteria per rung"
+        eyebrow="Â§7 Â· Section 8"
       >
         <p className="mb-6 leading-relaxed text-faded-ink">
           Unlike the engineering stages, there is no single &ldquo;done.&rdquo;
-          There are rungs — and each rung has concrete, testable criteria.
+          There are rungs â€” and each rung has concrete, testable criteria.
         </p>
 
         <div className="space-y-4">
@@ -519,9 +530,9 @@ export default function Page() {
             {
               rung: "Reader",
               criteria: [
-                "You can read a paper in your area and accurately summarise its contribution, methodology, and limitations — without looking at someone else's summary.",
+                "You can read a paper in your area and accurately summarise its contribution, methodology, and limitations â€” without looking at someone else's summary.",
                 "You can identify what is novel versus what is incremental in a paper.",
-                "You can apply the 3-pass method reliably: first pass ≤ 10 minutes, full read ≤ 2 hours.",
+                "You can apply the 3-pass method reliably: first pass â‰¤ 10 minutes, full read â‰¤ 2 hours.",
               ],
               selfTest:
                 "Pick a paper from a top venue published in the last 6 months. Without reading any blog post or summary: what is the core claim? What is the key experiment? What would have to be true for the claim to fail?",
@@ -529,7 +540,7 @@ export default function Page() {
             {
               rung: "Reproducer",
               criteria: [
-                "You have matched the headline numbers of at least one paper within expected variance (typically ±1–2% for classification metrics).",
+                "You have matched the headline numbers of at least one paper within expected variance (typically Â±1â€“2% for classification metrics).",
                 "You have documented every decision needed to reproduce the result: data split, random seed, hyperparameter choices, evaluation protocol.",
                 "You have identified at least one thing the paper does not tell you that turned out to matter.",
               ],
@@ -539,17 +550,17 @@ export default function Page() {
             {
               rung: "Contributor",
               criteria: [
-                "You have produced at least one result that is novel — not just better numbers on a known benchmark, but a genuinely new finding or a well-motivated new setting.",
+                "You have produced at least one result that is novel â€” not just better numbers on a known benchmark, but a genuinely new finding or a well-motivated new setting.",
                 "You have run a full ablation table that isolates the contribution of each design choice.",
-                "You have a written draft at workshop-paper length (4–6 pages) that someone outside your lab has read and critiqued.",
+                "You have a written draft at workshop-paper length (4â€“6 pages) that someone outside your lab has read and critiqued.",
               ],
               selfTest:
-                "If a reviewer asked 'why does your modification help?' — can you answer with evidence from your ablations, not intuition?",
+                "If a reviewer asked 'why does your modification help?' â€” can you answer with evidence from your ablations, not intuition?",
             },
             {
               rung: "Lead",
               criteria: [
-                "You can articulate a research agenda — a set of 2–3 connected questions where answering one opens the next.",
+                "You can articulate a research agenda â€” a set of 2â€“3 connected questions where answering one opens the next.",
                 "You have mentored at least one more junior researcher through Act 1 or Act 2.",
                 "You have a publication record at recognisable venues.",
               ],
@@ -561,7 +572,7 @@ export default function Page() {
               criteria: [
                 "Others cite your work. Others build on it.",
                 "You can attract talented people to your agenda.",
-                "You have shaped the framing of a problem in your area — not just answered questions, but changed which questions are asked.",
+                "You have shaped the framing of a problem in your area â€” not just answered questions, but changed which questions are asked.",
               ],
               selfTest:
                 "Could you write a compelling 2-page research statement that a hiring committee at a strong research institution would take seriously?",
@@ -581,7 +592,7 @@ export default function Page() {
                       className="mt-0.5 shrink-0 text-ink"
                       aria-hidden="true"
                     >
-                      ✓
+                      âœ“
                     </span>
                     <span>{c}</span>
                   </li>
@@ -600,10 +611,10 @@ export default function Page() {
         </div>
       </StageSection>
 
-      {/* ── 8. Bridge ─────────────────────────────────────────────────────── */}
-      <StageSection id="bridge" title="From here" eyebrow="§7 · Section 9">
+      {/* â”€â”€ 8. Bridge â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      <StageSection id="bridge" title="From here" eyebrow="Â§7 Â· Section 9">
         <p className="mb-6 leading-relaxed text-faded-ink">
-          The research track has no defined terminal stage — Principal/Faculty
+          The research track has no defined terminal stage â€” Principal/Faculty
           is a career endpoint, not a curriculum one. From the Contributor rung
           onward, your development is driven by the field itself:{" "}
           <strong className="text-ink">
@@ -617,13 +628,13 @@ export default function Page() {
             href="/mathematics"
             className="inline-flex items-center gap-1.5 rounded border border-teal/20 bg-teal/5 px-3 py-1.5 font-mono text-sm text-ink transition-colors hover:bg-teal hover:text-paper"
           >
-            Mathematics curriculum →
+            Mathematics curriculum â†’
           </Link>
           <Link
             href="/data-scientist"
             className="inline-flex items-center gap-1.5 rounded border border-teal/20 bg-teal/5 px-3 py-1.5 font-mono text-sm text-ink transition-colors hover:bg-teal hover:text-paper"
           >
-            ← Back to Stage 2
+            â† Back to Stage 2
           </Link>
           <Link
             href="/map"

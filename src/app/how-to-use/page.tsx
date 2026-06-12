@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { StageSection } from "@/components/stage/stage-section";
 import { Marginalia } from "@/components/stage/marginalia";
@@ -6,7 +6,18 @@ import { Marginalia } from "@/components/stage/marginalia";
 export const metadata: Metadata = {
   title: "How to Use This Map",
   description:
-    "How to navigate Praxia and the study methodology that makes it stick — primary sources over tutorials, spaced practice, projects, and teaching to learn.",
+    "How to navigate Praxia and the study methodology that makes it stick â€” primary sources over tutorials, spaced practice, projects, and teaching to learn.",
+  openGraph: {
+    title: "How to Use This Map Â· Praxia",
+    description:
+      "The study methodology behind the map â€” primary sources, spaced practice, projects, and teach-to-learn. How to use this without getting lost.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "How to Use This Map Â· Praxia",
+    description:
+      "The study methodology behind the map â€” primary sources, spaced practice, projects, and teach-to-learn. How to use this without getting lost.",
+  },
 };
 
 export default function HowToUsePage() {
@@ -25,8 +36,8 @@ export default function HowToUsePage() {
         </p>
       </header>
 
-      {/* ── What this is ─────────────────────────────────────────────────── */}
-      <StageSection id="what-this-is" title="What Praxia is — and is not">
+      {/* â”€â”€ What this is â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      <StageSection id="what-this-is" title="What Praxia is â€” and is not">
         <Marginalia>
           A map that shows the route from base camp to the summit is not the
           climb. Reading it carefully is useful. Confusing it for the climb is
@@ -36,23 +47,23 @@ export default function HowToUsePage() {
         <p>
           Praxia is an opinionated, curated route through the Data and AI
           landscape. It tells you what to learn, in what order, and from which
-          sources — sequenced the way you would actually need to know things,
+          sources â€” sequenced the way you would actually need to know things,
           not alphabetically or by how popular the topic was in 2023.
         </p>
 
         <p>
           What it is not: a course. A bootcamp. A certification. A shortcut. The
           map describes a journey that takes most people three to five years of
-          sustained, deliberate practice — from Foundations through AI Engineer
-          — if they are working seriously alongside it. Someone who approaches
-          it as a checklist to tick will reach the end of the list having
-          learned the vocabulary but not the craft.
+          sustained, deliberate practice â€” from Foundations through AI
+          Engineer â€” if they are working seriously alongside it. Someone who
+          approaches it as a checklist to tick will reach the end of the list
+          having learned the vocabulary but not the craft.
         </p>
 
         <p>
           The <Link href="/research">research track</Link> is a branch, not a
           destination. Most people using this map are building toward
-          practitioner roles — Data Analyst, Data Scientist, ML Engineer, AI
+          practitioner roles â€” Data Analyst, Data Scientist, ML Engineer, AI
           Engineer. The research branch is for those who want to contribute new
           knowledge, not just apply existing knowledge. It requires everything
           the main track builds, plus depth in mathematics that most
@@ -60,7 +71,7 @@ export default function HowToUsePage() {
         </p>
       </StageSection>
 
-      {/* ── Navigating the map ───────────────────────────────────────────── */}
+      {/* â”€â”€ Navigating the map â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <StageSection id="navigating" title="Navigating the map">
         <p>
           <strong>
@@ -68,7 +79,7 @@ export default function HowToUsePage() {
           </strong>{" "}
           It shows all five stages in sequence, with the research branch forking
           off Stage 2. Each node is a link. The left-rail route line (on
-          desktop) shows where you are in the journey as you scroll — and you
+          desktop) shows where you are in the journey as you scroll â€” and you
           can mark stages complete to track progress.
         </p>
 
@@ -85,7 +96,7 @@ export default function HowToUsePage() {
           <Link href="/mathematics">/mathematics</Link> and is organised in
           three tiers. Tier 1 covers what you need for Foundations and early
           Stage 1. Tier 2 covers what you need for Stages 2 and 3. Tier 3 is
-          research-grade depth. Stage pages link to specific sections — those
+          research-grade depth. Stage pages link to specific sections â€” those
           links are not decorative. When a stage page says &ldquo;understand
           this derivation,&rdquo; follow the link.
         </p>
@@ -109,12 +120,12 @@ export default function HowToUsePage() {
         </p>
       </StageSection>
 
-      {/* ── Study methodology ────────────────────────────────────────────── */}
+      {/* â”€â”€ Study methodology â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <StageSection id="methodology" title="The study methodology">
         <p>
           The method matters as much as the material. Watching a video course
           and feeling like you understood it is not learning. Learning is the
-          capacity to do something you could not do before — under time
+          capacity to do something you could not do before â€” under time
           pressure, without the worked example in front of you, in a context the
           tutorial did not cover. The following four practices are how that
           capacity builds.
@@ -132,11 +143,11 @@ export default function HowToUsePage() {
         <p>
           A tutorial explains a paper. A textbook explains a field. Neither
           replaces the paper or the field. Praxia lists tutorials and courses
-          because they are valuable entry points — they give you the mental
+          because they are valuable entry points â€” they give you the mental
           model to understand the primary source. But the ceiling of tutorial
           learning is the ceiling of the tutorial author&rsquo;s understanding.
-          Reading the primary source — the textbook, the original paper, the
-          official documentation — removes that ceiling.
+          Reading the primary source â€” the textbook, the original paper, the
+          official documentation â€” removes that ceiling.
         </p>
 
         <p>
@@ -153,8 +164,9 @@ export default function HowToUsePage() {
           Spaced repetition is not optional; it is how biological memory works.
           A concept encountered once, understood once, is mostly forgotten
           within a week. The same concept encountered again at increasing
-          intervals — one day, three days, a week, a month — is consolidated.
-          This is not pop psychology; it is well-replicated cognitive science.
+          intervals â€” one day, three days, a week, a month â€” is
+          consolidated. This is not pop psychology; it is well-replicated
+          cognitive science.
         </p>
 
         <p>
@@ -163,14 +175,14 @@ export default function HowToUsePage() {
           material as you progress. The data analyst who revisits probability
           distributions while studying machine learning finds them three times
           as comprehensible as they did the first time. The repetition is not a
-          signal that you are slow — it is the mechanism.
+          signal that you are slow â€” it is the mechanism.
         </p>
 
         <h3>Projects before you feel ready</h3>
 
         <p>
           The project sections on each stage page describe what to build. Build
-          them — not because they are fun (some are not), but because project
+          them â€” not because they are fun (some are not), but because project
           work is the only mechanism that converts declarative knowledge
           (&ldquo;I know what a t-test is&rdquo;) into procedural knowledge
           (&ldquo;I can run a t-test correctly on data I have not seen
@@ -186,7 +198,7 @@ export default function HowToUsePage() {
 
         <p>
           The projects are sequenced: each one requires skills from the
-          previous. Do not skip them. Do not do them symbolically — a notebook
+          previous. Do not skip them. Do not do them symbolically â€” a notebook
           that is half-finished, with a handful of cells and a README that says
           &ldquo;in progress,&rdquo; is not a portfolio piece and is not
           learning. Finish what you start.
@@ -200,30 +212,31 @@ export default function HowToUsePage() {
         </Marginalia>
 
         <p>
-          Explain what you are learning — to a colleague, to a rubber duck, in a
-          blog post, in a study group. The act of explanation forces precision:
-          you cannot wave your hands when someone asks &ldquo;wait, why does the
-          gradient have to point downhill?&rdquo; You either know or you
-          discover that you do not.
+          Explain what you are learning â€” to a colleague, to a rubber duck, in
+          a blog post, in a study group. The act of explanation forces
+          precision: you cannot wave your hands when someone asks &ldquo;wait,
+          why does the gradient have to point downhill?&rdquo; You either know
+          or you discover that you do not.
         </p>
 
         <p>
-          The Feynman technique — explain a concept in plain language until you
-          can do it without notes — is not a study hack. It is a diagnostic
-          tool. The places where your explanation becomes vague are exactly the
-          places where your understanding has gaps. Those gaps are what to go
-          back and fix.
+          The Feynman technique â€” explain a concept in plain language until
+          you can do it without notes â€” is not a study hack. It is a
+          diagnostic tool. The places where your explanation becomes vague are
+          exactly the places where your understanding has gaps. Those gaps are
+          what to go back and fix.
         </p>
       </StageSection>
 
-      {/* ── Exit criteria ────────────────────────────────────────────────── */}
+      {/* â”€â”€ Exit criteria â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <StageSection id="exit-criteria" title="When to move on">
         <p>
           Each stage page has an exit criteria section with a checklist and
           self-test questions. These are the gate, not the time estimate. The
-          time estimates (3–6 months, 6–12 months) are honest averages for
-          people who are working seriously — they will vary by prior background,
-          available hours, and how hard the material hits you personally.
+          time estimates (3â€“6 months, 6â€“12 months) are honest averages for
+          people who are working seriously â€” they will vary by prior
+          background, available hours, and how hard the material hits you
+          personally.
         </p>
 
         <p>
@@ -231,7 +244,7 @@ export default function HowToUsePage() {
           because you have covered all the material once. Move on when you can
           answer the self-test questions without notes and build the stage
           project without following a walkthrough. That is the bar. It is not
-          arbitrary — it is calibrated to what the next stage will assume.
+          arbitrary â€” it is calibrated to what the next stage will assume.
         </p>
 
         <p>
@@ -243,13 +256,13 @@ export default function HowToUsePage() {
         </p>
       </StageSection>
 
-      {/* ── Honest framing ───────────────────────────────────────────────── */}
+      {/* â”€â”€ Honest framing â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <StageSection id="honest-framing" title="Honest framing">
         <p>
           Praxia is not the fastest path to a job. If the goal is a job as
           quickly as possible, the fastest route is a focused bootcamp plus
-          application practice plus networking — and there is nothing wrong with
-          that goal.
+          application practice plus networking â€” and there is nothing wrong
+          with that goal.
         </p>
 
         <p>
@@ -257,7 +270,7 @@ export default function HowToUsePage() {
           across from a senior engineer and hold your own. Where you can
           identify the right statistical test without looking it up, debug a
           failing model without a tutorial, read a paper and understand what the
-          authors actually did. That level of competence takes time — measured
+          authors actually did. That level of competence takes time â€” measured
           in years, not weeks.
         </p>
 
@@ -272,9 +285,9 @@ export default function HowToUsePage() {
         <div className="mt-6 flex flex-wrap items-center gap-3 gap-y-3">
           <Link
             href="/map"
-            className="inline-flex items-center gap-1.5 rounded border border-route-red bg-route-red/5 px-4 py-2 font-mono text-sm text-ink transition-colors hover:bg-route-red hover:text-paper"
+            className="inline-flex items-center gap-1.5 rounded border border-route-red bg-route-red/5 px-4 py-2 font-mono text-sm text-ink transition-colors hover:bg-route-red hover:text-primary-foreground"
           >
-            View the map →
+            View the map â†’
           </Link>
           <Link
             href="/foundations"

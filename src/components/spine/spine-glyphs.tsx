@@ -1,7 +1,7 @@
-/**
- * Hand-drawn glyphs for the route spine (PROJECT_PLAN §3.4). Inline SVG, not an
- * icon library — sketched surveyor's marks read as crafted, slick icon sets read
- * as generated (§3.7). All colours come from the Field Notebook CSS variables so
+﻿/**
+ * Hand-drawn glyphs for the route spine (PROJECT_PLAN Â§3.4). Inline SVG, not an
+ * icon library â€” sketched surveyor's marks read as crafted, slick icon sets read
+ * as generated (Â§3.7). All colours come from the Field Notebook CSS variables so
  * the marks invert correctly in warm-dark mode.
  */
 
@@ -53,7 +53,7 @@ export function NodeMark({ current, completed }: NodeMarkProps) {
         />
       ) : (
         <>
-          {/* crosshair ticks — the surveyor's station */}
+          {/* crosshair ticks â€” the surveyor's station */}
           <line
             x1="12"
             y1="6.5"

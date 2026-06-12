@@ -1,10 +1,10 @@
-"use client";
+﻿"use client";
 
 import { useSyncExternalStore } from "react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
-// Hydration-safe "am I on the client yet?" — false on the server snapshot, true
+// Hydration-safe "am I on the client yet?" â€” false on the server snapshot, true
 // on the client snapshot, with no setState-in-effect (which React 19's
 // react-hooks lint flags). next-themes can't know the resolved theme during SSR,
 // so we render an inert placeholder until this flips true.

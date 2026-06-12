@@ -1,7 +1,7 @@
-import { cn } from "@/lib/utils";
+﻿import { cn } from "@/lib/utils";
 import type { Topic } from "@/lib/schema";
 
-// Use text-ink for all depth badges — the tinted bg provides the colour cue;
+// Use text-ink for all depth badges â€” the tinted bg provides the colour cue;
 // route-red / teal at 0.65rem fail WCAG AA contrast on their tinted backgrounds.
 const DEPTH_STYLES: Record<Topic["depth"], string> = {
   Competent: "bg-margin text-faded-ink border border-margin",

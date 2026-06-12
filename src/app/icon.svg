@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Paper background -->
+  <rect width="32" height="32" rx="6" fill="#f4efe4"/>
+  <!-- Hand-drawn route line — a wandering vertical path, 5 nodes -->
+  <path
+    d="M 16 4
+       C 19 6 13 10 15 13
+       C 17 16 12 19 15 22
+       C 18 25 13 26 16 28"
+    stroke="#b4452f"
+    stroke-width="2"
+    stroke-linecap="round"
+    fill="none"
+  />
+  <!-- Node dots -->
+  <circle cx="16" cy="4"  r="2" fill="#b4452f"/>
+  <circle cx="15" cy="13" r="2" fill="#b4452f"/>
+  <circle cx="15" cy="22" r="2" fill="#b4452f"/>
+  <circle cx="16" cy="28" r="2" fill="#b4452f"/>
+  <!-- Teal branch from middle node -->
+  <path d="M 15 18 C 18 17 22 15 24 13" stroke="#2f6f6a" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+  <circle cx="24" cy="13" r="1.5" fill="#2f6f6a"/>
+</svg>

@@ -1,11 +1,20 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { StageSection } from "@/components/stage/stage-section";
 import { Marginalia } from "@/components/stage/marginalia";
 
 export const metadata: Metadata = {
   title: "Privacy",
   description:
-    "Praxia privacy policy — what we collect (almost nothing) and why.",
+    "Praxia privacy policy â€” what we collect (almost nothing) and why.",
+  openGraph: {
+    title: "Privacy Â· Praxia",
+    description: "Praxia privacy policy.",
+  },
+  twitter: {
+    card: "summary",
+    title: "Privacy Â· Praxia",
+    description: "Praxia privacy policy.",
+  },
 };
 
 const LAST_UPDATED = "2026-06-12";
@@ -35,7 +44,7 @@ export default function PrivacyPage() {
           Praxia collects almost no personal data. There is no account system,
           no email list sign-up, no analytics tracker, and no advertising
           network. The only data stored locally on your device is your
-          dark/light mode preference and your stage completion state — both
+          dark/light mode preference and your stage completion state â€” both
           stored in <code>localStorage</code> in your browser, never sent
           anywhere.
         </p>
@@ -55,8 +64,8 @@ export default function PrivacyPage() {
             data.
           </li>
           <li>
-            Is not associated with any identifier — we have no way to know it is
-            yours.
+            Is not associated with any identifier â€” we have no way to know it
+            is yours.
           </li>
         </ul>
 
@@ -71,7 +80,7 @@ export default function PrivacyPage() {
 
         <h3>No analytics, no advertising</h3>
         <p>
-          There is no analytics script on this site — no Google Analytics, no
+          There is no analytics script on this site â€” no Google Analytics, no
           Plausible, no Mixpanel, nothing. If that changes, this policy will be
           updated and a notice will appear on the site. There is no advertising
           of any kind.
@@ -89,7 +98,7 @@ export default function PrivacyPage() {
 
       <StageSection id="external-links" title="External links">
         <p>
-          Praxia links to many external sites — course platforms, book
+          Praxia links to many external sites â€” course platforms, book
           publishers, paper repositories, documentation hosts. When you follow
           an external link, you leave Praxia and enter the privacy regime of
           that site. We have no control over what those sites collect. Treat
@@ -101,17 +110,17 @@ export default function PrivacyPage() {
         <p>
           Praxia is an educational resource suitable for users of all ages.
           Because we collect no personal data, there are no special provisions
-          for users under 13 or under 16 — there is simply nothing to collect or
-          store.
+          for users under 13 or under 16 â€” there is simply nothing to collect
+          or store.
         </p>
       </StageSection>
 
       <StageSection id="changes" title="Changes to this policy">
         <p>
-          If this policy changes materially — for example, if analytics are
-          added or affiliate links are introduced — the change will be announced
-          on this page and the &ldquo;last updated&rdquo; date will be revised.
-          We will not introduce tracking quietly.
+          If this policy changes materially â€” for example, if analytics are
+          added or affiliate links are introduced â€” the change will be
+          announced on this page and the &ldquo;last updated&rdquo; date will be
+          revised. We will not introduce tracking quietly.
         </p>
       </StageSection>
     </article>

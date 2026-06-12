@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { legalLinks, sectionLinks } from "@/lib/nav";
 
 const year = new Date().getFullYear();
@@ -9,10 +9,10 @@ const LINKS_VERIFIED_DATE = "2026-06-12";
  * Site footer (Part B1).
  *
  * Trust scaffolding carried here:
- * — Affiliate disclosure: no affiliate links currently; any future ones are
+ * â€” Affiliate disclosure: no affiliate links currently; any future ones are
  *   disclosed at point-of-link and summarised here.
- * — Accuracy disclaimer: links verified date + report-a-break invitation.
- * — Content license: curation and commentary are original work; linked works
+ * â€” Accuracy disclaimer: links verified date + report-a-break invitation.
+ * â€” Content license: curation and commentary are original work; linked works
  *   belong to their respective owners.
  */
 export function SiteFooter() {
@@ -63,7 +63,7 @@ export function SiteFooter() {
           <p className="font-mono">
             &copy; {year} Praxia. The map, sequencing, and commentary are
             original work. Linked resources belong to their respective authors
-            and publishers — Praxia does not claim any rights over them.
+            and publishers â€” Praxia does not claim any rights over them.
           </p>
         </div>
       </div>

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -75,7 +75,9 @@ export function SiteHeader() {
             className="flex shrink-0 items-center gap-1.5 rounded border border-margin px-2 py-1.5 text-faded-ink transition-colors hover:bg-margin/60 hover:text-ink"
           >
             <Search size={13} aria-hidden />
-            <kbd className="hidden font-mono text-[0.65rem] sm:inline">⌘K</kbd>
+            <kbd className="hidden font-mono text-[0.65rem] sm:inline">
+              âŒ˜K
+            </kbd>
           </button>
 
           <div className="shrink-0">

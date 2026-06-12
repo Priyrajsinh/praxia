@@ -1,4 +1,4 @@
-import type { MDXComponents } from "mdx/types";
+﻿import type { MDXComponents } from "mdx/types";
 
 /**
  * App Router MDX hook (required by @next/mdx). Every `.mdx` route/import is

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { getResourcesByStage } from "@/lib/resources";
 import { validateTopics, validateStageMeta } from "@/lib/schema";
@@ -11,21 +11,32 @@ import { StageSection } from "@/components/stage/stage-section";
 export const metadata: Metadata = {
   title: "Foundations",
   description:
-    "Stage 0 of the Praxia map — the bedrock before any role. Full curriculum: Python, Git, SQL, the command line, and the reproducible notebook project.",
+    "Stage 0 of the Praxia map â€” the bedrock before any role. Full curriculum: Python, Git, SQL, the command line, and the reproducible notebook project.",
+  openGraph: {
+    title: "Foundations Â· Praxia",
+    description:
+      "Stage 0 â€” the bedrock before any role. Python, Git, SQL, the command line, and the reproducible notebook project.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Foundations Â· Praxia",
+    description:
+      "Stage 0 â€” the bedrock before any role. Python, Git, SQL, the command line, and the reproducible notebook project.",
+  },
 };
 
-// ── Stage metadata (Zod-validated at build time) ───────────────────────────
+// â”€â”€ Stage metadata (Zod-validated at build time) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const meta = validateStageMeta({
   title: "Foundations",
   identity: "Before any role, you need the bedrock.",
   stageNumber: 0,
   slug: "foundations",
-  timeRange: "4–8 weeks (2 weeks if you already code)",
+  timeRange: "4â€“8 weeks (2 weeks if you already code)",
   prerequisites: [],
   depthLadderPosition: 1, // Competent on all fundamentals
 });
 
-// ── Core concepts (§7 section 3) — Zod-validated at build time ────────────
+// â”€â”€ Core concepts (Â§7 section 3) â€” Zod-validated at build time â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const topics = validateTopics([
   {
     concept: "How computers represent data",
@@ -46,37 +57,37 @@ const topics = validateTopics([
     depth: "Competent",
   },
   {
-    concept: "Data structures — lists, dicts, sets, tuples",
+    concept: "Data structures â€” lists, dicts, sets, tuples",
     whyItMatters:
-      "Every data manipulation you will ever do — from a pandas groupby to a graph traversal — is built from these four. Know when each is appropriate and what operations are fast on each.",
+      "Every data manipulation you will ever do â€” from a pandas groupby to a graph traversal â€” is built from these four. Know when each is appropriate and what operations are fast on each.",
     depth: "Competent",
   },
   {
-    concept: "Files and formats — CSV, JSON, plain text",
+    concept: "Files and formats â€” CSV, JSON, plain text",
     whyItMatters:
-      "Data lives in files. Reading a CSV without pandas, writing clean JSON, parsing a log file: these are the most common tasks in the field and are learned in an afternoon — but you still have to learn them.",
+      "Data lives in files. Reading a CSV without pandas, writing clean JSON, parsing a log file: these are the most common tasks in the field and are learned in an afternoon â€” but you still have to learn them.",
     depth: "Competent",
   },
   {
     concept: "The command line and shell",
     whyItMatters:
-      "Every server, every pipeline, every deployment lives in a terminal. If you cannot navigate the shell, you cannot work in any production environment — and you will be slower in every environment.",
+      "Every server, every pipeline, every deployment lives in a terminal. If you cannot navigate the shell, you cannot work in any production environment â€” and you will be slower in every environment.",
     depth: "Competent",
   },
   {
     concept: "Version control with Git",
     whyItMatters:
-      "Code without Git is a Jenga tower — one bad edit and you cannot go back. Git is not a nice-to-have; it is the professional minimum, and the branching model is what makes collaboration possible.",
+      "Code without Git is a Jenga tower â€” one bad edit and you cannot go back. Git is not a nice-to-have; it is the professional minimum, and the branching model is what makes collaboration possible.",
     depth: "Competent",
   },
   {
-    concept: "How the internet works — HTTP, APIs, JSON",
+    concept: "How the internet works â€” HTTP, APIs, JSON",
     whyItMatters:
-      "Every data source you will consume — public datasets, ML APIs, production databases — speaks HTTP. Understanding a request-response cycle lets you pull data from anywhere.",
+      "Every data source you will consume â€” public datasets, ML APIs, production databases â€” speaks HTTP. Understanding a request-response cycle lets you pull data from anywhere.",
     depth: "Competent",
   },
   {
-    concept: "SQL fundamentals — SELECT, WHERE, GROUP BY, JOIN",
+    concept: "SQL fundamentals â€” SELECT, WHERE, GROUP BY, JOIN",
     whyItMatters:
       "The majority of enterprise data lives in relational databases. SQL is how you access it. The analyst who cannot write a JOIN is locked out of most real-world data before they start.",
     depth: "Competent",
@@ -89,18 +100,18 @@ const topics = validateTopics([
   },
 ]);
 
-// ── Resources for this stage (from single source of truth) ─────────────────
+// â”€â”€ Resources for this stage (from single source of truth) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const stageResources = getResourcesByStage("foundations");
 
-// ══════════════════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 export default function FoundationsPage() {
   return (
     <article>
-      {/* ── §7 SECTION 1: Stage header ──────────────────────────────────── */}
+      {/* â”€â”€ Â§7 SECTION 1: Stage header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <header className="mb-2">
         <p className="mb-2 font-mono text-xs uppercase tracking-widest text-faded-ink">
-          Stage {meta.stageNumber} · {meta.timeRange}
+          Stage {meta.stageNumber} Â· {meta.timeRange}
         </p>
 
         <h1 className="font-display text-4xl font-bold tracking-tight text-ink sm:text-5xl">
@@ -116,7 +127,7 @@ export default function FoundationsPage() {
             Prerequisites:
           </span>
           <span className="font-mono text-xs text-faded-ink italic">
-            None — this is the start.
+            None â€” this is the start.
           </span>
         </div>
 
@@ -128,14 +139,14 @@ export default function FoundationsPage() {
         </div>
       </header>
 
-      {/* ── §7 SECTION 2: What this stage actually is ───────────────────── */}
+      {/* â”€â”€ Â§7 SECTION 2: What this stage actually is â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <StageSection id="what-it-does" title="What this stage actually is">
         <p>
           Foundations is not a stage you pass through quickly to get to the
           interesting parts. It is the stage that determines whether everything
           after it is built on solid ground or on sand. Spend the time here. The
           practitioners who move fastest in Stages 1 and 2 are almost always the
-          ones who did Foundations properly — not the ones who skimmed it.
+          ones who did Foundations properly â€” not the ones who skimmed it.
         </p>
 
         <p>
@@ -144,7 +155,7 @@ export default function FoundationsPage() {
           represented, how programs execute, how files relate to programs, how a
           database stores and retrieves information. With that model in place,
           every new library or language you encounter becomes an instance of
-          something you already understand — not a new thing to memorise.
+          something you already understand â€” not a new thing to memorise.
         </p>
 
         <Marginalia>
@@ -164,7 +175,7 @@ export default function FoundationsPage() {
 
         <p>
           <strong>Which path to take.</strong> If you have never written a line
-          of code, CS50x is the right entry point — it is the best foundations
+          of code, CS50x is the right entry point â€” it is the best foundations
           course on the internet, and it will give you the full mental model in
           one rigorous run. If you already know another language and want fast
           Python utility, start with <em>Automate the Boring Stuff</em>. If you
@@ -181,7 +192,7 @@ export default function FoundationsPage() {
         </p>
       </StageSection>
 
-      {/* ── §7 SECTION 3: Core concepts ─────────────────────────────────── */}
+      {/* â”€â”€ Â§7 SECTION 3: Core concepts â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <StageSection id="core-concepts" title="Core concepts to master">
         <p className="mb-5 text-faded-ink text-sm">
           Depth tags:{" "}
@@ -203,37 +214,37 @@ export default function FoundationsPage() {
         <TopicChecklist topics={topics} />
       </StageSection>
 
-      {/* ── §7 SECTION 4: Mathematics ───────────────────────────────────── */}
+      {/* â”€â”€ Â§7 SECTION 4: Mathematics â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <StageSection id="mathematics" title="Mathematics required">
-        <h3>Minimum — what you must know to follow the rest of the map</h3>
+        <h3>Minimum â€” what you must know to follow the rest of the map</h3>
 
         <p>
           <strong>Arithmetic and algebra fluency.</strong> Variables as
           unknowns, solving for x, reading an equation. The ability to follow a
           mathematical argument that uses basic algebraic manipulation. This
           sounds trivially low, but many people discover they have gaps when
-          they first see ML notation — address them now, before the math gets
+          they first see ML notation â€” address them now, before the math gets
           harder.
         </p>
 
         <p>
           <strong>Functions and graphs.</strong> What it means for y to be a
-          function of x. How to read a graph. Logarithms and exponentials — why
-          a log scale compresses large ranges, what happens when you take the
-          log of a probability. These appear constantly in ML (log loss, the
+          function of x. How to read a graph. Logarithms and exponentials â€”
+          why a log scale compresses large ranges, what happens when you take
+          the log of a probability. These appear constantly in ML (log loss, the
           log-sum-exp trick, exponential growth curves) and being comfortable
           with them makes Stage 2 materially less confusing.
         </p>
 
         <p>
-          <strong>Basic set theory and logic.</strong> Sets, membership (∈),
-          unions (∪), intersections (∩), and the difference between AND and OR.
-          The vocabulary of logic (if P then Q; the contrapositive; a
+          <strong>Basic set theory and logic.</strong> Sets, membership (âˆˆ),
+          unions (âˆª), intersections (âˆ©), and the difference between AND and
+          OR. The vocabulary of logic (if P then Q; the contrapositive; a
           counterexample). You will see this notation from Stage 1 onward.
         </p>
 
         <p>
-          <strong>Summation notation.</strong> What Σ means, how to read an
+          <strong>Summation notation.</strong> What Î£ means, how to read an
           index, and how to evaluate a simple sum. This is the notation of
           averages, totals, and most statistical formulas. One afternoon of
           practice is all it takes.
@@ -250,50 +261,50 @@ export default function FoundationsPage() {
           Spend one afternoon with summation notation before you start Stage 1.
           Every stats formula you encounter will use it. Without it, you are
           decoding notation at the same time as trying to understand the concept
-          — and that slows everything down.
+          â€” and that slows everything down.
         </Marginalia>
 
-        <h3>Research-grade seed — start building this habit now</h3>
+        <h3>Research-grade seed â€” start building this habit now</h3>
 
         <p>
           You do not need these for Foundations. But starting to build
-          mathematical literacy here — even slowly — compounds enormously by
+          mathematical literacy here â€” even slowly â€” compounds enormously by
           Stage 2 and beyond. The investment is small; the payoff is large.
         </p>
 
         <p>
           <strong>What a proof is.</strong> Read a proof by induction. Read a
           proof by contradiction. You do not need to write proofs at this stage,
-          but understanding what &ldquo;prove&rdquo; means — that a statement
-          holds for all cases, not just the cases you checked — changes how you
-          think about whether your code is correct. This is the foundational
+          but understanding what &ldquo;prove&rdquo; means â€” that a statement
+          holds for all cases, not just the cases you checked â€” changes how
+          you think about whether your code is correct. This is the foundational
           epistemological move in mathematics.
         </p>
 
         <p>
-          <strong>Mathematical notation literacy.</strong> The symbols ∀
-          (&ldquo;for all&rdquo;), ∃ (&ldquo;there exists&rdquo;), ⊆ (&ldquo;is
-          a subset of&rdquo;), ⟹ (&ldquo;implies&rdquo;), and iff (&ldquo;if and
-          only if&rdquo;) are the vocabulary of every textbook from Stage 2
-          onward. You do not need fluency now — but exposure. When you encounter
-          them in a paper or textbook, do not skip; decode.
+          <strong>Mathematical notation literacy.</strong> The symbols âˆ€
+          (&ldquo;for all&rdquo;), âˆƒ (&ldquo;there exists&rdquo;), âŠ†
+          (&ldquo;is a subset of&rdquo;), âŸ¹ (&ldquo;implies&rdquo;), and iff
+          (&ldquo;if and only if&rdquo;) are the vocabulary of every textbook
+          from Stage 2 onward. You do not need fluency now â€” but exposure.
+          When you encounter them in a paper or textbook, do not skip; decode.
         </p>
 
         <p className="text-sm text-faded-ink">
-          →{" "}
+          â†’{" "}
           <Link href="/mathematics#tier-1">
             Tier 1 of the mathematics curriculum
           </Link>{" "}
-          covers these topics in full with worked examples — algebra, notation,
-          summation, and proof technique.
+          covers these topics in full with worked examples â€” algebra,
+          notation, summation, and proof technique.
         </p>
       </StageSection>
 
-      {/* ── §7 SECTION 5: Tools & engineering ───────────────────────────── */}
+      {/* â”€â”€ Â§7 SECTION 5: Tools & engineering â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <StageSection id="tools" title="Tools and engineering skills">
         <p>
           <strong>Python:</strong> the language of data science, ML engineering,
-          and AI. Learn it properly — not just &ldquo;I know how to run a
+          and AI. Learn it properly â€” not just &ldquo;I know how to run a
           script&rdquo; but truly comfortable with functions, classes, list
           comprehensions, error handling, modules, and the standard library.
           Fluency means you spend your mental energy on the problem, not on the
@@ -305,12 +316,12 @@ export default function FoundationsPage() {
           runs in a shell. Know how to navigate directories, read and write
           files, chain commands with pipes, write simple shell scripts, and
           understand environment variables. The Missing Semester course covers
-          exactly this gap — the things nobody teaches.
+          exactly this gap â€” the things nobody teaches.
         </p>
 
         <p>
           <strong>Git and GitHub:</strong> not just <code>git commit</code>, but
-          the mental model — commits as a directed acyclic graph, branches as
+          the mental model â€” commits as a directed acyclic graph, branches as
           pointers, merges and rebases. Know what a PR is and why it exists.
           Every project you build from here on lives in a Git repository with a
           clear commit history. Starting this habit now costs nothing; not
@@ -322,13 +333,13 @@ export default function FoundationsPage() {
           most data work begins. Know how to structure a notebook so it runs
           reproducibly top-to-bottom, not as a pile of out-of-order cells. A
           notebook that only works if you ran the cells in a specific secret
-          order is not a notebook — it is a liability.
+          order is not a notebook â€” it is a liability.
         </p>
 
         <p>
           <strong>SQL:</strong> the language of relational databases, and how
           most production data is stored. You do not need a full database
-          administration course — but you need to write SELECT statements with
+          administration course â€” but you need to write SELECT statements with
           JOINs, GROUP BY, and subqueries without looking everything up. SQLite
           is available everywhere and sufficient for learning.
         </p>
@@ -337,28 +348,28 @@ export default function FoundationsPage() {
           <strong>VS Code:</strong> the practical standard for Python
           development. Set up a linter (Pylint or Flake8), a formatter (Black),
           and understand how to use the debugger. A debugger is not the last
-          resort of someone who is stuck — it is the first tool of someone who
+          resort of someone who is stuck â€” it is the first tool of someone who
           understands what their code is doing.
         </p>
       </StageSection>
 
-      {/* ── §7 SECTION 6: The project ────────────────────────────────────── */}
+      {/* â”€â”€ Â§7 SECTION 6: The project â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <StageSection id="project" title="The project">
         <p>
-          Three projects together — a reproducible data investigation, a
-          Git-first codebase, and a SQL investigation — prove every Foundations
-          competency. A single script does not. Build all three before calling
-          this stage done.
+          Three projects together â€” a reproducible data investigation, a
+          Git-first codebase, and a SQL investigation â€” prove every
+          Foundations competency. A single script does not. Build all three
+          before calling this stage done.
         </p>
 
         <p className="text-sm text-faded-ink">
-          Expected total time: 5–8 weeks alongside the curriculum. Build them
-          roughly in order — each one builds on skills from the previous.
+          Expected total time: 5â€“8 weeks alongside the curriculum. Build them
+          roughly in order â€” each one builds on skills from the previous.
         </p>
 
-        {/* ── Project 1 ── */}
+        {/* â”€â”€ Project 1 â”€â”€ */}
         <h3 className="lg:clear-both">
-          Project 1 — the reproducible data investigation (2–3 weeks)
+          Project 1 â€” the reproducible data investigation (2â€“3 weeks)
         </h3>
 
         <p>
@@ -367,7 +378,7 @@ export default function FoundationsPage() {
         </p>
 
         <p>
-          Choose a messy, interesting public dataset — US government open data
+          Choose a messy, interesting public dataset â€” US government open data
           portals, the UCI Machine Learning Repository, Kaggle&rsquo;s free
           datasets, or any domain you genuinely find interesting. Pick something
           with at least 5,000 rows and at least 8 columns, including mixed types
@@ -383,16 +394,16 @@ export default function FoundationsPage() {
             is missing, not just whether any values are missing.
           </li>
           <li>
-            <strong>Clean — and document every decision.</strong> Handle missing
-            values with a justified approach (drop vs. fill vs. leave — state
-            which you chose and why). Detect and investigate outliers using the
-            IQR fence (values below Q1 − 1.5×IQR or above Q3 + 1.5×IQR): report
-            how many there are, look at them, and decide whether they are errors
-            or real extreme values. Fix inconsistent categorical values (e.g.
-            &ldquo;NYC&rdquo; vs &ldquo;New York City&rdquo; vs &ldquo;new
-            york&rdquo;). Document every cleaning step in a comment or markdown
-            cell: what you did and what you would have done differently with
-            more time.
+            <strong>Clean â€” and document every decision.</strong> Handle
+            missing values with a justified approach (drop vs. fill vs. leave
+            â€” state which you chose and why). Detect and investigate outliers
+            using the IQR fence (values below Q1 âˆ’ 1.5Ã—IQR or above Q3 +
+            1.5Ã—IQR): report how many there are, look at them, and decide
+            whether they are errors or real extreme values. Fix inconsistent
+            categorical values (e.g. &ldquo;NYC&rdquo; vs &ldquo;New York
+            City&rdquo; vs &ldquo;new york&rdquo;). Document every cleaning step
+            in a comment or markdown cell: what you did and what you would have
+            done differently with more time.
           </li>
           <li>
             <strong>Explore.</strong> Plot distributions for every numeric
@@ -416,7 +427,7 @@ export default function FoundationsPage() {
           notebook must run completely clean from{" "}
           <code>Kernel &gt; Restart &amp; Run All</code> with no errors. The
           README explains what the dataset is, what question you investigated,
-          and what you found — three paragraphs, no jargon. Publish both to
+          and what you found â€” three paragraphs, no jargon. Publish both to
           GitHub. The test: hand the link to someone who was not involved and
           ask them what the project found. If they cannot answer, the README
           needs work.
@@ -428,20 +439,20 @@ export default function FoundationsPage() {
           commit. Every time.
         </Marginalia>
 
-        {/* ── Project 2 ── */}
+        {/* â”€â”€ Project 2 â”€â”€ */}
         <h3 className="lg:clear-both">
-          Project 2 — the Git-first codebase (1 week)
+          Project 2 â€” the Git-first codebase (1 week)
         </h3>
 
         <p>
-          <strong>What it proves:</strong> you use version control properly —
+          <strong>What it proves:</strong> you use version control properly â€”
           not as a backup tool but as a collaboration and correctness tool.
         </p>
 
         <p>
-          Take a small project — a data cleaning script, a simple web scraper, a
-          set of SQL utilities, any code that does something real — and build it
-          entirely through Git-first practices. Requirements:
+          Take a small project â€” a data cleaning script, a simple web scraper,
+          a set of SQL utilities, any code that does something real â€” and
+          build it entirely through Git-first practices. Requirements:
         </p>
 
         <ul>
@@ -449,8 +460,8 @@ export default function FoundationsPage() {
             At least 20 meaningful commits, each with a clear, conventional
             commit message (<code>feat:</code>, <code>fix:</code>,{" "}
             <code>refactor:</code>, <code>docs:</code>). A message that says
-            &ldquo;update&rdquo; is not a commit message — it is a sign that you
-            are not thinking about the change.
+            &ldquo;update&rdquo; is not a commit message â€” it is a sign that
+            you are not thinking about the change.
           </li>
           <li>
             At least two feature branches merged back to main via a pull
@@ -461,7 +472,7 @@ export default function FoundationsPage() {
             One intentionally simulated merge conflict, resolved cleanly.
             Understand what a merge conflict is (two branches modified the same
             lines), how Git marks it, and how to resolve it manually. This is
-            not optional — merge conflicts are inevitable in real work.
+            not optional â€” merge conflicts are inevitable in real work.
           </li>
           <li>
             A <code>.gitignore</code> that excludes <code>__pycache__</code>,{" "}
@@ -478,9 +489,9 @@ export default function FoundationsPage() {
           about how you work.
         </p>
 
-        {/* ── Project 3 ── */}
+        {/* â”€â”€ Project 3 â”€â”€ */}
         <h3 className="lg:clear-both">
-          Project 3 — the SQL investigation (1–2 weeks)
+          Project 3 â€” the SQL investigation (1â€“2 weeks)
         </h3>
 
         <p>
@@ -490,7 +501,7 @@ export default function FoundationsPage() {
 
         <p>
           Use Google BigQuery&rsquo;s free public datasets (Chicago taxi trips,
-          Stack Overflow data, US Census — all queryable for free from the
+          Stack Overflow data, US Census â€” all queryable for free from the
           console) or download a public SQLite database (Chinook, Northwind, or
           any multi-table dataset from Kaggle). Answer 10 questions of
           increasing complexity:
@@ -512,7 +523,7 @@ export default function FoundationsPage() {
             <strong>Advanced (3 questions):</strong> window functions (at least
             one of: ROW_NUMBER, LAG/LEAD, RANK, running total). &ldquo;What is
             the month-over-month growth rate of sales, and which months had
-            growth above 20%?&rdquo; — requires <code>LAG()</code> and a CTE.
+            growth above 20%?&rdquo; â€” requires <code>LAG()</code> and a CTE.
           </li>
         </ul>
 
@@ -520,12 +531,12 @@ export default function FoundationsPage() {
           For each question: write the query, explain it in one sentence, and
           show the result. Then write a one-page plain-English briefing
           addressed to a non-technical manager: three findings from the data
-          that would actually change a decision. The briefing has no SQL in it —
-          if the finding requires SQL to explain, it is not a finding yet.
+          that would actually change a decision. The briefing has no SQL in it
+          â€” if the finding requires SQL to explain, it is not a finding yet.
         </p>
 
-        {/* ── Extensions ── */}
-        <h3>Senior extension — automate the reproducibility</h3>
+        {/* â”€â”€ Extensions â”€â”€ */}
+        <h3>Senior extension â€” automate the reproducibility</h3>
         <p>
           Add a <code>Makefile</code> or <code>run.sh</code> to your data
           investigation project so that anyone can clone the repo, run one
@@ -533,15 +544,15 @@ export default function FoundationsPage() {
           charts. Include dependency pinning (<code>requirements.txt</code> or{" "}
           <code>pyproject.toml</code>). Add a pre-commit hook that runs Black
           and Flake8 on every commit. This is what &ldquo;reproducibility&rdquo;
-          actually means in practice — not &ldquo;I ran it once and it
+          actually means in practice â€” not &ldquo;I ran it once and it
           worked.&rdquo;
         </p>
 
-        <h3>Research-grade extension — understand what you built</h3>
+        <h3>Research-grade extension â€” understand what you built</h3>
         <p>
           For one non-trivial function in your codebase, write a proof sketch:
           what are the preconditions, what does the function guarantee, and can
-          you construct a case where it fails? This is informal — you are not
+          you construct a case where it fails? This is informal â€” you are not
           writing a Coq proof. But the practice of reasoning about correctness
           rather than just testing with examples is the habit that separates
           research-grade thinking from production-grade thinking. It starts
@@ -549,12 +560,12 @@ export default function FoundationsPage() {
         </p>
       </StageSection>
 
-      {/* ── §7 SECTION 7: Resources ──────────────────────────────────────── */}
+      {/* â”€â”€ Â§7 SECTION 7: Resources â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <StageSection id="resources" title="Resources">
         <p className="mb-6 text-faded-ink">
-          Two paths, one goal. <strong>CS50x</strong> is the long path —
-          rigorous, complete, 10–20 weeks — and worth every hour if you have
-          time. <strong>Automate the Boring Stuff</strong> is the fast path —
+          Two paths, one goal. <strong>CS50x</strong> is the long path â€”
+          rigorous, complete, 10â€“20 weeks â€” and worth every hour if you have
+          time. <strong>Automate the Boring Stuff</strong> is the fast path â€”
           useful Python in days. If you already code and just need Python
           fluency, start with Automate. The Python official tutorial is the
           reference you consult, not the course you study. Pro Git and the
@@ -564,15 +575,17 @@ export default function FoundationsPage() {
         <ResourceGroups resources={stageResources} />
       </StageSection>
 
-      {/* ── §7 SECTION 8: How you know you're done ───────────────────────── */}
+      {/* â”€â”€ Â§7 SECTION 8: How you know you're done â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <StageSection id="done" title="How you know you&rsquo;re done">
-        <p>Exit criteria — you can answer &ldquo;yes&rdquo; to all of these:</p>
+        <p>
+          Exit criteria â€” you can answer &ldquo;yes&rdquo; to all of these:
+        </p>
 
         <ul>
           <li>
-            You can write a Python script from scratch — no copy-paste, no Stack
-            Overflow mid-task — that loads a CSV, cleans it, computes summary
-            statistics, and writes the results to a new file.
+            You can write a Python script from scratch â€” no copy-paste, no
+            Stack Overflow mid-task â€” that loads a CSV, cleans it, computes
+            summary statistics, and writes the results to a new file.
           </li>
           <li>
             You can explain, without looking it up, what a Git branch is, what a
@@ -588,11 +601,11 @@ export default function FoundationsPage() {
             You can navigate the terminal: find files, edit them, run scripts,
             understand the PATH, and pipe one command&rsquo;s output into
             another. You are not afraid of a <code>Permission denied</code>{" "}
-            error — you know what it means.
+            error â€” you know what it means.
           </li>
           <li>
             You understand Big-O at the level of: O(n) is a loop over n items,
-            O(n²) is a loop inside a loop, and you can explain why a dictionary
+            O(nÂ²) is a loop inside a loop, and you can explain why a dictionary
             lookup is O(1) while searching a list for a value is O(n).
           </li>
           <li>
@@ -634,18 +647,18 @@ export default function FoundationsPage() {
         </ol>
       </StageSection>
 
-      {/* ── §7 SECTION 9: Bridge to next stage ──────────────────────────── */}
+      {/* â”€â”€ Â§7 SECTION 9: Bridge to next stage â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <StageSection id="next-stage" title="Bridge to the next stage">
         <p>
           Foundations builds the instrument. Stage 1 puts it to use. The data
-          analyst does not learn new programming concepts — they apply the ones
-          from here at speed, under the pressure of a real question with a real
-          stakeholder waiting for an answer.
+          analyst does not learn new programming concepts â€” they apply the
+          ones from here at speed, under the pressure of a real question with a
+          real stakeholder waiting for an answer.
         </p>
 
         <p>
-          What changes at Stage 1 is the mathematics. Statistics —
-          distributions, hypothesis tests, confidence intervals — enters
+          What changes at Stage 1 is the mathematics. Statistics â€”
+          distributions, hypothesis tests, confidence intervals â€” enters
           properly, not as a vocabulary word but as a tool for making decisions
           under uncertainty. The Python you write in Stage 1 is the same Python
           as here; the thinking behind it is fundamentally different.
@@ -662,9 +675,9 @@ export default function FoundationsPage() {
         <div className="mt-6 flex items-center gap-3">
           <Link
             href="/data-analyst"
-            className="inline-flex items-center gap-1.5 rounded border border-route-red bg-route-red/5 px-4 py-2 font-mono text-sm text-ink transition-colors hover:bg-route-red hover:text-paper"
+            className="inline-flex items-center gap-1.5 rounded border border-route-red bg-route-red/5 px-4 py-2 font-mono text-sm text-ink transition-colors hover:bg-route-red hover:text-primary-foreground"
           >
-            Data Analyst →
+            Data Analyst â†’
           </Link>
           <Link
             href="/map"

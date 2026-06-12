@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -16,7 +16,7 @@ import { useScrollProgress } from "@/lib/use-scroll-progress";
 import { DoneToggleIcon, NodeMark, YouAreHereMarker } from "./spine-glyphs";
 
 /**
- * The signature hand-drawn route spine (PROJECT_PLAN §3.4 / §3.6 / §6).
+ * The signature hand-drawn route spine (PROJECT_PLAN Â§3.4 / Â§3.6 / Â§6).
  *
  * The line itself is a decorative SVG (`preserveAspectRatio="none"`, so user
  * space maps linearly onto the rail), layered three ways over the same path:
@@ -28,7 +28,7 @@ import { DoneToggleIcon, NodeMark, YouAreHereMarker } from "./spine-glyphs";
  * `getPointAtLength`, so it sits exactly on the wobble).
  *
  * The interactive + accessible layer is separate real DOM: a `<nav><ol>` of stage
- * links sitting precisely on each node — the screen-reader text equivalent and
+ * links sitting precisely on each node â€” the screen-reader text equivalent and
  * the keyboard targets in one structure. Under reduced motion the route renders
  * already-drawn and the marker is placed statically at the current stage.
  */
@@ -53,7 +53,7 @@ export function RouteSpine() {
   const markerIndex = currentIndex >= 0 ? currentIndex : 0;
 
   // The bold "inked" overlay runs from the start through the furthest completed
-  // stage — the route filling in behind you.
+  // stage â€” the route filling in behind you.
   let furthestCompleted = -1;
   for (const node of journeyNodes) {
     if (completed[node.href]) furthestCompleted = node.index;
@@ -90,14 +90,14 @@ export function RouteSpine() {
   return (
     <div className="sticky top-20 h-[calc(100vh-6rem)]">
       <div className="relative h-full w-full">
-        {/* The route line — decorative; the accessible copy is the <nav> below. */}
+        {/* The route line â€” decorative; the accessible copy is the <nav> below. */}
         <svg
           viewBox={`0 0 ${VIEWBOX.width} ${VIEWBOX.height}`}
           preserveAspectRatio="none"
           className="absolute inset-0 h-full w-full overflow-visible"
           aria-hidden="true"
         >
-          {/* 1 — pencil ghost of the full route */}
+          {/* 1 â€” pencil ghost of the full route */}
           <path
             d={routePath}
             fill="none"
@@ -107,7 +107,7 @@ export function RouteSpine() {
             strokeLinecap="round"
             vectorEffect="non-scaling-stroke"
           />
-          {/* 2 — self-drawing route; pathLength=1 makes the dash math unit-free */}
+          {/* 2 â€” self-drawing route; pathLength=1 makes the dash math unit-free */}
           <path
             ref={drawnRef}
             d={routePath}
@@ -120,7 +120,7 @@ export function RouteSpine() {
             pathLength={1}
             style={{ strokeDasharray: "1 1", strokeDashoffset: 1 - draw }}
           />
-          {/* 3 — inked overlay of completed segment (earned progress, persisted) */}
+          {/* 3 â€” inked overlay of completed segment (earned progress, persisted) */}
           {completedPath ? (
             <path
               d={completedPath}
@@ -187,7 +187,7 @@ export function RouteSpine() {
           </ol>
         </nav>
 
-        {/* Brass "you are here" marker — decorative; sits on the drawn tip. */}
+        {/* Brass "you are here" marker â€” decorative; sits on the drawn tip. */}
         <span
           ref={markerRef}
           aria-hidden="true"

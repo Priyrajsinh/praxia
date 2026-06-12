@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import katex from "katex";
 import { getResourcesByStage } from "@/lib/resources";
@@ -9,12 +9,23 @@ import { StageSection } from "@/components/stage/stage-section";
 export const metadata: Metadata = {
   title: "Mathematics",
   description:
-    "The cross-referenced math spine — every stage links in here, tagged by which stage needs it and to what depth. Tiers 1–3 from algebra basics through real analysis, measure-theoretic probability, and statistical learning theory.",
+    "The cross-referenced math spine â€” every stage links in here, tagged by which stage needs it and to what depth. Tiers 1â€“3 from algebra basics through real analysis, measure-theoretic probability, and statistical learning theory.",
+  openGraph: {
+    title: "Mathematics Â· Praxia",
+    description:
+      "The math spine cross-referenced to every stage. Tiers 1â€“3: from algebra basics through measure-theoretic probability and statistical learning theory.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mathematics Â· Praxia",
+    description:
+      "The math spine cross-referenced to every stage. Tiers 1â€“3: from algebra basics through measure-theoretic probability and statistical learning theory.",
+  },
 };
 
-// ── KaTeX server-side rendering ──────────────────────────────────────────────
-// Renders math strings to HTML at build time. KaTeX CSS is imported globally
-// in layout.tsx — no runtime JavaScript needed for static math rendering.
+// â”€â”€ KaTeX server-side rendering â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// Renders math strings to HTML at build time. KaTeX CSS is loaded by the
+// /mathematics/layout.tsx (not globally) â€” no runtime JS needed.
 function K({ children, block = false }: { children: string; block?: boolean }) {
   const html = katex.renderToString(children, {
     displayMode: block,
@@ -32,7 +43,7 @@ function K({ children, block = false }: { children: string; block?: boolean }) {
   return <span dangerouslySetInnerHTML={{ __html: html }} />;
 }
 
-// ── Stage-need badge ─────────────────────────────────────────────────────────
+// â”€â”€ Stage-need badge â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function NeedsBadge({
   stages,
   depth,
@@ -49,19 +60,19 @@ function NeedsBadge({
           : "inline-flex items-center rounded border border-route-red/20 bg-route-red/10 px-1.5 py-0.5 font-mono text-[0.65rem] uppercase tracking-wide text-ink"
       }
     >
-      {stages} · {depth}
+      {stages} Â· {depth}
     </span>
   );
 }
 
-// ── Resources ────────────────────────────────────────────────────────────────
+// â”€â”€ Resources â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const mathResources = getResourcesByStage("mathematics");
 
-// ── Page ─────────────────────────────────────────────────────────────────────
+// â”€â”€ Page â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export default function Page() {
   return (
     <article className="space-y-0">
-      {/* ── Page header ──────────────────────────────────────────────────── */}
+      {/* â”€â”€ Page header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <header className="mb-10">
         <p className="mb-1 font-mono text-xs uppercase tracking-widest text-faded-ink">
           The cross-referenced spine
@@ -71,7 +82,7 @@ export default function Page() {
         </h1>
         <p className="mb-4 font-body text-xl text-faded-ink">
           Every stage links here. Each topic is tagged with which stage needs it
-          and to what depth — the <em>minimum</em> to be productive versus the{" "}
+          and to what depth â€” the <em>minimum</em> to be productive versus the{" "}
           <em>research-grade</em> understanding that holds under scrutiny.
         </p>
         <p className="font-body text-base text-faded-ink">
@@ -81,11 +92,11 @@ export default function Page() {
         </p>
       </header>
 
-      {/* ── Overview nav ─────────────────────────────────────────────────── */}
+      {/* â”€â”€ Overview nav â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <nav aria-label="Mathematics curriculum sections" className="mb-10">
         <div className="flex flex-wrap gap-2">
           {[
-            { href: "#tier-1", label: "Tier 1 — Foundations" },
+            { href: "#tier-1", label: "Tier 1 â€” Foundations" },
             { href: "#linear-algebra", label: "Linear Algebra" },
             {
               href: "#calculus-optimization",
@@ -95,7 +106,7 @@ export default function Page() {
               href: "#probability-statistics",
               label: "Probability & Statistics",
             },
-            { href: "#tier-3", label: "Tier 3 — Research" },
+            { href: "#tier-3", label: "Tier 3 â€” Research" },
             { href: "#resources", label: "Resources" },
           ].map(({ href, label }) => (
             <a
@@ -109,10 +120,10 @@ export default function Page() {
         </div>
       </nav>
 
-      {/* ═══════════════════════════════════════════════════════════════════
-          TIER 1 — FOUNDATIONS MATH
-      ═══════════════════════════════════════════════════════════════════ */}
-      <StageSection id="tier-1" title="Tier 1 — Foundations Math">
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+          TIER 1 â€” FOUNDATIONS MATH
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+      <StageSection id="tier-1" title="Tier 1 â€” Foundations Math">
         <Marginalia>
           Most people reach Stage 2 with gaps here. A shaky log-and-exp
           intuition quietly causes errors in cross-entropy and learning rate
@@ -120,12 +131,12 @@ export default function Page() {
         </Marginalia>
 
         <div className="mb-4 flex flex-wrap gap-2">
-          <NeedsBadge stages="Foundations → Stage 1" depth="minimum" />
+          <NeedsBadge stages="Foundations â†’ Stage 1" depth="minimum" />
         </div>
 
         <p className="mb-6 leading-relaxed text-faded-ink">
           These are the prerequisites the other tiers build on. If any of these
-          feel uncertain, address them before Tier 2 — gaps here propagate
+          feel uncertain, address them before Tier 2 â€” gaps here propagate
           everywhere.
         </p>
 
@@ -148,9 +159,9 @@ export default function Page() {
             <p className="mb-3 text-sm leading-relaxed text-faded-ink">
               The natural logarithm <K>{String.raw`\ln x`}</K> and the
               exponential <K>{String.raw`e^x`}</K> are inverses:{" "}
-              <K>{String.raw`e^{\ln x} = x`}</K>. The softmax function — the
+              <K>{String.raw`e^{\ln x} = x`}</K>. The softmax function â€” the
               gating mechanism of neural networks and the output of every
-              classifier — is built entirely from this pair. Logarithms also
+              classifier â€” is built entirely from this pair. Logarithms also
               appear in entropy, KL divergence, and information theory (all Tier
               3).
             </p>
@@ -190,12 +201,12 @@ export default function Page() {
           {/* Proof techniques */}
           <div id="proof-techniques">
             <h3 className="mb-3 font-display text-xl font-semibold text-ink">
-              Proof techniques — the research seed
+              Proof techniques â€” the research seed
             </h3>
             <p className="mb-3 text-sm leading-relaxed text-faded-ink">
               You do not need to write proofs at Stage 0. But learning to read
-              them — especially induction and proof by contradiction — is the
-              research-seed investment that pays off at Stage 2 and beyond.
+              them â€” especially induction and proof by contradiction â€” is
+              the research-seed investment that pays off at Stage 2 and beyond.
               Induction is the standard tool for recurrences and complexity
               arguments; contradiction is how most impossibility results are
               established.
@@ -204,9 +215,9 @@ export default function Page() {
         </div>
       </StageSection>
 
-      {/* ═══════════════════════════════════════════════════════════════════
-          TIER 2 — LINEAR ALGEBRA
-      ═══════════════════════════════════════════════════════════════════ */}
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+          TIER 2 â€” LINEAR ALGEBRA
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <StageSection id="linear-algebra" title="Linear Algebra" eyebrow="Tier 2">
         <div className="mb-4 flex flex-wrap gap-2">
           <NeedsBadge stages="Stage 2 (minimum)" depth="minimum" />
@@ -217,7 +228,7 @@ export default function Page() {
           Machine learning is applied linear algebra. Datasets are matrices;
           models map vectors to vectors; every neural-network forward pass is a
           sequence of matrix multiplications followed by non-linearities. Invest
-          here before deep learning — the payoff is immediate.
+          here before deep learning â€” the payoff is immediate.
         </p>
 
         <Marginalia>
@@ -233,7 +244,7 @@ export default function Page() {
             </h3>
             <div className="mb-3 flex flex-wrap gap-2">
               <span className="inline-flex items-center rounded border border-route-red/20 bg-route-red/10 px-1.5 py-0.5 font-mono text-[0.65rem] uppercase tracking-wide text-ink">
-                Stage 2 · minimum
+                Stage 2 Â· minimum
               </span>
             </div>
             <p className="mb-3 text-sm leading-relaxed text-faded-ink">
@@ -243,7 +254,7 @@ export default function Page() {
               from <K>{String.raw`\mathbb{R}^n`}</K> to{" "}
               <K>{String.raw`\mathbb{R}^m`}</K>. Matrix multiplication{" "}
               <K>{String.raw`AB`}</K> composes two linear maps. These are not
-              just notational conventions — they are the geometric content.
+              just notational conventions â€” they are the geometric content.
             </p>
             <p className="mb-3 text-sm leading-relaxed text-faded-ink">
               The <strong className="text-ink">Euclidean norm</strong> of a
@@ -255,7 +266,7 @@ export default function Page() {
             <p className="text-sm leading-relaxed text-faded-ink">
               The <strong className="text-ink">dot product</strong>{" "}
               <K>{String.raw`\mathbf{x}^\top \mathbf{y} = \sum_i x_i y_i = \|\mathbf{x}\|_2 \|\mathbf{y}\|_2 \cos\theta`}</K>{" "}
-              measures alignment — the foundation of cosine similarity,
+              measures alignment â€” the foundation of cosine similarity,
               attention scores, and the kernel trick.
             </p>
           </div>
@@ -267,7 +278,7 @@ export default function Page() {
             </h3>
             <div className="mb-3 flex flex-wrap gap-2">
               <span className="inline-flex items-center rounded border border-route-red/20 bg-route-red/10 px-1.5 py-0.5 font-mono text-[0.65rem] uppercase tracking-wide text-ink">
-                Stage 2–3 · minimum
+                Stage 2â€“3 Â· minimum
               </span>
             </div>
             <p className="mb-3 text-sm leading-relaxed text-faded-ink">
@@ -277,8 +288,8 @@ export default function Page() {
             </p>
             <K block>{String.raw`A \mathbf{q} = \lambda \mathbf{q}`}</K>
             <p className="mb-3 text-sm leading-relaxed text-faded-ink">
-              For a symmetric positive-definite matrix — the type that appears
-              in covariance matrices, kernel matrices, and Hessians — the
+              For a symmetric positive-definite matrix â€” the type that appears
+              in covariance matrices, kernel matrices, and Hessians â€” the
               eigendecomposition factors <K>{String.raw`A`}</K> as:
             </p>
             <K block>{String.raw`A = Q \Lambda Q^\top`}</K>
@@ -299,11 +310,11 @@ export default function Page() {
             </h3>
             <div className="mb-3 flex flex-wrap gap-2">
               <span className="inline-flex items-center rounded border border-teal/20 bg-teal/10 px-1.5 py-0.5 font-mono text-[0.65rem] uppercase tracking-wide text-ink">
-                Stage 2–3 · research-grade
+                Stage 2â€“3 Â· research-grade
               </span>
             </div>
             <p className="mb-3 text-sm leading-relaxed text-faded-ink">
-              The SVD generalises eigendecomposition to non-square matrices —
+              The SVD generalises eigendecomposition to non-square matrices â€”
               which is essentially everything in ML, since data matrices are{" "}
               <K>{String.raw`n \times d`}</K> with <K>{String.raw`n \neq d`}</K>
               :
@@ -317,7 +328,7 @@ export default function Page() {
               <K>{String.raw`\sigma_1 \geq \sigma_2 \geq \cdots \geq 0`}</K>.
               Truncating to the top <K>{String.raw`k`}</K> singular values gives
               the best rank-<K>{String.raw`k`}</K> approximation to{" "}
-              <K>{String.raw`A`}</K> in the Frobenius norm — this is the
+              <K>{String.raw`A`}</K> in the Frobenius norm â€” this is the
               mathematics behind PCA, dimensionality reduction, and
               collaborative filtering. LoRA (the fine-tuning technique in Stage
               4) exploits exactly this low-rank structure.
@@ -326,9 +337,9 @@ export default function Page() {
         </div>
       </StageSection>
 
-      {/* ═══════════════════════════════════════════════════════════════════
-          TIER 2 — CALCULUS & OPTIMISATION
-      ═══════════════════════════════════════════════════════════════════ */}
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+          TIER 2 â€” CALCULUS & OPTIMISATION
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <StageSection
         id="calculus-optimization"
         title="Calculus and Optimisation"
@@ -354,7 +365,7 @@ export default function Page() {
             </h3>
             <div className="mb-3 flex flex-wrap gap-2">
               <span className="inline-flex items-center rounded border border-route-red/20 bg-route-red/10 px-1.5 py-0.5 font-mono text-[0.65rem] uppercase tracking-wide text-ink">
-                Stage 2 · minimum
+                Stage 2 Â· minimum
               </span>
             </div>
             <p className="mb-3 text-sm leading-relaxed text-faded-ink">
@@ -380,13 +391,13 @@ export default function Page() {
             </h3>
             <div className="mb-3 flex flex-wrap gap-2">
               <span className="inline-flex items-center rounded border border-route-red/20 bg-route-red/10 px-1.5 py-0.5 font-mono text-[0.65rem] uppercase tracking-wide text-ink">
-                Stage 2 · minimum
+                Stage 2 Â· minimum
               </span>
             </div>
             <p className="mb-3 text-sm leading-relaxed text-faded-ink">
               The gradient <K>{String.raw`\nabla_{\mathbf{w}} L`}</K> is the
               vector of partial derivatives of the loss with respect to every
-              parameter — the direction of steepest ascent. Gradient descent
+              parameter â€” the direction of steepest ascent. Gradient descent
               steps in the opposite direction:
             </p>
             <K
@@ -395,8 +406,8 @@ export default function Page() {
             <p className="text-sm leading-relaxed text-faded-ink">
               where <K>{String.raw`\alpha > 0`}</K> is the learning rate. The
               learning rate is the most consequential hyperparameter in training
-              — too large and the loss diverges, too small and training stalls.
-              Adaptive methods (Adam, RMSProp) effectively adjust the
+              â€” too large and the loss diverges, too small and training
+              stalls. Adaptive methods (Adam, RMSProp) effectively adjust the
               per-parameter learning rate from curvature information.
             </p>
           </div>
@@ -408,7 +419,7 @@ export default function Page() {
             </h3>
             <div className="mb-3 flex flex-wrap gap-2">
               <span className="inline-flex items-center rounded border border-teal/20 bg-teal/10 px-1.5 py-0.5 font-mono text-[0.65rem] uppercase tracking-wide text-ink">
-                Stage 3 · research-grade
+                Stage 3 Â· research-grade
               </span>
             </div>
             <p className="mb-3 text-sm leading-relaxed text-faded-ink">
@@ -434,7 +445,7 @@ export default function Page() {
             </h3>
             <div className="mb-3 flex flex-wrap gap-2">
               <span className="inline-flex items-center rounded border border-teal/20 bg-teal/10 px-1.5 py-0.5 font-mono text-[0.65rem] uppercase tracking-wide text-ink">
-                Research · minimum for theory
+                Research Â· minimum for theory
               </span>
             </div>
             <p className="text-sm leading-relaxed text-faded-ink">
@@ -446,7 +457,7 @@ export default function Page() {
               block
             >{String.raw`f(t\mathbf{x} + (1-t)\mathbf{y}) \leq t f(\mathbf{x}) + (1-t)f(\mathbf{y})`}</K>
             <p className="text-sm leading-relaxed text-faded-ink">
-              For convex functions, every local minimum is a global minimum —
+              For convex functions, every local minimum is a global minimum â€”
               gradient descent is guaranteed to converge. Deep network loss
               landscapes are <strong className="text-ink">non-convex</strong>,
               which is why understanding when convexity fails and what the
@@ -457,9 +468,9 @@ export default function Page() {
         </div>
       </StageSection>
 
-      {/* ═══════════════════════════════════════════════════════════════════
-          TIER 2 — PROBABILITY & STATISTICS
-      ═══════════════════════════════════════════════════════════════════ */}
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+          TIER 2 â€” PROBABILITY & STATISTICS
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <StageSection
         id="probability-statistics"
         title="Probability and Statistics"
@@ -490,7 +501,7 @@ export default function Page() {
             </h3>
             <div className="mb-3 flex flex-wrap gap-2">
               <span className="inline-flex items-center rounded border border-route-red/20 bg-route-red/10 px-1.5 py-0.5 font-mono text-[0.65rem] uppercase tracking-wide text-ink">
-                Stage 1–2 · minimum
+                Stage 1â€“2 Â· minimum
               </span>
             </div>
             <p className="mb-3 text-sm leading-relaxed text-faded-ink">
@@ -500,7 +511,7 @@ export default function Page() {
               block
             >{String.raw`P(A \mid B) = \frac{P(B \mid A)\, P(A)}{P(B)}`}</K>
             <p className="text-sm leading-relaxed text-faded-ink">
-              In ML: posterior = likelihood × prior / evidence. Naive Bayes,
+              In ML: posterior = likelihood Ã— prior / evidence. Naive Bayes,
               Bayesian networks, variational inference, and the theoretical
               underpinning of regularisation (L2 = Gaussian prior; L1 = Laplace
               prior) all flow from this single equation. Be sure you can derive
@@ -515,7 +526,7 @@ export default function Page() {
             </h3>
             <div className="mb-3 flex flex-wrap gap-2">
               <span className="inline-flex items-center rounded border border-route-red/20 bg-route-red/10 px-1.5 py-0.5 font-mono text-[0.65rem] uppercase tracking-wide text-ink">
-                Stage 2 · minimum
+                Stage 2 Â· minimum
               </span>
             </div>
             <p className="mb-3 text-sm leading-relaxed text-faded-ink">
@@ -541,7 +552,7 @@ export default function Page() {
             </h3>
             <div className="mb-3 flex flex-wrap gap-2">
               <span className="inline-flex items-center rounded border border-route-red/20 bg-route-red/10 px-1.5 py-0.5 font-mono text-[0.65rem] uppercase tracking-wide text-ink">
-                Stage 1–2 · minimum
+                Stage 1â€“2 Â· minimum
               </span>
             </div>
             <p className="mb-3 text-sm leading-relaxed text-faded-ink">
@@ -555,9 +566,9 @@ export default function Page() {
             >{String.raw`\bar{X}_n \xrightarrow{\,d\,} \mathcal{N}\!\left(\mu,\; \frac{\sigma^2}{n}\right)`}</K>
             <p className="text-sm leading-relaxed text-faded-ink">
               This is why confidence intervals around test-set performance have
-              the form &ldquo;mean ± z·σ/√n&rdquo;, why statistical tests use t
-              or z statistics, and why batch gradients in SGD can be used as
-              unbiased estimates of the full-data gradient. The CLT is the
+              the form &ldquo;mean Â± zÂ·Ïƒ/âˆšn&rdquo;, why statistical tests
+              use t or z statistics, and why batch gradients in SGD can be used
+              as unbiased estimates of the full-data gradient. The CLT is the
               mathematical licence for sampling.
             </p>
           </div>
@@ -569,7 +580,7 @@ export default function Page() {
             </h3>
             <div className="mb-3 flex flex-wrap gap-2">
               <span className="inline-flex items-center rounded border border-route-red/20 bg-route-red/10 px-1.5 py-0.5 font-mono text-[0.65rem] uppercase tracking-wide text-ink">
-                Stage 1 · minimum
+                Stage 1 Â· minimum
               </span>
             </div>
             <p className="text-sm leading-relaxed text-faded-ink">
@@ -581,19 +592,19 @@ export default function Page() {
               the null, not that the effect is large or real. Know the
               one-sample <K>{String.raw`t`}</K>-test, the two-sample{" "}
               <K>{String.raw`t`}</K>-test, ANOVA, chi-square, and when each
-              applies. Know the Bonferroni and Benjamini–Hochberg corrections
+              applies. Know the Bonferroni and Benjaminiâ€“Hochberg corrections
               for multiple comparisons.
             </p>
           </div>
         </div>
       </StageSection>
 
-      {/* ═══════════════════════════════════════════════════════════════════
-          TIER 3 — ADVANCED / RESEARCH MATH
-      ═══════════════════════════════════════════════════════════════════ */}
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+          TIER 3 â€” ADVANCED / RESEARCH MATH
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <StageSection
         id="tier-3"
-        title="Tier 3 — Advanced and Research Math"
+        title="Tier 3 â€” Advanced and Research Math"
         eyebrow="Research track"
       >
         <div className="mb-4 flex flex-wrap gap-2">
@@ -604,7 +615,7 @@ export default function Page() {
           These are the topics that separate practitioners who <em>use</em>{" "}
           results from researchers who <em>prove</em> them. Build them one at a
           time, as they become relevant to your subfield. You do not need all of
-          Tier 3 before starting research — you need the slice your problem
+          Tier 3 before starting research â€” you need the slice your problem
           requires.
         </p>
 
@@ -629,7 +640,7 @@ export default function Page() {
                 },
               ],
               description:
-                "Entropy, cross-entropy, KL divergence, mutual information. Cross-entropy loss = entropy + KL divergence between the true and predicted distributions — understanding this makes the loss function's geometry intuitive. KL divergence appears in VAEs, RL (PPO's clipping objective), and model calibration.",
+                "Entropy, cross-entropy, KL divergence, mutual information. Cross-entropy loss = entropy + KL divergence between the true and predicted distributions â€” understanding this makes the loss function's geometry intuitive. KL divergence appears in VAEs, RL (PPO's clipping objective), and model calibration.",
               resources:
                 "MML ch. 6; Cover & Thomas 'Elements of Information Theory'",
             },
@@ -643,7 +654,7 @@ export default function Page() {
                 },
               ],
               description:
-                "PAC learning, VC dimension, Rademacher complexity, generalization bounds, concentration inequalities (Hoeffding, McDiarmid). This is the mathematical language for asking 'why does this generalise?' — the central question in ML theory. The generalization bound above says: test risk ≤ empirical risk + a complexity term that shrinks with data.",
+                "PAC learning, VC dimension, Rademacher complexity, generalization bounds, concentration inequalities (Hoeffding, McDiarmid). This is the mathematical language for asking 'why does this generalise?' â€” the central question in ML theory. The generalization bound above says: test risk â‰¤ empirical risk + a complexity term that shrinks with data.",
               resources:
                 "Mohri, Rostamizadeh & Talwalkar 'Foundations of ML'; Shalev-Shwartz & Ben-David 'Understanding ML'",
             },
@@ -701,7 +712,7 @@ export default function Page() {
               description:
                 "Bayesian networks, Markov random fields, exact and approximate inference (variable elimination, belief propagation, variational inference, MCMC). PGMs are the mathematical language of structured uncertainty. VAEs, HMMs, and diffusion models are all PGMs. PRML (Bishop) and Murphy are the canonical treatments.",
               resources:
-                "PRML (Bishop) chs. 8–10; Murphy 'Probabilistic Machine Learning' vol. 2",
+                "PRML (Bishop) chs. 8â€“10; Murphy 'Probabilistic Machine Learning' vol. 2",
             },
           ].map(({ id, title, formulas, description, resources }) => (
             <div
@@ -731,9 +742,9 @@ export default function Page() {
         </div>
       </StageSection>
 
-      {/* ═══════════════════════════════════════════════════════════════════
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           RESOURCES
-      ═══════════════════════════════════════════════════════════════════ */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <StageSection
         id="resources"
         title="Resources"
@@ -742,17 +753,17 @@ export default function Page() {
         <p className="mb-6 leading-relaxed text-faded-ink">
           The sequence that works for most people:{" "}
           <strong className="text-ink">
-            3Blue1Brown for geometric intuition → MML for ML-context derivations
-            → MIT 18.06 (Strang) for rigorous linear algebra → Stat 110 for
-            probability → Boyd for optimisation
+            3Blue1Brown for geometric intuition â†’ MML for ML-context
+            derivations â†’ MIT 18.06 (Strang) for rigorous linear algebra â†’
+            Stat 110 for probability â†’ Boyd for optimisation
           </strong>
-          . These five resources cover Tiers 1–2 completely. Tier 3 requires
+          . These five resources cover Tiers 1â€“2 completely. Tier 3 requires
           field-specific texts listed per-topic above.
         </p>
         <ResourceGroups resources={mathResources} />
       </StageSection>
 
-      {/* ── Cross-links back to stages ────────────────────────────────────── */}
+      {/* â”€â”€ Cross-links back to stages â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <StageSection
         id="back-to-stages"
         title="Where you need this"

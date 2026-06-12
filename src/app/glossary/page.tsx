@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { glossaryTerms } from "@/lib/glossary";
 import { StageSection } from "@/components/stage/stage-section";
@@ -7,7 +7,18 @@ import { Marginalia } from "@/components/stage/marginalia";
 export const metadata: Metadata = {
   title: "Glossary",
   description:
-    "Plain-English definitions for every term Praxia uses across its stages — the site's own words, no circular jargon, with links to where each concept is taught in depth.",
+    "Plain-English definitions for every term Praxia uses across its stages â€” the site's own words, no circular jargon, with links to where each concept is taught in depth.",
+  openGraph: {
+    title: "Glossary Â· Praxia",
+    description:
+      "Plain-English definitions for every term across the map â€” A to Z, no circular jargon, linked to where each concept is taught.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Glossary Â· Praxia",
+    description:
+      "Plain-English definitions for every term across the map â€” A to Z, no circular jargon, linked to where each concept is taught.",
+  },
 };
 
 // Group terms by first letter for alphabetical navigation
@@ -48,10 +59,11 @@ export default function GlossaryPage() {
 
         <p>
           Terms are listed alphabetically. Each definition is written in the
-          site&rsquo;s own words — nothing copied from Wikipedia, textbooks, or
-          documentation. Where a concept is taught in depth on a stage page or
-          in the <Link href="/mathematics">mathematics curriculum</Link>, there
-          is a &ldquo;learn more&rdquo; link pointing to the right section.
+          site&rsquo;s own words â€” nothing copied from Wikipedia, textbooks,
+          or documentation. Where a concept is taught in depth on a stage page
+          or in the <Link href="/mathematics">mathematics curriculum</Link>,
+          there is a &ldquo;learn more&rdquo; link pointing to the right
+          section.
         </p>
 
         <p>
@@ -59,11 +71,11 @@ export default function GlossaryPage() {
           <Link href="/foundations">Foundations</Link> through{" "}
           <Link href="/ai-engineer">AI Engineer</Link> and the{" "}
           <Link href="/research">research track</Link>. If you encounter a term
-          on a stage page that is not defined here, that is a gap — use the
+          on a stage page that is not defined here, that is a gap â€” use the
           GitHub issue link in the footer.
         </p>
 
-        {/* A–Z jump links */}
+        {/* Aâ€“Z jump links */}
         <nav aria-label="Glossary alphabet" className="mt-6">
           <ul className="flex flex-wrap gap-2">
             {letters.map((letter) => (
@@ -80,7 +92,7 @@ export default function GlossaryPage() {
         </nav>
       </StageSection>
 
-      {/* ── A–Z sections ───────────────────────────────────────────────────── */}
+      {/* â”€â”€ Aâ€“Z sections â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       {letters.map((letter) => (
         <StageSection
           key={letter}
@@ -105,7 +117,7 @@ export default function GlossaryPage() {
                         href={entry.learnMore.href}
                         className="font-mono text-xs text-ink underline decoration-brass underline-offset-2 hover:text-ink"
                       >
-                        → {entry.learnMore.label}
+                        â†’ {entry.learnMore.label}
                       </Link>
                     </span>
                   )}
@@ -120,12 +132,12 @@ export default function GlossaryPage() {
         <p>
           The glossary covers the terms used across Praxia&rsquo;s current
           stages. If a term you looked up is not here, or if a definition is
-          unclear, the fastest fix is a GitHub issue — the link is in the
+          unclear, the fastest fix is a GitHub issue â€” the link is in the
           footer.
         </p>
         <p className="text-faded-ink">
           Terms are intentionally defined at the level of precision you need to
-          use them correctly — not at the level of precision a mathematician
+          use them correctly â€” not at the level of precision a mathematician
           would demand for a proof. For deeper rigour, follow the &ldquo;learn
           more&rdquo; links into the stage pages and the{" "}
           <Link href="/mathematics">mathematics curriculum</Link>.

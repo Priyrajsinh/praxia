@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState, useMemo, useCallback } from "react";
 import { useRouter } from "next/navigation";
@@ -30,7 +30,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
   const [activeIdx, setActiveIdx] = useState(0);
   const router = useRouter();
 
-  // Derive results directly from query — no setState in an effect
+  // Derive results directly from query â€” no setState in an effect
   const results = useMemo(() => (query.trim() ? search(query) : []), [query]);
 
   // Clamp so keyboard index never goes out of range when results change
@@ -51,7 +51,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
 
   // Reset state when the dialog closes (Esc key or programmatic close).
   // setState is inside the event-listener callback, not directly in the effect
-  // body — avoids the react-hooks/set-state-in-effect lint rule.
+  // body â€” avoids the react-hooks/set-state-in-effect lint rule.
   useEffect(() => {
     const el = dialogRef.current;
     if (!el) return;
@@ -117,7 +117,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={handleKeyDown}
           type="search"
-          placeholder="Search resources, glossary, pages…"
+          placeholder="Search resources, glossary, pagesâ€¦"
           className="flex-1 bg-transparent font-body text-sm text-ink outline-none placeholder:text-faded-ink"
           aria-label="Search Praxia"
           aria-controls="search-results-list"
@@ -140,7 +140,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
       <div className="max-h-[55vh] overflow-y-auto">
         {!query && (
           <p className="px-5 py-5 text-center font-hand text-sm text-faded-ink">
-            Start typing — resources, glossary, stages, and pages.
+            Start typing â€” resources, glossary, stages, and pages.
           </p>
         )}
 

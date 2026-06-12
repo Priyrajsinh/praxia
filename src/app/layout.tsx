@@ -1,16 +1,12 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Fraunces, Newsreader, Caveat, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-// KaTeX stylesheet for math rendered via remark-math + rehype-katex (§4).
-import "katex/dist/katex.min.css";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { ReadingShell } from "@/components/layout/reading-shell";
+import { GateDemoToggle } from "@/components/gate/gate-demo-toggle";
 
-// Field Notebook type system (PROJECT_PLAN §3.3) — self-hosted via next/font.
-// Display + body serifs, a handwritten face for marginalia, mono for code.
-// Deliberately NO Inter/Roboto anywhere.
 const fraunces = Fraunces({
   subsets: ["latin"],
   variable: "--font-fraunces",
@@ -35,13 +31,59 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const BASE_URL = "https://praxia.vercel.app";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(BASE_URL),
   title: {
-    default: "Praxia — the route from first principles to the frontier",
-    template: "%s · Praxia",
+    default: "Praxia â€” The route from first principles to the frontier",
+    template: "%s Â· Praxia",
   },
   description:
-    "An opinionated, end-to-end map of the journey through Data and AI — foundations, data analysis, data science, ML engineering, AI engineering, and the research track. Curated resources, sequenced the way you would actually learn them.",
+    "An opinionated, end-to-end map of the journey through Data and AI â€” Foundations, Data Analyst, Data Scientist, ML Engineer, AI Engineer, and a Research track. Curated resources, sequenced the way you'd actually learn them.",
+  openGraph: {
+    type: "website",
+    siteName: "Praxia",
+    title: "Praxia â€” The route from first principles to the frontier",
+    description:
+      "One hand-drawn map of the whole territory. Curated, ranked, sequenced: what to learn, in what order, to what depth.",
+    url: BASE_URL,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Praxia â€” The route from first principles to the frontier",
+    description:
+      "One hand-drawn map of the whole territory. Curated, ranked, sequenced: what to learn, in what order, to what depth.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  name: "Praxia â€” The route from first principles to the frontier",
+  description:
+    "An opinionated, end-to-end learning map for Data and AI â€” Foundations through AI Engineering, with a Research track.",
+  url: BASE_URL,
+  provider: {
+    "@type": "Organization",
+    name: "Praxia",
+    url: BASE_URL,
+  },
+  hasCourseInstance: [
+    { "@type": "CourseInstance", name: "Foundations", courseMode: "online" },
+    { "@type": "CourseInstance", name: "Data Analyst", courseMode: "online" },
+    {
+      "@type": "CourseInstance",
+      name: "Data Scientist",
+      courseMode: "online",
+    },
+    { "@type": "CourseInstance", name: "ML Engineer", courseMode: "online" },
+    { "@type": "CourseInstance", name: "AI Engineer", courseMode: "online" },
+  ],
 };
 
 export default function RootLayout({
@@ -55,6 +97,12 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${fraunces.variable} ${newsreader.variable} ${caveat.variable} ${jetbrainsMono.variable}`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="font-body antialiased">
         <ThemeProvider
           attribute="class"
@@ -68,6 +116,8 @@ export default function RootLayout({
           <SiteHeader />
           <ReadingShell>{children}</ReadingShell>
           <SiteFooter />
+          {/* Cosmetic gate demo toggle â€” floating, bottom-right (Part B4, Â§4) */}
+          <GateDemoToggle />
         </ThemeProvider>
       </body>
     </html>

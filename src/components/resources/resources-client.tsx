@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useMemo } from "react";
 import { Search } from "lucide-react";
@@ -12,7 +12,7 @@ import {
   type StageSlug,
 } from "@/lib/schema";
 
-// ── Filter configuration ──────────────────────────────────────────────────────
+// â”€â”€ Filter configuration â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const TYPE_OPTIONS: (ResourceType | "All")[] = [
   "All",
@@ -52,7 +52,7 @@ const STAGE_OPTIONS: { slug: StageSlug | "All"; label: string }[] = [
   { slug: "mathematics", label: "Mathematics" },
 ];
 
-// ── Filter state ──────────────────────────────────────────────────────────────
+// â”€â”€ Filter state â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 type Filters = {
   type: ResourceType | "All";
@@ -70,7 +70,7 @@ const DEFAULT_FILTERS: Filters = {
   query: "",
 };
 
-// ── Filtering logic ───────────────────────────────────────────────────────────
+// â”€â”€ Filtering logic â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function applyFilters(resources: Resource[], filters: Filters): Resource[] {
   return resources.filter((r) => {
@@ -92,7 +92,7 @@ function applyFilters(resources: Resource[], filters: Filters): Resource[] {
   });
 }
 
-// ── Filter pill button ────────────────────────────────────────────────────────
+// â”€â”€ Filter pill button â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function Pill({
   label,
@@ -119,7 +119,7 @@ function Pill({
   );
 }
 
-// ── Filter row ────────────────────────────────────────────────────────────────
+// â”€â”€ Filter row â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function FilterRow<T extends string>({
   label,
@@ -153,7 +153,7 @@ function FilterRow<T extends string>({
   );
 }
 
-// ── Main client component ────────────────────────────────────────────────────
+// â”€â”€ Main client component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 interface ResourcesClientProps {
   resources: Resource[];
@@ -192,7 +192,7 @@ export function ResourcesClient({ resources }: ResourcesClientProps) {
             type="search"
             value={filters.query}
             onChange={(e) => set("query", e.target.value)}
-            placeholder="Search titles, authors, verdicts…"
+            placeholder="Search titles, authors, verdictsâ€¦"
             className="flex-1 bg-transparent font-body text-sm text-ink outline-none placeholder:text-faded-ink"
             aria-label="Search within resources"
           />
@@ -202,7 +202,7 @@ export function ResourcesClient({ resources }: ResourcesClientProps) {
               className="font-mono text-xs text-faded-ink hover:text-ink"
               aria-label="Clear search"
             >
-              ×
+              Ã—
             </button>
           )}
         </div>

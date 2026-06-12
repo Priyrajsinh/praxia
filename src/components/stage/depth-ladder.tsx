@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+﻿import { cn } from "@/lib/utils";
 
 const RUNGS = [
   { label: "Aware", desc: "You know it exists" },
@@ -9,7 +9,7 @@ const RUNGS = [
 ] as const;
 
 interface DepthLadderProps {
-  /** 0 = Aware … 4 = Principal; validated by Zod schema at call-site. */
+  /** 0 = Aware â€¦ 4 = Principal; validated by Zod schema at call-site. */
   position: number;
   className?: string;
 }
@@ -17,7 +17,7 @@ interface DepthLadderProps {
 export function DepthLadder({ position, className }: DepthLadderProps) {
   return (
     <div
-      aria-label="Depth ladder — your target level at this stage"
+      aria-label="Depth ladder â€” your target level at this stage"
       className={cn("flex flex-wrap gap-1", className)}
     >
       {RUNGS.map((rung, i) => {
@@ -36,18 +36,18 @@ export function DepthLadder({ position, className }: DepthLadderProps) {
           >
             {isCurrent && (
               <span aria-hidden="true" className="text-accent-ink">
-                ◆
+                â—†
               </span>
             )}
             {isPast && (
               <span aria-hidden="true" className="text-faded-ink">
-                ✓
+                âœ“
               </span>
             )}
             <span>
               {rung.label}
               {/* sr-only desc so screen readers get the full meaning */}
-              <span className="sr-only"> — {rung.desc}</span>
+              <span className="sr-only"> â€” {rung.desc}</span>
             </span>
           </div>
         );

@@ -1,10 +1,19 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { StageSection } from "@/components/stage/stage-section";
 import { Marginalia } from "@/components/stage/marginalia";
 
 export const metadata: Metadata = {
   title: "Terms of Use",
-  description: "Praxia terms of use — educational resource, no warranties.",
+  description: "Praxia terms of use â€” educational resource, no warranties.",
+  openGraph: {
+    title: "Terms of Use Â· Praxia",
+    description: "Praxia terms of use.",
+  },
+  twitter: {
+    card: "summary",
+    title: "Terms of Use Â· Praxia",
+    description: "Praxia terms of use.",
+  },
 };
 
 const LAST_UPDATED = "2026-06-12";
@@ -27,13 +36,13 @@ export default function TermsPage() {
       <StageSection id="nature" title="What Praxia is">
         <Marginalia>
           The short version: link to us, quote briefly, don&rsquo;t republish
-          the curation. Affiliate links are disclosed. The map is opinion — use
-          your own judgment.
+          the curation. Affiliate links are disclosed. The map is opinion â€”
+          use your own judgment.
         </Marginalia>
 
         {/* TODO: update "free" qualifier when paid gate goes live (Phase 6) */}
         <p>
-          Praxia is a free, educational resource — a curated map of learning
+          Praxia is a free, educational resource â€” a curated map of learning
           paths in Data and AI. It is not a course, a certification programme, a
           professional services provider, or a career consultancy. Nothing on
           this site constitutes professional advice of any kind (legal,
@@ -49,10 +58,10 @@ export default function TermsPage() {
 
       <StageSection id="content" title="Content and intellectual property">
         <p>
-          The Praxia map — its sequencing, structure, curation, and editorial
-          commentary — is original work.{" "}
+          The Praxia map â€” its sequencing, structure, curation, and editorial
+          commentary â€” is original work.{" "}
           <span className="font-mono text-xs">
-            © {new Date().getFullYear()} Praxia.
+            Â© {new Date().getFullYear()} Praxia.
           </span>{" "}
           All rights reserved.
         </p>
@@ -73,7 +82,7 @@ export default function TermsPage() {
       <StageSection id="links" title="External links and affiliate disclosure">
         <p>
           This site links to external resources. Some of those links may in the
-          future become affiliate links — meaning Praxia would receive a small
+          future become affiliate links â€” meaning Praxia would receive a small
           commission if you purchase through the link, at no additional cost to
           you. Any affiliate links are disclosed in the footer and, where
           practical, at the point of the link.
@@ -85,7 +94,7 @@ export default function TermsPage() {
         <p>
           The presence of a link is an editorial endorsement, not a commercial
           one. Resources listed here are listed because they are assessed as
-          highest-ROI for the stated stage — not because of any commercial
+          highest-ROI for the stated stage â€” not because of any commercial
           relationship. If a commercial relationship ever affects a listing, it
           will be disclosed explicitly.
         </p>
@@ -98,7 +107,7 @@ export default function TermsPage() {
       <StageSection id="no-warranty" title="No warranties">
         <p>
           This site is provided &ldquo;as is,&rdquo; without warranty of any
-          kind — express or implied. We make no guarantees that:
+          kind â€” express or implied. We make no guarantees that:
         </p>
         <ul>
           <li>

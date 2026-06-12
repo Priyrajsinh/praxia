@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { cn } from "@/lib/utils";
 import type { Resource } from "@/lib/schema";
 
@@ -13,7 +13,7 @@ const TYPE_STYLES: Record<Resource["type"], string> = {
 };
 
 const COST_STYLES: Record<Resource["cost"], string> = {
-  // teal/route-red on ≤14px text violates §3.8 — use bg tint + text-ink (badge pattern)
+  // teal/route-red on â‰¤14px text violates Â§3.8 â€” use bg tint + text-ink (badge pattern)
   Free: "bg-teal/10 text-ink",
   Freemium: "text-faded-ink",
   Paid: "bg-route-red/10 text-ink",
@@ -34,14 +34,14 @@ interface ResourceCardProps {
   resource: Resource;
   className?: string;
   /**
-   * "full" (default) — always shows verdict + useIf. Used on stage pages.
-   * "flip" — truncated by default, hover/focus reveals verdict + useIf.
+   * "full" (default) â€” always shows verdict + useIf. Used on stage pages.
+   * "flip" â€” truncated by default, hover/focus reveals verdict + useIf.
    *           Used on the /resources master page. Includes feedback link.
    */
   variant?: "full" | "flip";
 }
 
-// ── Full variant (stage pages) ────────────────────────────────────────────────
+// â”€â”€ Full variant (stage pages) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function FullCard({
   resource,
   className,
@@ -100,7 +100,7 @@ function FullCard({
         )}
         <p className="mt-0.5 font-mono text-xs text-faded-ink">
           {resource.author}
-          {resource.year ? ` · ${resource.year}` : ""}
+          {resource.year ? ` Â· ${resource.year}` : ""}
         </p>
       </div>
 
@@ -118,7 +118,7 @@ function FullCard({
   );
 }
 
-// ── Flip variant (/resources master page) ────────────────────────────────────
+// â”€â”€ Flip variant (/resources master page) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // Default: shows title, author, badges, truncated verdict.
 // Hover/focus-within: reveals full verdict + useIf. Reduced-motion: always expanded.
 function FlipCard({
@@ -143,7 +143,7 @@ function FlipCard({
       {/* Free canonical flag */}
       {isFreePick && (
         <span className="self-start rounded bg-teal/10 px-1.5 py-0.5 font-mono text-[0.58rem] uppercase tracking-wide text-ink">
-          ★ Free pick
+          â˜… Free pick
         </span>
       )}
 
@@ -193,11 +193,11 @@ function FlipCard({
         )}
         <p className="mt-0.5 font-mono text-xs text-faded-ink">
           {resource.author}
-          {resource.year ? ` · ${resource.year}` : ""}
+          {resource.year ? ` Â· ${resource.year}` : ""}
         </p>
       </div>
 
-      {/* Verdict — 2-line clamp by default, expands on hover/focus.
+      {/* Verdict â€” 2-line clamp by default, expands on hover/focus.
           motion-reduce: always fully visible. */}
       <p
         className={cn(
@@ -209,7 +209,7 @@ function FlipCard({
         {resource.verdict}
       </p>
 
-      {/* Use this if — hidden by default (max-h 0), revealed on hover/focus.
+      {/* Use this if â€” hidden by default (max-h 0), revealed on hover/focus.
           motion-reduce: always visible. */}
       <div
         className={cn(
@@ -243,7 +243,7 @@ function FlipCard({
   );
 }
 
-// ── Public export ─────────────────────────────────────────────────────────────
+// â”€â”€ Public export â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export function ResourceCard({
   resource,
   className,

@@ -1,7 +1,7 @@
-import { crossCuttingSkills } from "@/lib/cross-cutting-skills";
+﻿import { crossCuttingSkills } from "@/lib/cross-cutting-skills";
 
 /**
- * Persistent right-rail sidebar (PROJECT_PLAN §11): the six cross-cutting
+ * Persistent right-rail sidebar (PROJECT_PLAN Â§11): the six cross-cutting
  * skills that compound across every stage. Data-driven from cross-cutting-skills.ts.
  */
 export function CrossCuttingSidebar() {

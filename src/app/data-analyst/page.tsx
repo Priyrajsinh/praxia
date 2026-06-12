@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { getResourcesByStage } from "@/lib/resources";
 import { validateTopics, validateStageMeta } from "@/lib/schema";
@@ -11,42 +11,53 @@ import { StageSection } from "@/components/stage/stage-section";
 export const metadata: Metadata = {
   title: "Data Analyst",
   description:
-    "Stage 1 of the Praxia map — turn questions into evidence. Full curriculum: statistical inference, EDA, SQL, visualisation, and the statistical report project.",
+    "Stage 1 of the Praxia map â€” turn questions into evidence. Full curriculum: statistical inference, EDA, SQL, visualisation, and the statistical report project.",
+  openGraph: {
+    title: "Data Analyst Â· Praxia",
+    description:
+      "Stage 1 â€” turn questions into evidence. Statistical inference, SQL at scale, A/B testing, and the rigorous statistical report project.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Data Analyst Â· Praxia",
+    description:
+      "Stage 1 â€” turn questions into evidence. Statistical inference, SQL at scale, A/B testing, and the rigorous statistical report project.",
+  },
 };
 
-// ── Stage metadata (Zod-validated at build time) ───────────────────────────
+// â”€â”€ Stage metadata (Zod-validated at build time) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const meta = validateStageMeta({
   title: "Data Analyst",
   identity: "You turn questions into evidence.",
   stageNumber: 1,
   slug: "data-analyst",
-  timeRange: "3–6 months from a Foundations base",
+  timeRange: "3â€“6 months from a Foundations base",
   prerequisites: [{ label: "Foundations", href: "/foundations" }],
   depthLadderPosition: 2, // targets Production depth on core topics
 });
 
-// ── Core concepts (§7 section 3) — Zod-validated at build time ────────────
+// â”€â”€ Core concepts (Â§7 section 3) â€” Zod-validated at build time â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const topics = validateTopics([
   {
     concept: "The analysis lifecycle and question framing",
     whyItMatters:
-      "Every downstream mistake — wrong test, misleading chart, bad conclusion — traces back to a poorly framed question. Define it precisely first.",
+      "Every downstream mistake â€” wrong test, misleading chart, bad conclusion â€” traces back to a poorly framed question. Define it precisely first.",
     depth: "Competent",
   },
   {
     concept: "Data cleaning and wrangling",
     whyItMatters:
-      "Real data is never clean. If you cannot clean it, you cannot analyse it; garbage in, garbage out is not a cliché, it is the job.",
+      "Real data is never clean. If you cannot clean it, you cannot analyse it; garbage in, garbage out is not a clichÃ©, it is the job.",
     depth: "Competent",
   },
   {
     concept: "Exploratory data analysis (EDA)",
     whyItMatters:
-      "Models and tests are blind to patterns a well-made scatter plot reveals immediately. EDA is not optional warm-up — it is where the real story hides.",
+      "Models and tests are blind to patterns a well-made scatter plot reveals immediately. EDA is not optional warm-up â€” it is where the real story hides.",
     depth: "Competent",
   },
   {
-    concept: "Descriptive statistics — location, dispersion, shape",
+    concept: "Descriptive statistics â€” location, dispersion, shape",
     whyItMatters:
       "Mean, variance, skewness, IQR: these are the vocabulary of quantitative argument. Without them you are describing data in adjectives.",
     depth: "Competent",
@@ -64,7 +75,7 @@ const topics = validateTopics([
     depth: "Production",
   },
   {
-    concept: "Inferential statistics — sampling, CIs, hypothesis testing",
+    concept: "Inferential statistics â€” sampling, CIs, hypothesis testing",
     whyItMatters:
       "The formal apparatus for answering 'is this difference real?': t-tests, ANOVA, chi-square, non-parametric alternatives. The conclusion is meaningless if this is wrong.",
     depth: "Production",
@@ -78,13 +89,13 @@ const topics = validateTopics([
   {
     concept: "Effect sizes and multiple-comparison correction",
     whyItMatters:
-      "Statistical significance says the effect is non-zero; Cohen's d and η² say whether it matters. Running 20 tests uncorrected gives you roughly one false positive for free.",
+      "Statistical significance says the effect is non-zero; Cohen's d and Î·Â² say whether it matters. Running 20 tests uncorrected gives you roughly one false positive for free.",
     depth: "Expert",
   },
   {
     concept: "Experiment design and A/B testing basics",
     whyItMatters:
-      "The analyst who designs experiments properly — randomisation, power analysis, pre-registration — is ten times more valuable than one who only analyses completed studies.",
+      "The analyst who designs experiments properly â€” randomisation, power analysis, pre-registration â€” is ten times more valuable than one who only analyses completed studies.",
     depth: "Production",
   },
   {
@@ -106,25 +117,25 @@ const topics = validateTopics([
     depth: "Production",
   },
   {
-    concept: "SQL for analytics — joins, window functions, CTEs",
+    concept: "SQL for analytics â€” joins, window functions, CTEs",
     whyItMatters:
       "SQL is how you access the majority of enterprise data. Window functions and CTEs are what separate the analyst from the spreadsheet user.",
     depth: "Competent",
   },
 ]);
 
-// ── Resources for this stage (from single source of truth) ─────────────────
+// â”€â”€ Resources for this stage (from single source of truth) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const stageResources = getResourcesByStage("data-analyst");
 
-// ══════════════════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 export default function DataAnalystPage() {
   return (
     <article>
-      {/* ── §7 SECTION 1: Stage header ──────────────────────────────────── */}
+      {/* â”€â”€ Â§7 SECTION 1: Stage header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <header className="mb-2">
         <p className="mb-2 font-mono text-xs uppercase tracking-widest text-faded-ink">
-          Stage {meta.stageNumber} · {meta.timeRange}
+          Stage {meta.stageNumber} Â· {meta.timeRange}
         </p>
 
         <h1 className="font-display text-4xl font-bold tracking-tight text-ink sm:text-5xl">
@@ -145,7 +156,7 @@ export default function DataAnalystPage() {
               href={p.href}
               className="rounded border border-margin bg-card px-2.5 py-1 font-mono text-xs text-ink hover:border-brass transition-colors"
             >
-              ← {p.label}
+              â† {p.label}
             </Link>
           ))}
         </div>
@@ -158,12 +169,12 @@ export default function DataAnalystPage() {
         </div>
       </header>
 
-      {/* ── §7 SECTION 2: What this role actually does ──────────────────── */}
+      {/* â”€â”€ Â§7 SECTION 2: What this role actually does â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <StageSection id="what-it-does" title="What this role actually does">
         <p>
           The data analyst&rsquo;s job is to turn a business question into a
-          defensible answer. Not to build predictive models — that comes later —
-          but to frame the question precisely, find or clean the data that
+          defensible answer. Not to build predictive models â€” that comes later
+          â€” but to frame the question precisely, find or clean the data that
           speaks to it, apply the right statistical test, and communicate the
           result in a way that changes what someone does tomorrow.
         </p>
@@ -185,7 +196,7 @@ export default function DataAnalystPage() {
         <p>
           <strong>Where this role sits relative to its neighbours.</strong> The
           data analyst is not a data scientist. You may never train a predictive
-          model — and that is fine, because what you do is often harder to get
+          model â€” and that is fine, because what you do is often harder to get
           right. Designing a sound experiment, choosing between parametric and
           non-parametric tests, correctly interpreting a confidence interval:
           these demand a rigour that much &ldquo;data science&rdquo; shortcuts.
@@ -197,7 +208,7 @@ export default function DataAnalystPage() {
           The role is also not a data engineer. You are a consumer of pipelines,
           not a builder of them. Your work begins when the data is (roughly)
           available. In practice you will still need to clean it, reshape it,
-          and understand its provenance — the boundary blurs daily.
+          and understand its provenance â€” the boundary blurs daily.
         </p>
 
         <p>
@@ -208,7 +219,7 @@ export default function DataAnalystPage() {
         </p>
       </StageSection>
 
-      {/* ── §7 SECTION 3: Core concepts ─────────────────────────────────── */}
+      {/* â”€â”€ Â§7 SECTION 3: Core concepts â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <StageSection id="core-concepts" title="Core concepts to master">
         <p className="mb-5 text-faded-ink text-sm">
           Depth tags:{" "}
@@ -230,15 +241,15 @@ export default function DataAnalystPage() {
         <TopicChecklist topics={topics} />
       </StageSection>
 
-      {/* ── §7 SECTION 4: Mathematics ───────────────────────────────────── */}
+      {/* â”€â”€ Â§7 SECTION 4: Mathematics â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <StageSection id="mathematics" title="Mathematics required">
-        <h3>Minimum — what you must understand to do this job properly</h3>
+        <h3>Minimum â€” what you must understand to do this job properly</h3>
 
         <p>
           <strong>Probability basics:</strong> sample spaces, events,
           conditional probability, Bayes&rsquo; theorem at a conceptual level.
-          Not the full measure-theoretic machinery — but enough to know why the
-          t-test has a null distribution and what &ldquo;sampling from a
+          Not the full measure-theoretic machinery â€” but enough to know why
+          the t-test has a null distribution and what &ldquo;sampling from a
           population&rdquo; means.
         </p>
 
@@ -247,18 +258,18 @@ export default function DataAnalystPage() {
           CLT makes it ubiquitous), the t-distribution (and why it has heavier
           tails), the chi-square and F distributions (and what they model). Know
           the shapes, the parameters, and the conditions under which each
-          appears. You do not need to derive them — you need to know which one
+          appears. You do not need to derive them â€” you need to know which one
           applies.
         </p>
 
         <p>
           <strong>The logic of inference:</strong> what a null hypothesis is and
           why we test against it. What a p-value actually is (the probability of
-          observing data at least this extreme, given the null is true — not the
-          probability the null is false). What a 95% confidence interval is (a
-          procedure that generates intervals containing the true parameter 95%
-          of the time — not a 95% probability that this particular interval
-          contains it).
+          observing data at least this extreme, given the null is true â€” not
+          the probability the null is false). What a 95% confidence interval is
+          (a procedure that generates intervals containing the true parameter
+          95% of the time â€” not a 95% probability that this particular
+          interval contains it).
         </p>
 
         <p>
@@ -273,11 +284,11 @@ export default function DataAnalystPage() {
           randomness of the sample variance. Everything else follows from that.
         </Marginalia>
 
-        <h3>Research-grade — where real understanding lives</h3>
+        <h3>Research-grade â€” where real understanding lives</h3>
 
         <p>
           <strong>Derive the t-statistic.</strong> Understand why dividing by{" "}
-          <em>s / √n</em> gives a t-distribution rather than a normal — the
+          <em>s / âˆšn</em> gives a t-distribution rather than a normal â€” the
           randomness of <em>s</em> is the reason. This derivation makes the
           whole apparatus of inference legible.
         </p>
@@ -287,14 +298,15 @@ export default function DataAnalystPage() {
           of between-group variance to within-group variance. When groups
           genuinely differ, the numerator is inflated; when they do not, both
           terms are just noise and their ratio follows the F-distribution under
-          the null. Understanding this geometrically — not just computationally
-          — transforms ANOVA from a black box into a sensible quantity.
+          the null. Understanding this geometrically â€” not just
+          computationally â€” transforms ANOVA from a black box into a sensible
+          quantity.
         </p>
 
         <p>
-          <strong>The CLT stated properly.</strong> Not &ldquo;big n →
+          <strong>The CLT stated properly.</strong> Not &ldquo;big n â†’
           normal,&rdquo; but: the distribution of the sample mean converges to
-          normal at rate O(1/√n), regardless of the population distribution,
+          normal at rate O(1/âˆšn), regardless of the population distribution,
           under finite variance. Understand when it fails: heavy-tailed
           distributions, small samples from skewed populations, correlated
           observations.
@@ -302,25 +314,25 @@ export default function DataAnalystPage() {
 
         <p>
           <strong>Multiple comparisons in depth.</strong> Why running 20
-          independent tests at α = 0.05 yields roughly one false positive by
-          chance. The Bonferroni correction (divide α by the number of tests)
+          independent tests at Î± = 0.05 yields roughly one false positive by
+          chance. The Bonferroni correction (divide Î± by the number of tests)
           and why it is conservative. The Benjamini-Hochberg procedure and why
-          it is often preferred — it controls the false discovery rate rather
+          it is often preferred â€” it controls the false discovery rate rather
           than the family-wise error rate, giving more power when many tests are
           run.
         </p>
 
         <p className="text-sm text-faded-ink">
-          →{" "}
+          â†’{" "}
           <Link href="/mathematics#probability-statistics">
             Probability &amp; Statistics in the mathematics curriculum
           </Link>{" "}
-          covers this material in full, with worked derivations — Bayes, MLE,
+          covers this material in full, with worked derivations â€” Bayes, MLE,
           CLT, and hypothesis testing.
         </p>
       </StageSection>
 
-      {/* ── §7 SECTION 5: Tools & engineering ───────────────────────────── */}
+      {/* â”€â”€ Â§7 SECTION 5: Tools & engineering â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <StageSection id="tools" title="Tools and engineering skills">
         <p>
           <strong>Python:</strong> pandas and NumPy are the workhorses.
@@ -328,7 +340,7 @@ export default function DataAnalystPage() {
           tests. statsmodels for regression and rigorous statistical modelling.
           You should be comfortable with the full data manipulation lifecycle in
           pandas: cleaning, groupby, merge, reshape, time series indexing. Write
-          clean, reproducible notebooks — run from top to bottom, dependencies
+          clean, reproducible notebooks â€” run from top to bottom, dependencies
           explicit.
         </p>
 
@@ -348,38 +360,38 @@ export default function DataAnalystPage() {
         </p>
 
         <p>
-          <strong>A BI tool — Tableau or Power BI:</strong> the ability to build
-          an interactive dashboard a stakeholder can self-serve is a genuine
-          professional skill. Tableau Public is free and sufficient for building
-          and sharing work publicly.
+          <strong>A BI tool â€” Tableau or Power BI:</strong> the ability to
+          build an interactive dashboard a stakeholder can self-serve is a
+          genuine professional skill. Tableau Public is free and sufficient for
+          building and sharing work publicly.
         </p>
 
         <p>
           <strong>Git:</strong> yes, even for analysis work. Version-control
           your notebooks, your SQL scripts, your data cleaning steps. Analysis
-          that cannot be reproduced is analysis that cannot be trusted — and
+          that cannot be reproduced is analysis that cannot be trusted â€” and
           cannot be corrected when someone finds a mistake six months later.
         </p>
       </StageSection>
 
-      {/* ── §7 SECTION 6: The project ────────────────────────────────────── */}
+      {/* â”€â”€ Â§7 SECTION 6: The project â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <StageSection id="project" title="The project">
         <p>
           A single analysis is a demonstration that you understand the tools.
-          Four projects together — a rigorous statistical report, a SQL
-          investigation, a live dashboard, and an A/B test post-mortem — are a
+          Four projects together â€” a rigorous statistical report, a SQL
+          investigation, a live dashboard, and an A/B test post-mortem â€” are a
           demonstration that you are ready for the job. Do all four. There is no
           shortcut through the portfolio.
         </p>
 
         <p className="text-sm text-faded-ink">
-          Expected total time: 10–14 weeks alongside the curriculum. Build them
-          in order — each one uses skills from the previous.
+          Expected total time: 10â€“14 weeks alongside the curriculum. Build
+          them in order â€” each one uses skills from the previous.
         </p>
 
-        {/* ── Project 1 ── */}
+        {/* â”€â”€ Project 1 â”€â”€ */}
         <h3 className="lg:clear-both">
-          Project 1 — the rigorous statistical report (4–5 weeks)
+          Project 1 â€” the rigorous statistical report (4â€“5 weeks)
         </h3>
 
         <p>
@@ -388,22 +400,24 @@ export default function DataAnalystPage() {
         </p>
 
         <p>
-          Choose a rich, multi-variable public dataset — World Bank development
-          indicators, OECD health statistics, US Bureau of Labor Statistics
-          employment series, or any domain you genuinely find interesting. Frame
-          five distinct research questions, each requiring a different
-          statistical approach: at minimum one t-test, one one-way ANOVA, one
-          chi-square test of independence, one correlation analysis, and one
-          regression. For every question, execute the full protocol:
+          Choose a rich, multi-variable public dataset â€” World Bank
+          development indicators, OECD health statistics, US Bureau of Labor
+          Statistics employment series, or any domain you genuinely find
+          interesting. Frame five distinct research questions, each requiring a
+          different statistical approach: at minimum one t-test, one one-way
+          ANOVA, one chi-square test of independence, one correlation analysis,
+          and one regression. For every question, execute the full protocol:
         </p>
 
         <ol>
-          <li>State H₀ and H₁ in formal notation before touching the data.</li>
           <li>
-            Check all required assumptions — normality (Shapiro-Wilk + QQ plot),
-            homogeneity of variance (Levene&rsquo;s test), independence — and
-            document the results. &ldquo;It looks fine&rdquo; is not a check. A
-            Shapiro-Wilk W = 0.97, p = .23 is a check.
+            State Hâ‚€ and Hâ‚ in formal notation before touching the data.
+          </li>
+          <li>
+            Check all required assumptions â€” normality (Shapiro-Wilk + QQ
+            plot), homogeneity of variance (Levene&rsquo;s test), independence
+            â€” and document the results. &ldquo;It looks fine&rdquo; is not a
+            check. A Shapiro-Wilk W = 0.97, p = .23 is a check.
           </li>
           <li>
             Run the appropriate test. If assumptions are violated, run the
@@ -412,13 +426,13 @@ export default function DataAnalystPage() {
           <li>
             Report in APA format:{" "}
             <em>
-              F(2, 147) = 8.3, p &lt; .001, η² = .10, indicating a medium
+              F(2, 147) = 8.3, p &lt; .001, Î·Â² = .10, indicating a medium
               effect.
             </em>
           </li>
           <li>
-            Compute effect sizes (Cohen&rsquo;s d, r, η², or φ depending on the
-            test). A statistically significant result with d = 0.04 is not a
+            Compute effect sizes (Cohen&rsquo;s d, r, Î·Â², or Ï† depending on
+            the test). A statistically significant result with d = 0.04 is not a
             finding worth acting on.
           </li>
           <li>
@@ -429,17 +443,19 @@ export default function DataAnalystPage() {
 
         <p>
           Then run a multiple linear regression on one of the outcomes: report
-          standardised and unstandardised coefficients, R², adjusted R², and the
-          F-statistic. Check residuals (homoscedasticity, normality, influential
-          points via Cook&rsquo;s distance). Interpret every coefficient
-          precisely: &ldquo;holding all other predictors constant, a one-unit
-          increase in X is associated with a 0.31-unit increase in Y (β = 0.31,
-          95% CI [0.18, 0.44]).&rdquo;
+          standardised and unstandardised coefficients, RÂ², adjusted RÂ², and
+          the F-statistic. Check residuals (homoscedasticity, normality,
+          influential points via Cook&rsquo;s distance). Interpret every
+          coefficient precisely: &ldquo;holding all other predictors constant, a
+          one-unit increase in X is associated with a 0.31-unit increase in Y
+          (Î² = 0.31, 95% CI [0.18, 0.44]).&rdquo;
         </p>
 
         <p>
-          <strong>The deliverable is a written report — not a notebook.</strong>{" "}
-          A 15–20 page document: introduction (the research questions and why
+          <strong>
+            The deliverable is a written report â€” not a notebook.
+          </strong>{" "}
+          A 15â€“20 page document: introduction (the research questions and why
           they matter), methods (every test, every assumption check, and why
           each was chosen), results (tables and figures, one finding per
           paragraph), discussion (what the findings mean, what they cannot mean,
@@ -451,13 +467,13 @@ export default function DataAnalystPage() {
         <Marginalia>
           The statistics are table stakes. The writing is the job. Every
           analysis I&rsquo;ve seen fail in a board room had correct numbers and
-          wrong conclusions — because the analyst could not frame the finding
+          wrong conclusions â€” because the analyst could not frame the finding
           for someone who does not live in the data.
         </Marginalia>
 
-        {/* ── Project 2 ── */}
+        {/* â”€â”€ Project 2 â”€â”€ */}
         <h3 className="lg:clear-both">
-          Project 2 — SQL + EDA investigation (2–3 weeks)
+          Project 2 â€” SQL + EDA investigation (2â€“3 weeks)
         </h3>
 
         <p>
@@ -466,7 +482,7 @@ export default function DataAnalystPage() {
         </p>
 
         <p>
-          Use a multi-table dataset in a SQL environment — Google
+          Use a multi-table dataset in a SQL environment â€” Google
           BigQuery&rsquo;s public datasets (Chicago taxi trips, Stack Overflow
           activity, US Census data) are free to query from the BigQuery console.
           Write SQL to answer 10 business questions of increasing complexity:
@@ -480,14 +496,14 @@ export default function DataAnalystPage() {
           <li>
             <strong>Intermediate:</strong> &ldquo;What is the 7-day rolling
             average of daily revenue, and which weeks show a &gt; 20% decline
-            from the prior week?&rdquo; — requires{" "}
+            from the prior week?&rdquo; â€” requires{" "}
             <code>AVG() OVER (ORDER BY day ROWS 6 PRECEDING)</code> and{" "}
             <code>LAG()</code>.
           </li>
           <li>
             <strong>Advanced:</strong> &ldquo;For drivers in the top quartile of
             Q1 revenue, what fraction remained in the top quartile in Q2?
-            Produce the full quartile transition matrix.&rdquo; — requires
+            Produce the full quartile transition matrix.&rdquo; â€” requires
             multiple CTEs, <code>NTILE(4)</code>, and a self-join.
           </li>
         </ul>
@@ -495,16 +511,16 @@ export default function DataAnalystPage() {
         <p>
           Then bring the dataset into Python. EDA: distributions, outliers (IQR
           fence and z-score, not just visual), missingness (how much, what
-          pattern — MCAR vs. MAR vs. MNAR), correlations, surprises. Document
-          every cleaning decision — not just what you did but why, and what the
-          business consequence of getting it wrong would be. Close with a
+          pattern â€” MCAR vs. MAR vs. MNAR), correlations, surprises. Document
+          every cleaning decision â€” not just what you did but why, and what
+          the business consequence of getting it wrong would be. Close with a
           one-page written brief: three findings that would change a decision,
           addressed to a non-technical manager.
         </p>
 
-        {/* ── Project 3 ── */}
+        {/* â”€â”€ Project 3 â”€â”€ */}
         <h3 className="lg:clear-both">
-          Project 3 — the live dashboard (2–3 weeks)
+          Project 3 â€” the live dashboard (2â€“3 weeks)
         </h3>
 
         <p>
@@ -514,7 +530,7 @@ export default function DataAnalystPage() {
 
         <p>
           Build and publish a dashboard on Tableau Public (free tier, no
-          paywall). Pick a real, specific question — not &ldquo;here are some
+          paywall). Pick a real, specific question â€” not &ldquo;here are some
           charts about the data&rdquo; but &ldquo;which US counties are most at
           risk for opioid mortality in the next two years?&rdquo; or
           &ldquo;which product categories are underperforming relative to
@@ -527,11 +543,11 @@ export default function DataAnalystPage() {
         <ul>
           <li>
             At least 6 distinct views connected by dashboard actions and filters
-            — clicking a region in one view filters all others.
+            â€” clicking a region in one view filters all others.
           </li>
           <li>
             At least one non-trivial calculated field (a rate, a ratio, a
-            running total, a conditional category — not just{" "}
+            running total, a conditional category â€” not just{" "}
             <code>SUM([Sales])</code>).
           </li>
           <li>
@@ -539,7 +555,7 @@ export default function DataAnalystPage() {
             change the grouping dynamically.
           </li>
           <li>
-            Custom tooltips that provide context on hover — not the default
+            Custom tooltips that provide context on hover â€” not the default
             dimension/measure dump.
           </li>
           <li>
@@ -558,20 +574,20 @@ export default function DataAnalystPage() {
         </p>
 
         <Marginalia>
-          Every analyst thinks their dashboard is intuitive. It never is — until
-          it has been tested on someone who didn&rsquo;t build it. The confused
-          look on their face when they click the wrong thing is worth a week of
-          self-review.
+          Every analyst thinks their dashboard is intuitive. It never is â€”
+          until it has been tested on someone who didn&rsquo;t build it. The
+          confused look on their face when they click the wrong thing is worth a
+          week of self-review.
         </Marginalia>
 
-        {/* ── Project 4 ── */}
+        {/* â”€â”€ Project 4 â”€â”€ */}
         <h3 className="lg:clear-both">
-          Project 4 — the A/B test post-mortem (2–3 weeks)
+          Project 4 â€” the A/B test post-mortem (2â€“3 weeks)
         </h3>
 
         <p>
-          <strong>What it proves:</strong> you understand experimentation — the
-          highest-value analyst skill at any technology company.
+          <strong>What it proves:</strong> you understand experimentation â€”
+          the highest-value analyst skill at any technology company.
         </p>
 
         <p>
@@ -591,12 +607,12 @@ export default function DataAnalystPage() {
           <li>
             <strong>Power analysis.</strong> Decide on a minimum detectable
             effect (MDE) that would be practically meaningful. Compute the
-            required N at α = 0.05, power = 0.80 using scipy.stats.{" "}
+            required N at Î± = 0.05, power = 0.80 using scipy.stats.{" "}
             <em>Then double it</em> and explain why naive power calculations
             consistently undershoot.
           </li>
           <li>
-            <strong>Data simulation.</strong> Simulate the experiment — you
+            <strong>Data simulation.</strong> Simulate the experiment â€” you
             control the ground truth. This is the point. Simulate three
             scenarios: (a) the treatment works as expected, (b) the treatment
             has no effect, (c) the treatment helps the primary metric but hurts
@@ -629,36 +645,36 @@ export default function DataAnalystPage() {
           non-statistician.
         </p>
 
-        {/* ── Extensions ── */}
-        <h3>Senior extension — for any one project</h3>
+        {/* â”€â”€ Extensions â”€â”€ */}
+        <h3>Senior extension â€” for any one project</h3>
         <p>
           Present your findings to someone who is not a statistician. Record or
           take notes on the conversation. Revise the report or dashboard based
-          on the questions they asked — those questions reveal exactly where
+          on the questions they asked â€” those questions reveal exactly where
           your communication failed, and that is where the gap is. Iterate until
           a non-technical person can give you back the key finding in their own
           words.
         </p>
 
-        <h3>Research extension — pre-registration in the wild</h3>
+        <h3>Research extension â€” pre-registration in the wild</h3>
         <p>
           Before running Project 1, submit a pre-registration on the Open
-          Science Framework (osf.io — free, public). State your hypotheses, your
-          expected effect sizes, your analysis plan, and your stopping rule.
-          Then execute the analysis exactly as registered — including any null
-          results you did not expect. Write a one-page reflection: what did you
-          expect, what did you find, and what would you pre-register differently
-          next time? This is not academic formality. It is the discipline that
-          separates the analysts whose conclusions you can trust from the ones
-          who p-hacked their way to a story.
+          Science Framework (osf.io â€” free, public). State your hypotheses,
+          your expected effect sizes, your analysis plan, and your stopping
+          rule. Then execute the analysis exactly as registered â€” including
+          any null results you did not expect. Write a one-page reflection: what
+          did you expect, what did you find, and what would you pre-register
+          differently next time? This is not academic formality. It is the
+          discipline that separates the analysts whose conclusions you can trust
+          from the ones who p-hacked their way to a story.
         </p>
       </StageSection>
 
-      {/* ── §7 SECTION 7: Resources ──────────────────────────────────────── */}
+      {/* â”€â”€ Â§7 SECTION 7: Resources â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <StageSection id="resources" title="Resources">
         <p className="mb-6 text-faded-ink">
           Ordered by when to use them. The highest-ROI combination at this stage
-          is <strong>StatQuest + Practical Statistics</strong> — intuition and
+          is <strong>StatQuest + Practical Statistics</strong> â€” intuition and
           practice in parallel. OpenIntro Statistics is the best free
           alternative to Practical Statistics if cost is a constraint. Every
           free canonical option is flagged.
@@ -666,9 +682,11 @@ export default function DataAnalystPage() {
         <ResourceGroups resources={stageResources} />
       </StageSection>
 
-      {/* ── §7 SECTION 8: How you know you're done ───────────────────────── */}
+      {/* â”€â”€ Â§7 SECTION 8: How you know you're done â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <StageSection id="done" title="How you know you&rsquo;re done">
-        <p>Exit criteria — you can answer &ldquo;yes&rdquo; to all of these:</p>
+        <p>
+          Exit criteria â€” you can answer &ldquo;yes&rdquo; to all of these:
+        </p>
 
         <ul>
           <li>
@@ -678,12 +696,12 @@ export default function DataAnalystPage() {
             scale.
           </li>
           <li>
-            You can explain what a p-value is — and five things it is not — to
-            someone without a statistics background.
+            You can explain what a p-value is â€” and five things it is not â€”
+            to someone without a statistics background.
           </li>
           <li>
             You can identify whether an A/B test result is underpowered and
-            compute the required sample size for a given effect size and α.
+            compute the required sample size for a given effect size and Î±.
           </li>
           <li>
             Given a multiple-comparison problem, you apply an appropriate
@@ -733,7 +751,7 @@ export default function DataAnalystPage() {
         </ol>
       </StageSection>
 
-      {/* ── §7 SECTION 9: Bridge to next stage ──────────────────────────── */}
+      {/* â”€â”€ Â§7 SECTION 9: Bridge to next stage â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <StageSection id="next-stage" title="Bridge to the next stage">
         <p>
           The data analyst answers questions about what happened and whether a
@@ -745,10 +763,11 @@ export default function DataAnalystPage() {
           You carry forward everything: statistical rigour, SQL fluency, the
           habit of checking assumptions, and honesty about what the data can and
           cannot say. What changes is the scale of the mathematics and the reach
-          of the toolset. Linear algebra and calculus — optional context at this
-          stage — become essential. The scikit-learn API enters. You start
-          thinking in features rather than variables, in training sets rather
-          than samples, in predictive error rather than inferential error.
+          of the toolset. Linear algebra and calculus â€” optional context at
+          this stage â€” become essential. The scikit-learn API enters. You
+          start thinking in features rather than variables, in training sets
+          rather than samples, in predictive error rather than inferential
+          error.
         </p>
 
         <p>
@@ -763,16 +782,16 @@ export default function DataAnalystPage() {
           <strong>What to take into Stage 2:</strong> probability and
           distributions, solid; the discipline of not fooling yourself; Python
           and pandas, fluent; the habit of measuring and communicating
-          uncertainty. These compound. They do not need to be relearned — only
+          uncertainty. These compound. They do not need to be relearned â€” only
           extended.
         </p>
 
         <div className="mt-6 flex items-center gap-3">
           <Link
             href="/data-scientist"
-            className="inline-flex items-center gap-1.5 rounded border border-route-red bg-route-red/5 px-4 py-2 font-mono text-sm text-ink transition-colors hover:bg-route-red hover:text-paper"
+            className="inline-flex items-center gap-1.5 rounded border border-route-red bg-route-red/5 px-4 py-2 font-mono text-sm text-ink transition-colors hover:bg-route-red hover:text-primary-foreground"
           >
-            Data Scientist →
+            Data Scientist â†’
           </Link>
           <Link
             href="/map"
