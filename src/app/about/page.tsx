@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { StageSection } from "@/components/stage/stage-section";
 import { Marginalia } from "@/components/stage/marginalia";
@@ -6,17 +6,17 @@ import { Marginalia } from "@/components/stage/marginalia";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Who built Praxia and why â€” a practitioner who walked this path and built the statistical report to prove it.",
+    "Who built Praxia and why — a practitioner who walked this path and built the statistical report to prove it.",
   openGraph: {
-    title: "About Â· Praxia",
+    title: "About · Praxia",
     description:
-      "Who built this and why â€” a practitioner who walked the path. Honest about what the map covers and where its edges are.",
+      "Who built this and why — a practitioner actively navigating the Data and AI field. Honest about what the map covers and where its edges are.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Â· Praxia",
+    title: "About · Praxia",
     description:
-      "Who built this and why â€” a practitioner who walked the path. Honest about what the map covers and where its edges are.",
+      "Who built this and why — a practitioner actively navigating the Data and AI field. Honest about what the map covers and where its edges are.",
   },
 };
 
@@ -31,20 +31,28 @@ export default function AboutPage() {
           Who made this
         </h1>
         <p className="mt-3 max-w-prose font-body text-xl leading-relaxed text-faded-ink">
-          Built by a practitioner who walked the path â€” and is honest about
+          Built by a practitioner who is walking the path — and is honest about
           the parts that hurt.
         </p>
       </header>
 
-      {/* â”€â”€ Origin â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ── Origin ──────────────────────────────────────────────────────── */}
       <StageSection id="origin" title="Why this exists">
         <Marginalia>
-          The map I wished had existed when I started. Not a list of resources
-          â€” anyone can make that â€” but a sequence with reasons.
+          The map I wished had existed when I started. Not a list of resources —
+          anyone can make that — but a sequence with reasons.
         </Marginalia>
 
         <p>
-          Praxia started as a personal document. I was navigating the Data and
+          My name is{" "}
+          <a
+            href="https://github.com/Priyrajsinh"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Priyrajsinh Parmar
+          </a>
+          . Praxia started as a personal document. I was navigating the Data and
           AI landscape without a reliable guide to what to learn, in what order,
           and why the order matters. The resources existed. The sequencing did
           not. Most curricula were either too shallow (a list of trending tools)
@@ -54,8 +62,8 @@ export default function AboutPage() {
 
         <p>
           What I needed was an opinionated answer to: if you are starting from
-          scratch and want to reach genuine competence across this stack â€”
-          analysis, machine learning, ML engineering, AI systems â€” what do you
+          scratch and want to reach genuine competence across this stack —
+          analysis, machine learning, ML engineering, AI systems — what do you
           learn, from which sources, in which order, and how do you know when
           you are done? That question does not have a Wikipedia page. It has,
           instead, a lot of conflicting blog posts and a lot of people who
@@ -65,40 +73,95 @@ export default function AboutPage() {
 
         <p>
           The map is my answer to that question. It is opinionated because the
-          alternatives are not neutral â€” they are just less explicitly
+          alternatives are not neutral — they are just less explicitly
           opinionated. It is curated because comprehensiveness is a trap: a list
           of 400 resources is not a curriculum, it is a to-do list that will
-          outlive your motivation.
+          outlive your motivation. I am still walking this path myself. That is
+          not a disclaimer — it is the reason the curation stays honest.
         </p>
       </StageSection>
 
-      {/* â”€â”€ Proof of work â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ── Proof of work ───────────────────────────────────────────────── */}
       <StageSection id="proof" title="Proof of work">
         <p>
-          The claim that this map reflects real practitioner knowledge â€” not
-          curated theory â€” needs proof. The proof is the work, not the
+          The claim that this map reflects real practitioner knowledge — not
+          curated theory — needs proof. The proof is the work, not the
           biography.
         </p>
 
         <p>
           The flagship project on the{" "}
-          <Link href="/data-analyst#project">Data Analyst stage page</Link> â€”
-          the 15â€“20 page rigorous statistical report â€” is described from
-          direct experience. I built it. The specification (five research
-          questions, full assumption checks, APA reporting, effect sizes,
-          Benjamini-Hochberg correction, multiple regression with residual
-          diagnostics, written as if for an applied statistics venue) is not
-          aspirational. It is what the project actually required to be done
-          correctly.
+          <Link href="/data-analyst#project">Data Analyst stage page</Link> —
+          the 15–20 page rigorous statistical report — is described from direct
+          experience. The specification (five research questions, full
+          assumption checks, APA reporting, effect sizes, Benjamini-Hochberg
+          correction, multiple regression with residual diagnostics, written as
+          if for an applied statistics venue) is not aspirational. It is what
+          the project actually required to be done correctly.
         </p>
 
         <p>
-          The exit criteria on each stage are calibrated to what the next stage
-          genuinely assumes. The mathematics sections describe the minimum and
-          research-grade levels because I learned the difference between knowing
-          a formula and understanding its derivation the hard way â€” by getting
-          stuck on material that assumed understanding I did not have.
+          Beyond Stage 1, applied projects are on GitHub and reflect the same
+          progression the map describes:
         </p>
+
+        <ul>
+          <li>
+            <a
+              href="https://github.com/Priyrajsinh/Conformal-Prediction-Uncertainty-Aware-Medical-AI"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Conformal prediction on UCI Heart Disease
+            </a>{" "}
+            — coverage-guaranteed uncertainty quantification with XGBoost +
+            MAPIE; the Stage 2 UQ project pattern.
+          </li>
+          <li>
+            <a
+              href="https://github.com/Priyrajsinh/causal-ml-hte"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Causal ML / heterogeneous treatment effects
+            </a>{" "}
+            — Double ML with SHAP and a deployed dashboard; Stage 2 causal
+            reasoning.
+          </li>
+          <li>
+            <a
+              href="https://github.com/Priyrajsinh/RealTime-ML-Drift-Monitoring"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Real-time ML drift monitoring
+            </a>{" "}
+            — PSI, KS test, Evidently in a live monitoring pipeline; Stage 3
+            production observability.
+          </li>
+          <li>
+            <a
+              href="https://github.com/Priyrajsinh/before-it-breaks"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Predictive maintenance (before-it-breaks)
+            </a>{" "}
+            — LSTM-based Remaining Useful Life forecasting on NASA CMAPSS data;
+            Stage 3 end-to-end time-series.
+          </li>
+          <li>
+            <a
+              href="https://github.com/Priyrajsinh/Hybrid-LLM-Jailbreak-Detector"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Hybrid LLM jailbreak detector
+            </a>{" "}
+            — combining multiple signals for 99.88% detection accuracy; Stage 4
+            applied AI safety.
+          </li>
+        </ul>
 
         <Marginalia>
           The parts of this map I am most confident about are the ones where I
@@ -108,8 +171,16 @@ export default function AboutPage() {
         </Marginalia>
 
         <p>
-          The research track is documented from the outside of active research
-          â€” I have read papers, reproduced results, and worked alongside
+          The exit criteria on each stage are calibrated to what the next stage
+          genuinely assumes. The mathematics sections describe the minimum and
+          research-grade levels because I learned the difference between knowing
+          a formula and understanding its derivation the hard way — by getting
+          stuck on material that assumed understanding I did not have.
+        </p>
+
+        <p>
+          The research track is documented from the outside of active research —
+          I have read papers, reproduced results, and worked alongside
           researchers, but I am not a research scientist. That boundary is
           marked clearly on the <Link href="/research">research page</Link>: the
           track describes what the path looks like from the perspective of
@@ -118,22 +189,22 @@ export default function AboutPage() {
         </p>
       </StageSection>
 
-      {/* â”€â”€ Editorial voice â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ── Editorial voice ─────────────────────────────────────────────── */}
       <StageSection id="voice" title="Editorial voice">
         <p>
           Praxia is written in a single voice because it reflects a single point
           of view. That means it is sometimes wrong. Where the map says
           &ldquo;this is the right resource&rdquo; or &ldquo;this is the
-          important concept,&rdquo; that is an editorial judgment â€” not a
+          important concept,&rdquo; that is an editorial judgment — not a
           consensus of the field, not an optimised algorithm, not a committee
           decision.
         </p>
 
         <p>
           The editorial stance is: honest over encouraging. The time estimates
-          are not aspirational â€” they reflect what serious, consistent work
-          actually takes. The exit criteria are not low bars â€” they reflect
-          what you actually need to know to proceed without struggling. The
+          are not aspirational — they reflect what serious, consistent work
+          actually takes. The exit criteria are not low bars — they reflect what
+          you actually need to know to proceed without struggling. The
           difficulty of Stage 2 mathematics is not softened because many people
           find it hard. It is hard. Knowing that it is hard, and why, is more
           useful than being told it is manageable.
@@ -147,8 +218,8 @@ export default function AboutPage() {
         </p>
       </StageSection>
 
-      {/* â”€â”€ What comes next â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
-      <StageSection id="maintenance" title="Maintenance and contact">
+      {/* ── Contact ─────────────────────────────────────────────────────── */}
+      <StageSection id="contact" title="Contact and feedback">
         <p>
           The map is a living document. Resources age; the field moves; the AI
           Engineer stage in particular will require updates as the tooling
@@ -157,11 +228,20 @@ export default function AboutPage() {
         </p>
 
         <p>
-          Substantive feedback â€” a resource that deserves to be here and is
-          not, a concept that is described incorrectly, a stage that is
-          misconsequenced â€” is welcome via the GitHub issue tracker. I cannot
-          respond to every suggestion, but I read them, and the map has already
-          changed because of them.
+          Substantive feedback — a resource that deserves to be here and is not,
+          a concept that is described incorrectly, a stage that is mis-sequenced
+          — is welcome via the{" "}
+          <a
+            href="https://github.com/Priyrajsinh/praxia/issues"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub issue tracker
+          </a>{" "}
+          or by email at{" "}
+          <a href="mailto:priyrajsinh03@gmail.com">priyrajsinh03@gmail.com</a>.
+          I cannot respond to every suggestion, but I read them, and the map has
+          already changed because of them.
         </p>
 
         <p>
@@ -176,7 +256,7 @@ export default function AboutPage() {
             href="/how-to-use"
             className="inline-flex items-center gap-1.5 rounded border border-route-red bg-route-red/5 px-4 py-2 font-mono text-sm text-ink transition-colors hover:bg-route-red hover:text-primary-foreground"
           >
-            How to use this map â†’
+            How to use this map →
           </Link>
           <Link
             href="/map"
